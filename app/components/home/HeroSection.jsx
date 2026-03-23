@@ -55,14 +55,14 @@ export default function HeroSection() {
             <div className="flex-1 h-px bg-[#252525]" />
           </div>
 
-          <div className="flex flex-wrap justify-center items-stretch">
+          <div className="flex justify-center items-stretch">
             {STATS.map((s, i) => (
               <React.Fragment key={s.value}>
-                <div className="flex-[1_1_clamp(120px,25%,200px)] min-w-[110px] text-left px-[clamp(14px,2.5vw,28px)] py-[clamp(8px,1.5vw,12px)]">
-                  <div className="font-bold text-[clamp(26px,4vw,42px)] leading-[1.1] text-[#252525] mb-1">
+                <div className="flex-1 min-w-0 text-left px-[clamp(8px,2.5vw,28px)] py-[clamp(8px,1.5vw,12px)]">
+                  <div className="font-bold text-[clamp(22px,4vw,42px)] leading-[1.1] text-[#252525] mb-1 whitespace-nowrap">
                     {s.value}
                   </div>
-                  <div className="text-[clamp(11px,1.3vw,13.5px)] text-[#434343] leading-[1.4]">
+                  <div className="text-[clamp(10px,1.3vw,13.5px)] text-[#434343] leading-[1.4]">
                     {s.label}
                   </div>
                 </div>

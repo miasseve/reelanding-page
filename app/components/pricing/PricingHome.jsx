@@ -25,7 +25,7 @@ export default function PricingHero() {
     }, []);
 
     return (
-        <section className="min-h-screen bg-[#050510] flex flex-col items-center justify-center px-6 text-center relative overflow-hidden">
+        <section className="min-h-screen bg-[#050510] flex flex-col items-center justify-center px-6 pt-0 pb-16 md:pb-0 text-center relative overflow-hidden">
             {/* Floating particles */}
             {ready && <Particles
                 className="absolute inset-0 z-0"

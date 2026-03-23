@@ -287,7 +287,7 @@ const Header = () => {
                   setMenuOpen(false);
                   setContactOpen(true);
                 }}
-                className="gradient-btn text-white px-[20px] py-[8px] rounded-full font-medium transition w-fit cursor-pointer"
+                className="gradient-btn text-white px-[20px] py-[8px] rounded-full font-medium transition w-fit cursor-pointer mt-[4px]"
               >
                 Contact Us
               </button>

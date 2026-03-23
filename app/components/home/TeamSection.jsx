@@ -15,7 +15,7 @@ const TeamSection = () => {
       <div className="max-w-8xl mx-auto">
         <div className="bg-white p-[20px] sm:p-[32px] md:p-[40px]">
 
-          <div className="flex flex-col md:flex-row gap-[32px] md:gap-[40px]">
+          <div className="flex flex-col md:flex-row gap-[30px] md:gap-[40px]">
 
             <div className="flex-1 flex flex-col justify-between">
               <div>
@@ -34,12 +34,12 @@ const TeamSection = () => {
                 {expertise.map((item, i) => (
                   <div
                     key={i}
-                    className="flex items-center gap-[8px] sm:gap-[12px] shadow-[0px_0px_5px_rgba(0,0,0,0.1)] rounded-[20px] px-[12px] sm:px-[16px] py-[12px] h-auto min-h-[80px] sm:min-h-[95px] lg:h-[107px]"
+                    className="flex items-center gap-[6px] sm:gap-[12px] shadow-[0px_0px_5px_rgba(0,0,0,0.1)] rounded-[20px] px-[10px] sm:px-[16px] py-[10px] h-auto min-h-[70px] sm:min-h-[95px] lg:h-[107px] overflow-hidden"
                   >
-                    <div className="w-[44px] h-[44px] sm:w-[52px] sm:h-[52px] lg:w-[60px] lg:h-[60px] flex-shrink-0 flex items-center justify-center rounded-[15px] bg-purple-50">
+                    <div className="w-[36px] h-[36px] sm:w-[52px] sm:h-[52px] lg:w-[60px] lg:h-[60px] flex-shrink-0 flex items-center justify-center rounded-[12px] sm:rounded-[15px] bg-purple-50">
                       {item.icon}
                     </div>
-                    <span className="text-[13px] sm:text-[15px] lg:text-[18px] text-black font-semibold leading-tight">{item.label}</span>
+                    <span className="text-[12px] sm:text-[15px] lg:text-[18px] text-black font-semibold leading-tight">{item.label}</span>
                   </div>
                 ))}
               </div>
