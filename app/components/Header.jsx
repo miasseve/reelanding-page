@@ -79,16 +79,16 @@ const Header = () => {
               <Image
                 src="/Icons/reelogo.png"
                 alt="REe"
-                width={120} // adjust based on your logo's aspect ratio
+                width={120}
                 height={34}
-                className="h-[34px] w-auto"
+                style={{ width: "auto", height: "34px" }}
               />
             </Link>
 
             {/* Desktop nav */}
             <ul className="hidden md:flex items-center gap-[40px] text-gray-800 font-medium text-[16px]">
               <li className="cursor-pointer hover:text-black">
-                <Link href="#">Secondhand retail</Link>
+                <Link href="https://re-e.dk/">Secondhand retail</Link>
               </li>
 
               {/* All retail desktop dropdown */}
@@ -186,7 +186,7 @@ const Header = () => {
                 <Link href="/pricing">Pricing</Link>
               </li>
               <li className="cursor-pointer hover:text-black">
-                <Link href="/faq">FAQ</Link>
+                <Link href="/#faq">FAQ</Link>
               </li>
             </ul>
 
@@ -220,7 +220,7 @@ const Header = () => {
           {menuOpen && (
             <div className="md:hidden px-[32px] pb-[20px] flex flex-col gap-[16px] text-gray-800 font-medium text-[16px]">
               <li className="list-none cursor-pointer hover:text-black">
-                <Link href="#">Secondhand retail</Link>
+                <Link href="https://re-e.dk/">Secondhand retail</Link>
               </li>
 
               {/* All retail mobile dropdown */}
@@ -274,20 +274,20 @@ const Header = () => {
               </li>
 
               <li className="list-none cursor-pointer hover:text-black">
-                <Link href="#">Our tools</Link>
+                <Link href="/#tools">Our tools</Link>
               </li>
               <li className="list-none cursor-pointer hover:text-black">
                 <Link href="/pricing">Pricing</Link>
               </li>
               <li className="list-none cursor-pointer hover:text-black">
-                <Link href="/faq">FAQ</Link>
+                <Link href="/#faq">FAQ</Link>
               </li>
               <button
                 onClick={() => {
                   setMenuOpen(false);
                   setContactOpen(true);
                 }}
-                className="gradient-btn text-white px-[20px] py-[8px] rounded-full font-medium transition w-fit cursor-pointer mt-[4px]"
+                className="gradient-btn text-white px-[20px] py-[8px] rounded-full font-medium transition w-fit cursor-pointer"
               >
                 Contact Us
               </button>
