@@ -22,13 +22,13 @@ const steps = [
     deliverable: "Live automations.",
     icon: <Rocket size={25} className="text-purple-500" />,
   },
-  {
-    step: "Step 4",
-    title: "Guarantee",
-    desc: "We train your team and measure results. If we promise 60 hours saved — we verify it.",
-    deliverable: "Performance report + support.",
-    icon: <BadgeCheck size={25} className="text-purple-500" />,
-  },
+  // {
+  //   step: "Step 4",
+  //   title: "Guarantee",
+  //   desc: "We train your team and measure results. If we promise 60 hours saved — we verify it.",
+  //   deliverable: "Performance report + support.",
+  //   icon: <BadgeCheck size={25} className="text-purple-500" />,
+  // },
 ];
 
 export default function ProcessSection() {
@@ -43,7 +43,7 @@ export default function ProcessSection() {
           Four steps. One team. Your operations transformed.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[16px] sm:gap-[20px] mt-[40px] sm:mt-[48px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[16px] sm:gap-[20px] mt-[40px] sm:mt-[48px]">
           {steps.map((item, index) => (
             <div
               key={index}

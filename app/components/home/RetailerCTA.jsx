@@ -3,9 +3,9 @@ const RetailerCTA = () => {
     <section id="problem" className="py-[160px] px-[24px] text-center flex items-center justify-center">
       <div className="max-w-[896px] mx-auto">
 
-        <p className="text-[20px] font-medium leading-[40px] text-[#252525]">
+        {/* <p className="text-[20px] font-medium leading-[40px] text-[#252525]">
           The Problem
-        </p>
+        </p> */}
 
         <h2
           className="text-[35px] leading-[41px] text-[#252525] font-bold"

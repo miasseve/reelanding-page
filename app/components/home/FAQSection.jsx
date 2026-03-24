@@ -50,7 +50,7 @@ const FAQSection = () => {
           <h2
             className="text-[40px] font-bold leading-[43px] text-white"
           >
-            What changes when<br />automation works.
+            FAQ
           </h2>
           <p className="text-[18px] pt-[12px] font-medium text-white">Common questions answered</p>
         </div>

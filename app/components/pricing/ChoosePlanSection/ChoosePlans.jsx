@@ -10,7 +10,7 @@ const tierCards = [
         subLabel: "per Product",
         noteExtra: "No monthly fees, ever",
         accent: "purple",
-        bgTint: "from-purple-50/60 to-white",
+        bgTint: "from-[#faf7ff] to-white",
         borderColor: "border-purple-200",
         accentColor: "#7c3aed",
     },
@@ -21,7 +21,7 @@ const tierCards = [
         users: "Up to 2 users",
         products: "Up to 300 products per month",
         accent: "purple",
-        bgTint: "from-violet-50/60 to-white",
+        bgTint: "from-[#faf7ff] to-white",
         borderColor: "border-violet-200",
         accentColor: "#8b5cf6",
         popular: true,
@@ -33,7 +33,7 @@ const tierCards = [
         users: "Up to 5 users",
         products: "Up to 1000 products per month",
         accent: "violet",
-        bgTint: "from-violet-50/60 to-white",
+        bgTint: "from-[#faf7ff] to-white",
         borderColor: "border-violet-200",
         accentColor: "#8b5cf6",
     },
@@ -65,7 +65,7 @@ const featureRows = [
 ];
 
 const comparisonColumns = [
-    "Auto Label & Add",
+    "Auto Label & Ad",
     "Auto Webshop",
     "Plug-In",
     "Pay As You Go",
@@ -97,7 +97,7 @@ export default function ChoosePlans() {
         <section className="px-4 pb-20">
             {/* Header */}
             <div className="text-center mb-10">
-                <h1 className="text-[34px] sm:text-[46px] font-bold text-[#1a1a1a] mb-4 leading-tight tracking-tight">
+                <h1 className="text-[34px] sm:text-[46px] font-bold text-white mb-4 leading-tight tracking-tight">
                     Choose Your Plan
                 </h1>
             </div>

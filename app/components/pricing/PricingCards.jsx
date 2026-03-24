@@ -5,7 +5,7 @@ import { useState } from "react";
 const plans = [
     {
         id: 1,
-        title: "Auto Label & Add",
+        title: "Auto Label & Ad",
         subtitle: "Get Barcode & Instagram",
         gradient: "from-[#F9F4FF] to-[#F9F4FF]",
         border: "border-purple-100",
@@ -138,7 +138,7 @@ const featureRows = [
 ];
 
 const comparisonColumns = [
-    "Auto Label & Add",
+    "Auto Label & Ad",
     "Auto Webshop",
     "Plug-In",
     "Pay As You Go",
