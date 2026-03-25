@@ -109,7 +109,7 @@ export default function ChoosePlans() {
                         <button
                             key={tab}
                             onClick={() => setActiveTab(tab)}
-                            className={`relative px-10 py-3 rounded-full text-[16px] font-semibold transition-all duration-300 ease-out ${
+                            className={`relative px-5 sm:px-10 py-3 rounded-full text-[14px] sm:text-[16px] font-semibold transition-all duration-300 ease-out whitespace-nowrap ${
                                 activeTab === tab
                                     ? "bg-gradient-to-r from-purple-200 to-violet-200 text-gray-800 shadow-md scale-[1.02]"
                                     : "text-gray-500 hover:text-gray-700 hover:bg-gray-50"

@@ -22,11 +22,11 @@ export default function HeroSection() {
 
         {/* Headline */}
         <h1
-          className="font-black text-[clamp(24px,3.5vw,54px)] leading-[1.08] tracking-[-0.01em] text-[#252525] mx-auto mb-[clamp(18px,3vw,28px)] max-w-[820px]"
+          className="font-black text-[32px] sm:text-[clamp(36px,4.5vw,54px)] leading-[1.08] tracking-[-0.01em] text-[#252525] mx-auto mb-[clamp(18px,3vw,28px)] max-w-[820px]"
 
         >
           WE AUTOMATE WHAT SLOWS YOU DOWN.{" "}
-          <span className="gradient-text">SO YOU CAN GROW.</span>
+          <span className="gradient-text whitespace-nowrap">SO YOU CAN GROW.</span>
         </h1>
 
         {/* Sub-copy */}
@@ -49,7 +49,7 @@ export default function HeroSection() {
         <div className="max-w-[700px] mx-auto">
           <div className="flex items-center gap-[clamp(10px,2vw,20px)] mb-[clamp(20px,3vw,32px)]">
             <div className="flex-1 h-px bg-[#252525]" />
-            <span className="font-semibold text-[clamp(11px,1.4vw,13.5px)] tracking-[0.12em] uppercase text-[#252525] whitespace-nowrap">
+            <span className="font-semibold text-[12px] sm:text-[13px] md:text-[14px] tracking-[0.12em] uppercase text-[#252525] whitespace-nowrap">
               Trusted across retail
             </span>
             <div className="flex-1 h-px bg-[#252525]" />
@@ -59,10 +59,10 @@ export default function HeroSection() {
             {STATS.map((s, i) => (
               <React.Fragment key={s.value}>
                 <div className="flex-1 min-w-0 text-left px-[clamp(8px,2.5vw,28px)] py-[clamp(8px,1.5vw,12px)]">
-                  <div className="font-bold text-[clamp(22px,4vw,42px)] leading-[1.1] text-[#252525] mb-1 whitespace-nowrap">
+                  <div className="font-bold text-[28px] sm:text-[36px] md:text-[42px] leading-[1.1] text-[#252525] mb-1 whitespace-nowrap">
                     {s.value}
                   </div>
-                  <div className="text-[clamp(14px,1.3vw,13.5px)] text-[#434343] leading-[1.4]">
+                  <div className="text-[14px] sm:text-[15px] md:text-[16px] text-[#434343] leading-[1.4]">
                     {s.label}
                   </div>
                 </div>
