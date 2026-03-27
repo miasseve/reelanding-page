@@ -16,7 +16,7 @@ const tierCards = [
     },
     {
         label: "Basic",
-        price: "990",
+        price: "390",
         currency: "DKK",
         users: "Up to 2 users",
         products: "Up to 300 products per month",
