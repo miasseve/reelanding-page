@@ -1,27 +1,29 @@
+"use client";
+
 const Video = () => {
   return (
-    <section className="bg-black h-[618px] flex items-center justify-center">
-      <div className="relative w-[70%] max-w-4xl">
+    <section className="bg-black h-screen">
+      {/* Desktop video */}
+      <video
+        className="hidden md:block w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="/ree_video.mp4" type="video/mp4" />
+      </video>
 
-        {/* Video */}
-        <video
-          className="w-full rounded-lg"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="/video.mp4" type="video/mp4" />
-        </video>
-
-        {/* Text Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h2 className="text-white text-[36px] font-bold text-center">
-            Your REe Video
-          </h2>
-        </div>
-
-      </div>
+      {/* Mobile/Tablet video */}
+      <video
+        className="block md:hidden w-full h-full object-cover"
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="/ree_mobileview.mp4" type="video/mp4" />
+      </video>
     </section>
   );
 };
