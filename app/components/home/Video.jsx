@@ -11,7 +11,7 @@ const Video = () => {
         loop
         playsInline
       >
-        <source src="/ree_video.mp4" type="video/mp4" />
+        <source src="/ree_mainvideo.mp4" type="video/mp4" />
       </video>
 
       {/* Mobile/Tablet video */}
