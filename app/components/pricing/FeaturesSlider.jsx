@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useSanityContent } from "../SanityProvider";
 
 const FEATURES = [
     {
@@ -102,7 +103,7 @@ const TILES = Array.from({ length: TOTAL_REPS * N }, (_, i) => FEATURES[i % N]);
 
 const mod = (n, m) => ((n % m) + m) % m;
 
-function CardContent({ f, isActive }) {
+function CardContent({ f, isActive, images }) {
     return (
         <>
             <div
@@ -126,8 +127,8 @@ function CardContent({ f, isActive }) {
             {f.type === "barcode" && (
                 <div className="bg-white h-[200px] rounded-xl mb-5 overflow-hidden">
                     <img
-                        src="/Icons/Barcode_img.png"
-                        alt="Product preview"
+                        src={images["pricing-barcode"]?.src || "/Icons/Barcode_img.png"}
+                        alt={images["pricing-barcode"]?.alt || "Product preview"}
                         width={296}
                         height={88}
                         className="w-full h-full object-cover"
@@ -138,8 +139,8 @@ function CardContent({ f, isActive }) {
             {f.type === "instagram" && (
                 <div className="bg-white h-[230px] w-full rounded-xl overflow-hidden mb-5">
                     <img
-                        src="/Icons/Instagram_img.png"
-                        alt="Product preview"
+                        src={images["pricing-instagram"]?.src || "/Icons/Instagram_img.png"}
+                        alt={images["pricing-instagram"]?.alt || "Product preview"}
                         className="h-full object-cover"
                     />
                 </div>
@@ -148,8 +149,8 @@ function CardContent({ f, isActive }) {
             {f.type === "webstore" && (
                 <div className="bg-white h-[230px] w-full rounded-xl overflow-hidden mb-5">
                     <img
-                        src="/Icons/Webpage_img.png"
-                        alt="Product preview"
+                        src={images["pricing-webstore"]?.src || "/Icons/Webpage_img.png"}
+                        alt={images["pricing-webstore"]?.alt || "Product preview"}
                         className="h-full object-cover"
                     />
                 </div>
@@ -169,6 +170,7 @@ function CardContent({ f, isActive }) {
 }
 
 export default function FeaturesSlider() {
+    const { images } = useSanityContent();
     const [pos, setPos] = useState(OFFSET_CARDS);
     const [animated, setAnimated] = useState(true);
     const [step, setStep] = useState(STEP);
@@ -289,7 +291,7 @@ export default function FeaturesSlider() {
                             onClick={() => goSlide(mod(i, N))}
                             className="flex-none w-[85vw] sm:w-[340px] md:w-[360px] rounded-[20px] p-7 sm:p-9 border border-[#1a1a1a]/10 relative overflow-hidden cursor-pointer"
                         >
-                            <CardContent f={f} isActive={i === pos} />
+                            <CardContent f={f} isActive={i === pos} images={images} />
                         </div>
                     ))}
                 </div>

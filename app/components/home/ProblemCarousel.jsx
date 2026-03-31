@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useSanityContent } from "../SanityProvider";
 
-const slides = [
+const defaultSlides = [
   {
     id: 1,
     title: "Products sitting unlisted while customers look elsewhere",
@@ -61,7 +62,15 @@ const PhoneCard = ({ slide }) => (
 );
 
 const ProblemCarousel = () => {
+  const { images } = useSanityContent();
   const scrollRef = useRef(null);
+
+  // Merge Sanity images into slides
+  const slides = defaultSlides.map((slide, idx) => {
+    const key = `carousel-${idx + 1}`;
+    const sanityImg = images[key];
+    return sanityImg ? { ...slide, img: sanityImg.src } : slide;
+  });
 
   useEffect(() => {
     const container = scrollRef.current;

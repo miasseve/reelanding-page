@@ -1,4 +1,7 @@
+"use client";
+
 import { ShoppingBag, RefreshCw, ShoppingCart, Code2, LayoutGrid, Users } from "lucide-react";
+import { useSanityContent } from "../SanityProvider";
 
 const expertise = [
   { icon: <ShoppingBag size={20} className="text-purple-500" />, label: "Fashion retail" },
@@ -10,6 +13,9 @@ const expertise = [
 ];
 
 const TeamSection = () => {
+  const { images } = useSanityContent();
+  const teamPhoto = images["team-photo"] || { src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80", alt: "Team meeting" };
+
   return (
     <section className="py-[48px] sm:py-[96px] lg:py-[160px] px-[16px] sm:px-[40px] md:px-[80px]">
       <div className="max-w-8xl mx-auto">
@@ -49,8 +55,8 @@ const TeamSection = () => {
 
             <div className="w-full lg:w-[48%] flex-shrink-0">
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-                alt="Team meeting"
+                src={teamPhoto.src}
+                alt={teamPhoto.alt}
                 className="w-full h-[220px] sm:h-[280px] lg:h-full object-cover"
               />
             </div>

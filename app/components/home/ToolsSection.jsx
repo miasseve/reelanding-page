@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { useSanityContent } from "../SanityProvider";
 
 const RevealCard = ({ children, index, className = "" }) => {
   const ref = useRef(null);
@@ -26,19 +27,21 @@ const RevealCard = ({ children, index, className = "" }) => {
   );
 };
 
-const PhoneMockup = ({ className = "" }) => (
+const PhoneMockup = ({ className = "", imageSrc, imageAlt }) => (
   <div
     className={`relative rounded-[16px] overflow-hidden bg-gray-800 ${className}`}
   >
     <img
-      src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80"
-      alt="App preview"
+      src={imageSrc || "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80"}
+      alt={imageAlt || "App preview"}
       className="w-full h-full object-cover opacity-80"
     />
   </div>
 );
 
 const ToolsSection = () => {
+  const { images } = useSanityContent();
+  const mockupImg = images["tools-mockup"] || { src: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80", alt: "App preview" };
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -125,7 +128,7 @@ const ToolsSection = () => {
               index={0}
               className="bg-white p-[20px] rounded-[16px] overflow-hidden h-[220px] sm:w-full sm:h-[323px]"
             >
-              <PhoneMockup className="h-full w-full" />
+              <PhoneMockup className="h-full w-full" imageSrc={mockupImg.src} imageAlt={mockupImg.alt} />
             </RevealCard>
 
             <RevealCard
@@ -143,7 +146,7 @@ const ToolsSection = () => {
                   </p>
                 </div>
               </div>
-              <PhoneMockup className="h-[160px] sm:h-full w-full" />
+              <PhoneMockup className="h-[160px] sm:h-full w-full" imageSrc={mockupImg.src} imageAlt={mockupImg.alt} />
             </RevealCard>
 
             <RevealCard index={2} className="bg-white rounded-[16px] p-[20px]">
@@ -180,7 +183,7 @@ const ToolsSection = () => {
                   </button>
                 </div>
               </div>
-              <PhoneMockup className="h-[160px] sm:h-full w-full" />
+              <PhoneMockup className="h-[160px] sm:h-full w-full" imageSrc={mockupImg.src} imageAlt={mockupImg.alt} />
             </RevealCard>
 
             <RevealCard index={2} className="bg-white rounded-[16px] p-[20px]">
@@ -202,7 +205,7 @@ const ToolsSection = () => {
               index={3}
               className="bg-white p-[20px] rounded-[16px] overflow-hidden h-[220px] sm:w-full sm:h-[323px]"
             >
-              <PhoneMockup className="h-full w-full" />
+              <PhoneMockup className="h-full w-full" imageSrc={mockupImg.src} imageAlt={mockupImg.alt} />
             </RevealCard>
           </div>
         </div>

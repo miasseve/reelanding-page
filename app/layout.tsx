@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -24,10 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en-DK" className={`${spaceGrotesk.variable}`}>
       <body className="font-[family-name:var(--font-space-grotesk)]">
-        <Header />
-        <div className="h-[56px]" />
-        <main>{children}</main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

@@ -1,6 +1,11 @@
+"use client";
+
 import { Phone, Mail } from "lucide-react";
+import { useSanityContent } from "../SanityProvider";
 
 const CTASection = () => {
+  const { images } = useSanityContent();
+  const founderImg = images["cta-founder"] || { src: "/Icons/mia_sev.png", alt: "mia sev" };
   return (
     <section className="py-[40px] sm:py-[56px] px-[16px] sm:px-[24px] md:px-[40px] lg:px-[64px] xl:px-[24px]">
       <div className="max-w-[1280px] mx-auto">
@@ -30,8 +35,8 @@ const CTASection = () => {
               <div className="flex gap-[12px] sm:gap-[16px]">
                 <div className="h-[100px] w-[95px] sm:h-[120px] sm:w-[110px] lg:h-[137px] lg:w-[131px] flex-shrink-0 rounded-[20px] overflow-hidden">
                   <img
-                    src="/Icons/mia_sev.png"
-                    alt="mia sev"
+                    src={founderImg.src}
+                    alt={founderImg.alt}
                     className="w-full h-full object-cover"
                   />
                 </div>

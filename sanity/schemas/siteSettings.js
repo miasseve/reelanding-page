@@ -1,0 +1,69 @@
+import { defineType, defineField } from "sanity";
+
+export default defineType({
+  name: "siteSettings",
+  title: "Site Settings",
+  type: "document",
+  fields: [
+    defineField({
+      name: "siteName",
+      title: "Site Name",
+      type: "string",
+      initialValue: "REe — Retail Automation Consulting",
+    }),
+    defineField({
+      name: "logo",
+      title: "Site Logo",
+      type: "image",
+      options: { hotspot: true },
+      description: "The main logo displayed in the header and footer",
+    }),
+    defineField({
+      name: "font",
+      title: "Primary Font",
+      type: "string",
+      description: "Google Font name to use across the site",
+      initialValue: "Space Grotesk",
+      options: {
+        list: [
+          { title: "Space Grotesk", value: "Space_Grotesk" },
+          { title: "Inter", value: "Inter" },
+          { title: "Poppins", value: "Poppins" },
+          { title: "Montserrat", value: "Montserrat" },
+          { title: "Raleway", value: "Raleway" },
+          { title: "Open Sans", value: "Open_Sans" },
+          { title: "Lato", value: "Lato" },
+          { title: "Roboto", value: "Roboto" },
+          { title: "Playfair Display", value: "Playfair_Display" },
+          { title: "DM Sans", value: "DM_Sans" },
+          { title: "Outfit", value: "Outfit" },
+          { title: "Sora", value: "Sora" },
+        ],
+      },
+    }),
+    defineField({
+      name: "fontWeights",
+      title: "Font Weights",
+      type: "array",
+      of: [{ type: "string" }],
+      description: "Select the font weights to load",
+      initialValue: ["300", "400", "500", "600", "700"],
+      options: {
+        list: [
+          { title: "Light (300)", value: "300" },
+          { title: "Regular (400)", value: "400" },
+          { title: "Medium (500)", value: "500" },
+          { title: "Semi Bold (600)", value: "600" },
+          { title: "Bold (700)", value: "700" },
+          { title: "Extra Bold (800)", value: "800" },
+          { title: "Black (900)", value: "900" },
+        ],
+      },
+    }),
+  ],
+  preview: {
+    prepare() {
+      return { title: "Site Settings" };
+    },
+  },
+});

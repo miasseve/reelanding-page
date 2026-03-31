@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useSanityContent } from "./SanityProvider";
 
 const whoWeHelp = [
   "Secondhand & vintage stores",
@@ -28,6 +28,7 @@ const company = [
 ];
 
 const Footer = () => {
+  const { logoUrl } = useSanityContent();
   const pathname = usePathname();
 
   const scrollToHash = (e, hash) => {
@@ -45,8 +46,8 @@ const Footer = () => {
           {/* Logo & tagline */}
           <div>
             <div className="inline-block bg-white rounded-[8px] px-[12px] py-[8px] mb-[16px]">
-              <Image
-                src="/Icons/reelogo.png"
+              <img
+                src={logoUrl}
                 alt="REe"
                 width={120}
                 height={34}

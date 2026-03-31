@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ContactSlider from "./ContactSlider";
 import Image from "next/image";
+import { useSanityContent } from "./SanityProvider";
 
 // Secondhand retail dropdown data (current "All retail" content)
 const shCol1 = [
@@ -52,6 +53,7 @@ const arCol2 = [
 const allArItems = [...arCol1, ...arCol2];
 
 const Header = () => {
+  const { logoUrl, images } = useSanityContent();
   const [menuOpen, setMenuOpen] = useState(false);
   const [secondhandOpen, setSecondhandOpen] = useState(false);
   const [retailOpen, setRetailOpen] = useState(false);
@@ -110,8 +112,8 @@ const Header = () => {
           <nav className="w-full px-[32px] py-[12px] flex items-center justify-between">
             {/* Logo */}
             <Link href="/">
-              <Image
-                src="/Icons/reelogo.png"
+              <img
+                src={logoUrl}
                 alt="REe"
                 width={120}
                 height={34}
@@ -149,11 +151,10 @@ const Header = () => {
                   <div className="absolute top-full !left-[130px] -translate-x-1/2 mt-[12px] w-[860px] bg-[#111111] rounded-[20px] shadow-[0px_8px_40px_rgba(0,0,0,0.35)] p-[32px] z-50 flex gap-[40px]">
                     {/* Left image */}
                     <div className="relative w-[280px] h-[340px] flex-shrink-0 rounded-[16px] overflow-hidden">
-                      <Image
-                        src="/Icons/pink_bag.avif"
-                        alt="Fashion"
-                        fill
-                        className="object-cover"
+                      <img
+                        src={images["header-secondhand"]?.src || "/Icons/pink_bag.avif"}
+                        alt={images["header-secondhand"]?.alt || "Fashion"}
+                        className="w-full h-full object-cover"
                       />
                     </div>
 
@@ -240,11 +241,10 @@ const Header = () => {
                   <div className="absolute top-full !left-[80px] -translate-x-1/2 mt-[12px] w-[860px] bg-[#111111] rounded-[20px] shadow-[0px_8px_40px_rgba(0,0,0,0.35)] p-[32px] z-50 flex gap-[40px]">
                     {/* Left image — leestore */}
                     <div className="relative w-[280px] h-[340px] flex-shrink-0 rounded-[16px] overflow-hidden bg-white">
-                      <Image
-                        src="/Icons/leestore_img.png"
-                        alt="Lestores"
-                        fill
-                        className="object-contain"
+                      <img
+                        src={images["header-allretail"]?.src || "/Icons/leestore_img.png"}
+                        alt={images["header-allretail"]?.alt || "Lestores"}
+                        className="w-full h-full object-contain"
                       />
                     </div>
 
