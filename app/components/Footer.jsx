@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSanityContent } from "./SanityProvider";
+import { useSanityContent, t } from "./SanityProvider";
 
 const whoWeHelp = [
   "Secondhand & vintage stores",
@@ -28,8 +28,17 @@ const company = [
 ];
 
 const Footer = () => {
-  const { logoUrl } = useSanityContent();
+  const { logoUrl, sharedContent } = useSanityContent();
   const pathname = usePathname();
+
+  const footerEmail = t(sharedContent, "footerEmail", "hello@agency.io");
+
+  // Override the email in company links if changed in Sanity
+  const companyLinks = company.map((item) =>
+    item.highlight
+      ? { ...item, label: footerEmail, href: `mailto:${footerEmail}` }
+      : item
+  );
 
   const scrollToHash = (e, hash) => {
     if (pathname === "/") {
@@ -55,17 +64,10 @@ const Footer = () => {
               />
             </div>
             <p className="text-[16px] font-bold tracking-[0.05em] uppercase text-white leading-[1.4] mb-[8px]">
-              Retail Automation<br />Consulting
+              {t(sharedContent, "footerTagline", "Retail Automation\nConsulting")}
             </p>
             <p className="text-[14px] text-gray-400 leading-[1.5]">
-              We automate what slows you<br />
-              down.{" "}
-              <span
-                className="font-semibold bg-clip-text text-transparent"
-                style={{ backgroundImage: "linear-gradient(135deg, #a855f7, #ec4899)" }}
-              >
-                So you can grow.
-              </span>
+              {t(sharedContent, "footerDescription", "We automate what slows you down. So you can grow.")}
             </p>
           </div>
 
@@ -108,7 +110,7 @@ const Footer = () => {
               Company
             </p>
             <div className="flex flex-col gap-[14px]">
-              {company.map((item) => (
+              {companyLinks.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
@@ -131,10 +133,10 @@ const Footer = () => {
 
         <div className="pt-[20px] text-center">
           <p className="text-[#DFDFDF] text-[14px] leading-[18px]">
-            &copy; 2026 REe. All rights reserved.
+            &copy; {t(sharedContent, "footerCopyright", "2026 REe. All rights reserved.")}
           </p>
           <p className="text-[#DFDFDF] text-[14px] leading-[18px]">
-            Retail automation consulting · Fashion · Secondhand · Merchandising · Software engineering
+            {t(sharedContent, "footerBottomText", "Retail automation consulting · Fashion · Secondhand · Merchandising · Software engineering")}
           </p>
         </div>
       </div>

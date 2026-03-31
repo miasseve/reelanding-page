@@ -36,13 +36,13 @@ const structure = (S) =>
             .title("Hero Video")
         ),
       S.listItem()
-        .title("Header & Footer")
+        .title("Footer Content")
         .id("sharedContent")
         .child(
           S.document()
             .schemaType("sharedContent")
             .documentId("sharedContent")
-            .title("Header & Footer Content")
+            .title("Footer Content")
         ),
 
       S.divider(),
