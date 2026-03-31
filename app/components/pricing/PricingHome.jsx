@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { useSanityContent, t } from "../SanityProvider";
 
 const stagger = {
     hidden: {},
@@ -16,6 +17,7 @@ const fadeUp = {
 };
 
 export default function PricingHero() {
+    const { pricingContent } = useSanityContent();
     const [ready, setReady] = useState(false);
 
     useEffect(() => {
@@ -85,7 +87,7 @@ export default function PricingHero() {
                     variants={fadeUp}
                     className="inline-block text-[11px] md:text-[13px] tracking-[0.2em] uppercase text-white/70 border border-white/20 rounded-full px-5 py-2 mb-8"
                 >
-                    Online Presence in 24 Hours
+                    {t(pricingContent, "heroBadge", "Online Presence in 24 Hours")}
                 </motion.span>
 
                 <motion.h1
@@ -93,7 +95,7 @@ export default function PricingHero() {
                     className="text-[clamp(32px,5.5vw,56px)] font-black italic leading-[1.2] mb-2"
                 >
                     <span className="text-white">
-                        YOUR WAY, YOUR SYSTEM
+                        {t(pricingContent, "heroTitle", "YOUR WAY, YOUR SYSTEM")}
                     </span>
                 </motion.h1>
                 <motion.h2
@@ -101,7 +103,7 @@ export default function PricingHero() {
                     className="text-[clamp(28px,5vw,50px)] font-black italic leading-[1.2] mb-8"
                 >
                     <span className="gradient-text-shimmer inline-block pr-1">
-                        WITH YOUR WEBSTORE
+                        {t(pricingContent, "heroSubtitle", "WITH YOUR WEBSTORE")}
                     </span>
                 </motion.h2>
 
@@ -109,8 +111,7 @@ export default function PricingHero() {
                     variants={fadeUp}
                     className="text-white/50 text-[14px] md:text-[16px] font-light leading-relaxed"
                 >
-                    All product registration, synchronisation, and dev work — done
-                    <br />for you. No staff needed.
+                    {t(pricingContent, "heroBody", "All product registration, synchronisation, and dev work — done\nfor you. No staff needed.")}
                 </motion.p>
             </motion.div>
         </section>
