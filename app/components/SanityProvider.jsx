@@ -26,7 +26,9 @@ export function useSanityContent() {
 // Helper to get text with fallback
 // Usage: t(homeContent, "heroHeadline", "DEFAULT TEXT")
 export function t(content, field, fallback) {
-  return content?.[field] || fallback;
+  const val = content?.[field];
+  if (typeof val === "string") return val.trim() || fallback;
+  return val || fallback;
 }
 
 export default function SanityProvider({ data, children }) {
