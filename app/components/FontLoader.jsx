@@ -43,15 +43,16 @@ function getPageKey(pathname) {
   return null;
 }
 
-function loadFont(id, fontKey, weights) {
+function loadFontLink(id, fontKey, weights) {
   const fontUrlName = fontUrlMap[fontKey];
-  const fontFamily = fontFamilyMap[fontKey];
-  if (!fontUrlName || !fontFamily) return null;
+  if (!fontUrlName) return;
 
   const weightStr = (weights || ["400", "500", "600", "700"]).join(";");
   const url = `https://fonts.googleapis.com/css2?family=${fontUrlName}:wght@${weightStr}&display=swap`;
 
   const existing = document.getElementById(id);
+  // Skip if already loading the same URL
+  if (existing && existing.href === url) return;
   if (existing) existing.remove();
 
   const link = document.createElement("link");
@@ -59,8 +60,42 @@ function loadFont(id, fontKey, weights) {
   link.rel = "stylesheet";
   link.href = url;
   document.head.appendChild(link);
+}
 
-  return fontFamily;
+function applyStyles(siteFamily, pageFamily) {
+  let el = document.getElementById("sanity-font-styles");
+  if (!el) {
+    el = document.createElement("style");
+    el.id = "sanity-font-styles";
+    document.head.appendChild(el);
+  }
+
+  let css = "";
+
+  // Site-wide font for header & footer (data-site-chrome attribute)
+  if (siteFamily) {
+    css += `[data-site-chrome] { font-family: ${siteFamily}, sans-serif !important; }\n`;
+    css += `[data-site-chrome] * { font-family: inherit; }\n`;
+  }
+
+  // Page-specific font for main content only
+  if (pageFamily) {
+    css += `main { font-family: ${pageFamily}, sans-serif; }\n`;
+  } else if (siteFamily) {
+    // No page override — main also gets the site font
+    css += `main { font-family: ${siteFamily}, sans-serif; }\n`;
+  }
+
+  el.textContent = css;
+}
+
+function cleanup() {
+  ["sanity-font-site", "sanity-font-page", "sanity-font-styles"].forEach(
+    (id) => {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+  );
 }
 
 export default function FontLoader() {
@@ -68,32 +103,38 @@ export default function FontLoader() {
   const pathname = usePathname();
 
   useEffect(() => {
+    const siteFont = settings.font;
+    const siteWeights = settings.fontWeights;
+    const isDefaultSiteFont = !siteFont || siteFont === "Space_Grotesk";
+
     const pageKey = getPageKey(pathname);
     const pageFont = pageKey && pageFonts[pageKey];
+    const pageFontKey = pageFont ? pageFont.font : null;
+    const pageFontWeights = pageFont ? pageFont.fontWeights : null;
+    const isDefaultPageFont = !pageFontKey || pageFontKey === "Space_Grotesk";
 
-    // Determine which font to use: page-specific overrides site-wide
-    const activeFont = pageFont ? pageFont.font : settings.font;
-    const activeWeights = pageFont ? pageFont.fontWeights : settings.fontWeights;
-
-    // Don't override if using default font (already loaded by Next.js)
-    if (!activeFont || activeFont === "Space_Grotesk") {
-      // Reset to default
-      document.body.style.fontFamily = "";
-      const el = document.getElementById("sanity-font");
-      if (el) el.remove();
+    // If both are default, nothing to do
+    if (isDefaultSiteFont && isDefaultPageFont) {
+      cleanup();
       return;
     }
 
-    const fontFamily = loadFont("sanity-font", activeFont, activeWeights);
-    if (fontFamily) {
-      document.body.style.fontFamily = `${fontFamily}, sans-serif`;
+    // Load site font (for header/footer)
+    const siteFamily = isDefaultSiteFont ? null : fontFamilyMap[siteFont];
+    if (!isDefaultSiteFont) {
+      loadFontLink("sanity-font-site", siteFont, siteWeights);
     }
 
-    return () => {
-      const el = document.getElementById("sanity-font");
-      if (el) el.remove();
-      document.body.style.fontFamily = "";
-    };
+    // Load page font (for main content)
+    if (!isDefaultPageFont && pageFontKey !== siteFont) {
+      loadFontLink("sanity-font-page", pageFontKey, pageFontWeights);
+    }
+
+    const pageFamily = isDefaultPageFont ? null : fontFamilyMap[pageFontKey];
+
+    applyStyles(siteFamily, pageFamily);
+
+    return cleanup;
   }, [settings.font, settings.fontWeights, pageFonts, pathname]);
 
   return null;

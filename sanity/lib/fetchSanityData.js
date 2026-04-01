@@ -86,6 +86,14 @@ export async function fetchSanityData() {
       });
     }
 
+    // Process tool card images
+    if (homeContentData?.toolCards) {
+      homeContentData.toolCards = homeContentData.toolCards.map((card) => ({
+        ...card,
+        imageUrl: card.image ? urlFor(card.image).url() : null,
+      }));
+    }
+
     return {
       settings,
       logoUrl,

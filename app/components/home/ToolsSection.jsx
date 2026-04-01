@@ -39,9 +39,29 @@ const PhoneMockup = ({ className = "", imageSrc, imageAlt }) => (
   </div>
 );
 
+const defaultToolCards = [
+  {
+    title: "Automatic Tagging, Barcode & Digital Passport",
+    description: "Add a product in 1 minute. AI writes description, generates barcode, prints label.",
+  },
+  {
+    title: "Physical & E-com AI-synch",
+    description: "For unique products or large Ref; keep track instantly with AI-synch.",
+  },
+  {
+    title: "Custom Development",
+    description: "When our ready tools don\u2019t cover your exact need, we build what does. Our engineering team scopes, builds and delivers custom automations tailored to your workflows, your data and your stack.",
+  },
+  {
+    title: "Plugins & Integrations",
+    description: "Connect POS, ERP, CRM, marketplaces. If connector doesn\u2019t exist \u2014 we build it.",
+  },
+];
+
 const ToolsSection = () => {
-  const { images, homeContent } = useSanityContent();
-  const mockupImg = images["tools-mockup"] || { src: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80", alt: "App preview" };
+  const { homeContent } = useSanityContent();
+  const toolCards = homeContent?.toolCards?.length > 0 ? homeContent.toolCards : defaultToolCards;
+  const fallbackImg = "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80";
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
@@ -126,7 +146,11 @@ const ToolsSection = () => {
               index={0}
               className="bg-white p-[20px] rounded-[16px] overflow-hidden h-[220px] sm:w-full sm:h-[323px]"
             >
-              <PhoneMockup className="h-full w-full" imageSrc={mockupImg.src} imageAlt={mockupImg.alt} />
+              <PhoneMockup
+                className="h-full w-full"
+                imageSrc={toolCards[0]?.imageUrl || fallbackImg}
+                imageAlt={toolCards[0]?.title || "App preview"}
+              />
             </RevealCard>
 
             <RevealCard
@@ -136,29 +160,39 @@ const ToolsSection = () => {
               <div className="flex gap-[16px] items-start">
                 <div className="flex-1 pl-[20px]">
                   <h3 className="pt-[10px] text-[21px] leading-[22px] font-medium text-[#000]">
-                    Automatic Tagging, Barcode & Digital Passport
+                    {toolCards[0]?.title || "Automatic Tagging, Barcode & Digital Passport"}
                   </h3>
                   <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
-                    Add a product in 1 minute. AI writes description, generates
-                    barcode, prints label.
+                    {toolCards[0]?.description || "Add a product in 1 minute. AI writes description, generates barcode, prints label."}
                   </p>
                 </div>
               </div>
-              <PhoneMockup className="h-[160px] sm:h-full w-full" imageSrc={mockupImg.src} imageAlt={mockupImg.alt} />
+              <PhoneMockup
+                className="h-[160px] sm:h-full w-full"
+                imageSrc={toolCards[0]?.imageUrl || fallbackImg}
+                imageAlt={toolCards[0]?.title || "App preview"}
+              />
             </RevealCard>
 
             <RevealCard index={2} className="bg-white rounded-[16px] p-[20px]">
               <div className="flex-1 pl-[20px]">
                 <h3 className="pt-[10px] text-[21px] leading-[22px] font-medium text-[#000]">
-                  Custom Development
+                  {toolCards[2]?.title || "Custom Development"}
                 </h3>
                 <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
-                  When our ready tools donot cover your exact need, we build what does. Our engineering team scopes, builds and delivers custom automations tailored to your workflows, your data and your stack.
+                  {toolCards[2]?.description || "When our ready tools don\u2019t cover your exact need, we build what does. Our engineering team scopes, builds and delivers custom automations tailored to your workflows, your data and your stack."}
                 </p>
                 <button className="text-[20px] text-[#151515] font-bold py-[8px]">
                   Learn More
                 </button>
               </div>
+              {toolCards[2]?.imageUrl && (
+                <PhoneMockup
+                  className="h-[160px] w-full mt-[8px]"
+                  imageSrc={toolCards[2].imageUrl}
+                  imageAlt={toolCards[2].title}
+                />
+              )}
             </RevealCard>
           </div>
 
@@ -171,39 +205,53 @@ const ToolsSection = () => {
               <div className="flex gap-[16px] items-start">
                 <div className="flex-1 pl-[20px]">
                   <h3 className="pt-[10px] text-[21px] leading-[22px] font-medium text-[#000]">
-                    Physical & E-com AI-synch
+                    {toolCards[1]?.title || "Physical & E-com AI-synch"}
                   </h3>
                   <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
-                    For unique products or large Ref; keep track instantly with AI-synch.
+                    {toolCards[1]?.description || "For unique products or large Ref; keep track instantly with AI-synch."}
                   </p>
                   <button className="text-[20px] text-[#151515] font-bold py-[8px]">
                     Learn More
                   </button>
                 </div>
               </div>
-              <PhoneMockup className="h-[160px] sm:h-full w-full" imageSrc={mockupImg.src} imageAlt={mockupImg.alt} />
+              <PhoneMockup
+                className="h-[160px] sm:h-full w-full"
+                imageSrc={toolCards[1]?.imageUrl || fallbackImg}
+                imageAlt={toolCards[1]?.title || "App preview"}
+              />
             </RevealCard>
 
             <RevealCard index={2} className="bg-white rounded-[16px] p-[20px]">
               <div className="flex-1 pl-[20px]">
                 <h3 className="pt-[10px] text-[21px] leading-[22px] font-medium text-[#000]">
-                  Plugins & Integrations
+                  {toolCards[3]?.title || "Plugins & Integrations"}
                 </h3>
                 <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
-                  Connect POS, ERP, CRM, marketplaces. If connector doesn&apos;t
-                  exist — we build it.
+                  {toolCards[3]?.description || "Connect POS, ERP, CRM, marketplaces. If connector doesn\u2019t exist \u2014 we build it."}
                 </p>
                 <button className="text-[20px] text-[#151515] font-bold py-[8px]">
                   Learn More
                 </button>
               </div>
+              {toolCards[3]?.imageUrl && (
+                <PhoneMockup
+                  className="h-[160px] w-full mt-[8px]"
+                  imageSrc={toolCards[3].imageUrl}
+                  imageAlt={toolCards[3].title}
+                />
+              )}
             </RevealCard>
 
             <RevealCard
               index={3}
               className="bg-white p-[20px] rounded-[16px] overflow-hidden h-[220px] sm:w-full sm:h-[323px]"
             >
-              <PhoneMockup className="h-full w-full" imageSrc={mockupImg.src} imageAlt={mockupImg.alt} />
+              <PhoneMockup
+                className="h-full w-full"
+                imageSrc={toolCards[1]?.imageUrl || fallbackImg}
+                imageAlt={toolCards[1]?.title || "App preview"}
+              />
             </RevealCard>
           </div>
         </div>

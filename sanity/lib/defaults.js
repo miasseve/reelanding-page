@@ -42,10 +42,7 @@ export const defaultImages = {
     src: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80",
     alt: "Tools that don't talk to each other",
   },
-  "tools-mockup": {
-    src: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80",
-    alt: "App preview",
-  },
+
   "team-photo": {
     src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
     alt: "Team meeting",

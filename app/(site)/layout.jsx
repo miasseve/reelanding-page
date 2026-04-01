@@ -12,10 +12,14 @@ export default async function SiteLayout({ children }) {
   return (
     <SanityProvider data={data}>
       <FontLoader />
-      <Header />
+      <div data-site-chrome>
+        <Header />
+      </div>
       <div className="h-[56px]" />
       <main>{children}</main>
-      <Footer />
+      <div data-site-chrome>
+        <Footer />
+      </div>
     </SanityProvider>
   );
 }

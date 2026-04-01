@@ -32,7 +32,7 @@ export default defineType({
           { title: "Problem Carousel - Slide 3", value: "carousel-3" },
           { title: "Problem Carousel - Slide 4", value: "carousel-4" },
           { title: "Problem Carousel - Slide 5", value: "carousel-5" },
-          { title: "Tools Section - Phone Mockup", value: "tools-mockup" },
+
           { title: "Team Section - Team Photo", value: "team-photo" },
           { title: "CTA Section - Founder Photo", value: "cta-founder" },
           { title: "Pricing - Barcode Feature", value: "pricing-barcode" },

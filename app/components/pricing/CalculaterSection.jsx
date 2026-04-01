@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
+import { useSanityContent, t } from "../../components/SanityProvider";
 
 function fmt(n) {
     return Math.round(n).toLocaleString("da-DK");
@@ -58,6 +59,7 @@ function ResultItem({ title, value, sub, barPct, numColor, barColor }) {
 }
 
 export default function CalculatorSection() {
+    const { pricingContent } = useSanityContent();
     const [products, setProducts] = useState(100);
     const [people, setPeople] = useState(3);
     const [revenue, setRevenue] = useState(50000);
@@ -144,14 +146,13 @@ export default function CalculatorSection() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 max-w-[900px] mx-auto items-start relative z-10">
                 <div>
                     <p className="text-[28px] font-medium leading-[40px] gradient-text uppercase mb-3">
-                        Cost calculator
+                        {t(pricingContent, "calcLabel", "Cost calculator")}
                     </p>
                     <h2 className="text-[26px] sm:text-[32px] font-bold text-white leading-snug mb-2">
-                        How much is manual<br />
-                        work <em className="italic gradient-text pr-1 font-bold">costing you?</em>
+                        {t(pricingContent, "calcHeading", "How much is manual work costing you?")}
                     </h2>
                     <p className="text-[16px] text-gray-400 leading-relaxed mb-8">
-                        Adjust the sliders to match your store. The real cost of manual listing is usually much higher than expected.
+                        {t(pricingContent, "calcDescription", "Adjust the sliders to match your store. The real cost of manual listing is usually much higher than expected.")}
                     </p>
 
                     <div className="flex flex-col gap-6">
