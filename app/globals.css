@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
 @layer base {
+  html {
+    zoom: 0.9;
+  }
+
   body {
     font-family: "Space Grotesk", sans-serif;
     background-color: #FDF6F0;

@@ -60,7 +60,7 @@ const TeamSection = () => {
               className="border-l-8 border-purple-500 px-[16px] sm:px-[24px] lg:px-[32px] py-[16px] sm:py-[20px] text-gray-600 italic text-[16px] sm:text-[18px] font-medium w-full text-left"
               style={{ background: "linear-gradient(to right, #f5f3ff, #ffffff)" }}
             >
-              <p className="text-[17px] sm:text-[20px] lg:text-[24px] font-medium text-[#414141] w-full lg:w-[67%]">
+              <p className="text-[17px] sm:text-[20px] lg:text-[20px] font-medium text-[#414141] w-full lg:w-[67%]">
                 &quot;{t(homeContent, "teamQuote", "We've spent years on both sides — running retail stores and building software. We know what breaks and we know how to fix it.")}&quot;
               </p>
               <p className="text-[15px] sm:text-[16px] lg:text-[18px] text-black leading-[18px] pt-[10px] sm:pt-[12px]">
