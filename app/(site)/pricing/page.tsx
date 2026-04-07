@@ -8,7 +8,7 @@ import DarkSection from "../../components/pricing/ChoosePlanSection/DarkSection"
 
 export default function PricingPage() {
   return (
-    <div className="font-[family-name:var(--font-space-grotesk)] w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden">
       <PricingHero />
       <PricingSection/>
       <DarkSection>
