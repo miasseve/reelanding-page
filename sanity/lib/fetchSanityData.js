@@ -48,16 +48,20 @@ export async function fetchSanityData() {
       : defaultSiteSettings;
 
     const logoUrl = settings.logo
-      ? urlFor(settings.logo).width(240).url()
+      ? urlFor(settings.logo).height(68).fit("clip").auto("format").url()
       : "/Icons/reelogo.png";
 
     // Process video
     const video = {
-      desktopVideoUrl:
-        videoData?.desktopVideoUrl || defaultHeroVideo.desktopVideoUrl,
-      mobileVideoUrl:
-        videoData?.mobileVideoUrl || defaultHeroVideo.mobileVideoUrl,
-      fallbackImage: videoData?.fallbackImage || null,
+      videoUrl: videoData?.videoUrl || defaultHeroVideo.videoUrl,
+      mobileVideoUrl: videoData?.mobileVideoUrl || defaultHeroVideo.mobileVideoUrl,
+      gradientFrom: videoData?.gradientFrom || defaultHeroVideo.gradientFrom,
+      gradientTo: videoData?.gradientTo || defaultHeroVideo.gradientTo,
+      heroTitle: videoData?.heroTitle || defaultHeroVideo.heroTitle,
+      heroText: videoData?.heroText || defaultHeroVideo.heroText,
+      heroButtonText: videoData?.heroButtonText || defaultHeroVideo.heroButtonText,
+      instagramUrl: videoData?.instagramUrl || defaultHeroVideo.instagramUrl,
+      facebookUrl: videoData?.facebookUrl || defaultHeroVideo.facebookUrl,
     };
 
     // Process images

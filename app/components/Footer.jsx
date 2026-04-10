@@ -58,9 +58,7 @@ const Footer = () => {
               <img
                 src={logoUrl}
                 alt="REe"
-                width={120}
-                height={34}
-                style={{ width: "auto", height: "34px" }}
+                className="h-[34px] w-auto max-w-[160px] object-contain"
               />
             </div>
             <p className="text-[16px] font-bold tracking-[0.05em] uppercase text-white leading-[1.4] mb-[8px]">

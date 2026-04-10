@@ -9,9 +9,12 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "REe — Retail Automation Consulting",
+  title: "REE | 2hand2go",
   description:
     "We automate what slows you down so you can grow. Retail, fashion, merchandising and software experts.",
+  icons: {
+    icon: "/Icons/reelogo.png",
+  },
 };
 
 export default function RootLayout({

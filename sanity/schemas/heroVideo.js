@@ -22,7 +22,7 @@ const fileSizeValidation = (Rule) =>
 
 export default defineType({
   name: "heroVideo",
-  title: "Hero Video",
+  title: "Hero Section",
   type: "document",
   fields: [
     defineField({
@@ -32,22 +32,71 @@ export default defineType({
       initialValue: "Hero Section Video",
     }),
     defineField({
-      name: "desktopVideo",
+      name: "heroVideoFile",
       title: "Desktop Video",
       type: "file",
       options: { accept: "video/mp4,video/webm" },
       description:
-        "Video for desktop (max 10MB, 1920x1080). Compress at handbrake.fr or freeconvert.com before uploading.",
+        "Desktop video displayed in the hero section (max 10MB, landscape recommended). Compress at handbrake.fr or freeconvert.com before uploading.",
       validation: fileSizeValidation,
     }),
     defineField({
-      name: "mobileVideo",
+      name: "mobileVideoFile",
       title: "Mobile Video",
       type: "file",
       options: { accept: "video/mp4,video/webm" },
       description:
-        "Video for mobile (max 10MB, 720x1280). Compress at handbrake.fr or freeconvert.com before uploading.",
+        "Mobile video displayed in the hero section (max 10MB, 900x500 or 9:5 aspect ratio recommended). Compress at handbrake.fr or freeconvert.com before uploading.",
       validation: fileSizeValidation,
+    }),
+    defineField({
+      name: "gradientFrom",
+      title: "Gradient Color (Start)",
+      type: "color",
+      description: "Start color for background gradient. Default: purple (#7C3AED)",
+      options: { disableAlpha: true },
+    }),
+    defineField({
+      name: "gradientTo",
+      title: "Gradient Color (End)",
+      type: "color",
+      description: "End color for background gradient. Default: pink (#EC4899)",
+      options: { disableAlpha: true },
+    }),
+    defineField({
+      name: "heroTitle",
+      title: "Hero Title",
+      type: "string",
+      description: 'Large heading displayed on the left side. Default: "We\'d love to hear from you."',
+      initialValue: "We'd love to hear from you.",
+    }),
+    defineField({
+      name: "heroText",
+      title: "Hero Text",
+      type: "text",
+      rows: 3,
+      description: "Supporting text below the title.",
+      initialValue:
+        "Share your thoughts, questions, or suggestions on how we can further promote diversity, equity, and inclusivity.",
+    }),
+    defineField({
+      name: "heroButtonText",
+      title: "Button Text",
+      type: "string",
+      description: 'Text for the CTA button. Default: "Join Us"',
+      initialValue: "Contact Us",
+    }),
+    defineField({
+      name: "instagramUrl",
+      title: "Instagram URL",
+      type: "url",
+      description: "Link to your Instagram page (e.g. https://instagram.com/yourpage)",
+    }),
+    defineField({
+      name: "facebookUrl",
+      title: "Facebook URL",
+      type: "url",
+      description: "Link to your Facebook page (e.g. https://facebook.com/yourpage)",
     }),
   ],
   preview: {

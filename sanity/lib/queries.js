@@ -7,11 +7,18 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   fontWeights
 }`;
 
-// Get the hero video singleton — always fetch, let the client handle fallback
+// Get the Hero Section singleton — always fetch, let the client handle fallback
 export const HERO_VIDEO_QUERY = `*[_type == "heroVideo"] | order(_updatedAt desc) [0]{
   title,
-  "desktopVideoUrl": desktopVideo.asset->url,
-  "mobileVideoUrl": mobileVideo.asset->url
+  "videoUrl": heroVideoFile.asset->url,
+  "mobileVideoUrl": mobileVideoFile.asset->url,
+  "gradientFrom": gradientFrom.hex,
+  "gradientTo": gradientTo.hex,
+  heroTitle,
+  heroText,
+  heroButtonText,
+  instagramUrl,
+  facebookUrl
 }`;
 
 export const PAGE_IMAGES_QUERY = `*[_type == "pageImages"]{

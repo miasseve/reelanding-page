@@ -2,15 +2,23 @@
 // These match the current hardcoded content so the site works identically without Sanity.
 
 export const defaultSiteSettings = {
-  siteName: "REe — Retail Automation Consulting",
+  siteName: "REe | 2hand2go",
   logo: null, // falls back to /Icons/reelogo.png
   font: "Space_Grotesk",
   fontWeights: ["300", "400", "500", "600", "700"],
 };
 
 export const defaultHeroVideo = {
-  desktopVideoUrl: "/ree_mainvideo.mp4",
-  mobileVideoUrl: "/ree_mobileview.mp4",
+videoUrl: "/ree_mainvideo.mp4",
+  mobileVideoUrl: "/ree_mainvideo.mp4",
+  gradientFrom: "#7C3AED",
+  gradientTo: "#EC4899",
+  heroTitle: "We'd love to hear from you.",
+  heroText:
+    "Share your thoughts, questions, or suggestions on how we can further promote diversity, equity, and inclusivity.",
+  heroButtonText: "Contact Us",
+  instagramUrl: "#",
+  facebookUrl: "#",
 };
 
 export const defaultImages = {

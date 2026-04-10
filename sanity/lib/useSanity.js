@@ -36,13 +36,13 @@ export function useSiteSettings() {
   }, []);
 
   const logoUrl = settings.logo
-    ? urlFor(settings.logo).width(240).url()
+    ? urlFor(settings.logo).height(68).fit("clip").auto("format").url()
     : "/Icons/reelogo.png";
 
   return { ...settings, logoUrl };
 }
 
-// ---------- Hero Video ----------
+// ---------- Hero Section ----------
 export function useHeroVideo() {
   const [video, setVideo] = useState(defaultHeroVideo);
 
