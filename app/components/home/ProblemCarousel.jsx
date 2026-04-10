@@ -98,7 +98,7 @@ const ProblemCarousel = () => {
 
   return (
     <section className="pb-[80px] overflow-hidden">
-      <div ref={scrollRef} className="flex gap-[24px] px-[40px] overflow-x-hidden">
+      <div ref={scrollRef} className="flex gap-[24px] px-[40px] overflow-x-hidden overflow-y-hidden">
         {[...slides, ...slides].map((slide, index) => (
           <PhoneCard key={index} slide={slide} />
         ))}
