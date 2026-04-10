@@ -1,18 +1,10 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { useSanityContent } from "../SanityProvider";
 
 const Video = () => {
   const { video } = useSanityContent();
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const videoRef = useRef(null);
-
-  const handleFullscreen = () => {
-    const el = videoRef.current;
-    if (!el) return;
-    if (el.requestFullscreen) el.requestFullscreen();
-    else if (el.webkitEnterFullscreen) el.webkitEnterFullscreen();
-  };
 
   const gradientFrom = video.gradientFrom || "#7C3AED";
   const gradientTo = video.gradientTo || "#EC4899";
@@ -43,7 +35,6 @@ const Video = () => {
             </div>
           )}
           <video
-            ref={videoRef}
             key={mobileSrc}
             className={`w-full h-full object-cover transition-opacity duration-500 ${
               videoLoaded ? "opacity-100" : "opacity-0"
@@ -55,12 +46,6 @@ const Video = () => {
             preload="auto"
             onCanPlay={() => setVideoLoaded(true)}
             src={mobileSrc}
-          />
-          {/* Tap overlay to trigger fullscreen */}
-          <button
-            onClick={handleFullscreen}
-            className="absolute inset-0 z-10 cursor-pointer"
-            aria-label="Play fullscreen"
           />
         </div>
 
