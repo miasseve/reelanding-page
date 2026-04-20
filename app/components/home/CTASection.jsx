@@ -57,7 +57,7 @@ const CTASection = () => {
                     </div>
                     <div className="flex items-center gap-[10px] text-[#414141] text-[13px] sm:text-[14px]">
                       <Mail size={15} className="text-[#414141] flex-shrink-0" />
-                      <span>{t(homeContent, "ctaEmail", "hello@2hand2go.com")}</span>
+                      <span>{t(homeContent, "ctaEmail", "mia@le-stores.com")}</span>
                     </div>
                   </div>
                 </div>

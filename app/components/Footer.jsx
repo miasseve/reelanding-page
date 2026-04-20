@@ -23,7 +23,7 @@ const company = [
   { label: "Pricing", href: "/pricing" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "#" },
-  { label: "hello@2hand2go.com", href: "mailto:hello@2hand2go.com", highlight: true },
+  { label: "mia@le-stores.com", href: "mailto:mia@le-stores.com", highlight: true },
   { label: "Privacy policy", href: "#" },
 ];
 
@@ -31,7 +31,7 @@ const Footer = () => {
   const { logoUrl, sharedContent } = useSanityContent();
   const pathname = usePathname();
 
-  const footerEmail = t(sharedContent, "footerEmail", "hello@2hand2go.com");
+  const footerEmail = t(sharedContent, "footerEmail", "mia@le-stores.com");
 
   // Override the email in company links if changed in Sanity
   const companyLinks = company.map((item) =>

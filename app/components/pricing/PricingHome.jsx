@@ -92,7 +92,7 @@ export default function PricingHero() {
 
                 <motion.h1
                     variants={fadeUp}
-                    className="text-[clamp(32px,5.5vw,56px)] font-black italic leading-[1.2] mb-2"
+                    className="text-[clamp(32px,5.5vw,56px)] font-bold leading-[1.2] mb-2"
                 >
                     <span className="text-white">
                         {t(pricingContent, "heroTitle", "YOUR WAY, YOUR SYSTEM")}
@@ -100,7 +100,7 @@ export default function PricingHero() {
                 </motion.h1>
                 <motion.h2
                     variants={fadeUp}
-                    className="text-[clamp(28px,5vw,50px)] font-black italic leading-[1.2] mb-8"
+                    className="text-[clamp(28px,5vw,50px)] font-bold leading-[1.2] mb-8"
                 >
                     <span className="gradient-text-shimmer inline-block pr-1">
                         {t(pricingContent, "heroSubtitle", "WITH YOUR WEBSTORE")}
@@ -109,7 +109,7 @@ export default function PricingHero() {
 
                 <motion.p
                     variants={fadeUp}
-                    className="text-white/50 text-[14px] md:text-[16px] font-light leading-relaxed"
+                    className="text-white/50 text-[16px] md:text-[16px] leading-relaxed"
                 >
                     {t(pricingContent, "heroBody", "All product registration, synchronisation, and dev work — done\nfor you. No staff needed.")}
                 </motion.p>

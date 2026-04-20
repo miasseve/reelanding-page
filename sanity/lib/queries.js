@@ -41,13 +41,6 @@ export const SECTION_IMAGE_QUERY = `*[_type == "pageImages" && section == $secti
   alt
 }`;
 
-// Get per-page font settings
-export const PAGE_FONTS_QUERY = `*[_type == "pageFont"]{
-  page,
-  font,
-  fontWeights
-}`;
-
 export const HOME_CONTENT_QUERY = `*[_type == "homeContent"][0]{
   ...,
   toolCards[]{

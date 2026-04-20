@@ -3,7 +3,6 @@ import {
   SITE_SETTINGS_QUERY,
   HERO_VIDEO_QUERY,
   PAGE_IMAGES_QUERY,
-  PAGE_FONTS_QUERY,
   HOME_CONTENT_QUERY,
   PRICING_CONTENT_QUERY,
   SHARED_CONTENT_QUERY,
@@ -22,7 +21,6 @@ export async function fetchSanityData() {
       settingsData,
       videoData,
       imagesData,
-      pageFontsData,
       homeContentData,
       pricingContentData,
       sharedContentData,
@@ -30,7 +28,6 @@ export async function fetchSanityData() {
       client.fetch(SITE_SETTINGS_QUERY).catch(() => null),
       client.fetch(HERO_VIDEO_QUERY).catch(() => null),
       client.fetch(PAGE_IMAGES_QUERY).catch(() => null),
-      client.fetch(PAGE_FONTS_QUERY).catch(() => null),
       client.fetch(HOME_CONTENT_QUERY).catch(() => null),
       client.fetch(PRICING_CONTENT_QUERY).catch(() => null),
       client.fetch(SHARED_CONTENT_QUERY).catch(() => null),
@@ -77,19 +74,6 @@ export async function fetchSanityData() {
       });
     }
 
-    // Process page fonts
-    const pageFonts = {};
-    if (pageFontsData?.length > 0) {
-      pageFontsData.forEach((item) => {
-        if (item.page && item.font && item.font !== "default") {
-          pageFonts[item.page] = {
-            font: item.font,
-            fontWeights: item.fontWeights || ["400", "500", "600", "700"],
-          };
-        }
-      });
-    }
-
     // Process tool card images
     if (homeContentData?.toolCards) {
       homeContentData.toolCards = homeContentData.toolCards.map((card) => ({
@@ -103,7 +87,6 @@ export async function fetchSanityData() {
       logoUrl,
       video,
       images,
-      pageFonts,
       homeContent: homeContentData || null,
       pricingContent: pricingContentData || null,
       sharedContent: sharedContentData || null,
@@ -115,7 +98,6 @@ export async function fetchSanityData() {
       logoUrl: "/Icons/2hand2go-logo.png",
       video: defaultHeroVideo,
       images: defaultImages,
-      pageFonts: {},
       homeContent: null,
       pricingContent: null,
       sharedContent: null,

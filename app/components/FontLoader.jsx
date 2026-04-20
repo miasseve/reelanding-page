@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import { usePathname } from "next/navigation";
 import { useSanityContent } from "./SanityProvider";
 
-// Maps font values to Google Fonts URL format
 const fontUrlMap = {
   Space_Grotesk: "Space+Grotesk",
   Inter: "Inter",
@@ -37,7 +35,7 @@ const fontUrlMap = {
   Mulish: "Mulish",
   Libre_Franklin: "Libre+Franklin",
   Albert_Sans: "Albert+Sans",
-Merriweather: "Merriweather",
+  Merriweather: "Merriweather",
   Lora: "Lora",
   PT_Serif: "PT+Serif",
   Crimson_Text: "Crimson+Text",
@@ -45,7 +43,6 @@ Merriweather: "Merriweather",
   Cormorant_Garamond: "Cormorant+Garamond",
 };
 
-// Maps font values to CSS font-family names
 const fontFamilyMap = {
   Space_Grotesk: "'Space Grotesk'",
   Inter: "'Inter'",
@@ -78,7 +75,7 @@ const fontFamilyMap = {
   Mulish: "'Mulish'",
   Libre_Franklin: "'Libre Franklin'",
   Albert_Sans: "'Albert Sans'",
-Merriweather: "'Merriweather'",
+  Merriweather: "'Merriweather'",
   Lora: "'Lora'",
   PT_Serif: "'PT Serif'",
   Crimson_Text: "'Crimson Text'",
@@ -86,22 +83,15 @@ Merriweather: "'Merriweather'",
   Cormorant_Garamond: "'Cormorant Garamond'",
 };
 
-// Determine the page key from pathname
-function getPageKey(pathname) {
-  if (pathname === "/") return "home";
-  if (pathname.startsWith("/pricing")) return "pricing";
-  return null;
-}
-
-function loadFontLink(id, fontKey, weights) {
+function loadFontLink(fontKey, weights) {
   const fontUrlName = fontUrlMap[fontKey];
   if (!fontUrlName) return;
 
   const weightStr = (weights || ["400", "500", "600", "700"]).join(";");
   const url = `https://fonts.googleapis.com/css2?family=${fontUrlName}:wght@${weightStr}&display=swap`;
 
+  const id = "sanity-font-site";
   const existing = document.getElementById(id);
-  // Skip if already loading the same URL
   if (existing && existing.href === url) return;
   if (existing) existing.remove();
 
@@ -112,80 +102,40 @@ function loadFontLink(id, fontKey, weights) {
   document.head.appendChild(link);
 }
 
-function applyStyles(siteFamily, pageFamily) {
+function applyStyles(family) {
   let el = document.getElementById("sanity-font-styles");
   if (!el) {
     el = document.createElement("style");
     el.id = "sanity-font-styles";
     document.head.appendChild(el);
   }
-
-  let css = "";
-
-  // Site-wide font for header & footer (data-site-chrome attribute)
-  if (siteFamily) {
-    css += `[data-site-chrome] { font-family: ${siteFamily}, sans-serif !important; }\n`;
-    css += `[data-site-chrome] * { font-family: inherit; }\n`;
-  }
-
-  // Page-specific font for main content only
-  if (pageFamily) {
-    css += `main { font-family: ${pageFamily}, sans-serif; }\n`;
-  } else if (siteFamily) {
-    // No page override — main also gets the site font
-    css += `main { font-family: ${siteFamily}, sans-serif; }\n`;
-  }
-
-  el.textContent = css;
+  el.textContent = `html, body { font-family: ${family}, sans-serif !important; }\n* { font-family: inherit; }\n`;
 }
 
 function cleanup() {
-  ["sanity-font-site", "sanity-font-page", "sanity-font-styles"].forEach(
-    (id) => {
-      const el = document.getElementById(id);
-      if (el) el.remove();
-    }
-  );
+  ["sanity-font-site", "sanity-font-styles"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.remove();
+  });
 }
 
 export default function FontLoader() {
-  const { settings, pageFonts } = useSanityContent();
-  const pathname = usePathname();
+  const { settings } = useSanityContent();
 
   useEffect(() => {
     const siteFont = settings.font;
-    const siteWeights = settings.fontWeights;
-    const isDefaultSiteFont = !siteFont || siteFont === "Space_Grotesk";
+    const isDefault = !siteFont || siteFont === "Space_Grotesk";
 
-    const pageKey = getPageKey(pathname);
-    const pageFont = pageKey && pageFonts[pageKey];
-    const pageFontKey = pageFont ? pageFont.font : null;
-    const pageFontWeights = pageFont ? pageFont.fontWeights : null;
-    const isDefaultPageFont = !pageFontKey || pageFontKey === "Space_Grotesk";
-
-    // If both are default, nothing to do
-    if (isDefaultSiteFont && isDefaultPageFont) {
+    if (isDefault) {
       cleanup();
       return;
     }
 
-    // Load site font (for header/footer)
-    const siteFamily = isDefaultSiteFont ? null : fontFamilyMap[siteFont];
-    if (!isDefaultSiteFont) {
-      loadFontLink("sanity-font-site", siteFont, siteWeights);
-    }
-
-    // Load page font (for main content)
-    if (!isDefaultPageFont && pageFontKey !== siteFont) {
-      loadFontLink("sanity-font-page", pageFontKey, pageFontWeights);
-    }
-
-    const pageFamily = isDefaultPageFont ? null : fontFamilyMap[pageFontKey];
-
-    applyStyles(siteFamily, pageFamily);
+    loadFontLink(siteFont, settings.fontWeights);
+    applyStyles(fontFamilyMap[siteFont]);
 
     return cleanup;
-  }, [settings.font, settings.fontWeights, pageFonts, pathname]);
+  }, [settings.font, settings.fontWeights]);
 
   return null;
 }

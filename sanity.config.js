@@ -72,7 +72,6 @@ const structure = (S) =>
 
       // ── Media ──
       S.documentTypeListItem("pageImages").title("Page Images"),
-      S.documentTypeListItem("pageFont").title("Page Fonts"),
     ]);
 
 export default defineConfig({

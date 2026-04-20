@@ -205,7 +205,7 @@ export default defineType({
       "We built these tools because we needed them ourselves. Now we're sharing them with retailers who want to grow without burning out.",
     ctaQuoteAttribution: "— Founding Team",
     ctaPhone: "+000 000 0000",
-    ctaEmail: "hello@2hand2go.com",
+    ctaEmail: "mia@le-stores.com",
   },
   fields: [
     // ── Hero Section ──
@@ -593,7 +593,7 @@ export default defineType({
       title: "Email",
       type: "string",
       group: "cta",
-      description: d("hello@2hand2go.com"),
+      description: d("mia@le-stores.com"),
     }),
   ],
   preview: {

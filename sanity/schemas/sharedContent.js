@@ -9,7 +9,7 @@ export default defineType({
   initialValue: {
     footerTagline: "Secondhand Automation",
     footerDescription: "We automate what slows you down. So you can grow.",
-    footerEmail: "hello@2hand2go.com",
+    footerEmail: "mia@le-stores.com",
     footerCopyright: "2026 2hand2go. All rights reserved.",
     footerBottomText: "Built for secondhand businesses",
   },
@@ -30,7 +30,7 @@ export default defineType({
       name: "footerEmail",
       title: "Email",
       type: "string",
-      description: d("hello@2hand2go.com"),
+      description: d("mia@le-stores.com"),
     }),
     defineField({
       name: "footerCopyright",
