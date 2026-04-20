@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "All-in-one setup for secondhand businesses. Sell online without extra work.",
   icons: {
-    icon: "/Icons/2hand2go-logo.png",
+    icon: "/Icons/2logo.png",
   },
 };
 
