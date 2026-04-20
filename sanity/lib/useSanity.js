@@ -37,7 +37,7 @@ export function useSiteSettings() {
 
   const logoUrl = settings.logo
     ? urlFor(settings.logo).height(68).fit("clip").auto("format").url()
-    : "/Icons/reelogo.png";
+    : "/Icons/2hand2go-logo.png";
 
   return { ...settings, logoUrl };
 }

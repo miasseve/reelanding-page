@@ -6,9 +6,9 @@ import { useSanityContent, t } from "./SanityProvider";
 
 const whoWeHelp = [
   "Secondhand & vintage stores",
-  "Multi-brand retailers",
-  "Department stores",
-  "Brands with surplus stock",
+  "Resale boutiques",
+  "Consignment stores",
+  "Pre-loved specialists",
 ];
 
 const ourTools = [
@@ -23,7 +23,7 @@ const company = [
   { label: "Pricing", href: "/pricing" },
   { label: "FAQ", href: "/#faq" },
   { label: "Contact", href: "#" },
-  { label: "hello@agency.io", href: "mailto:hello@agency.io", highlight: true },
+  { label: "hello@2hand2go.com", href: "mailto:hello@2hand2go.com", highlight: true },
   { label: "Privacy policy", href: "#" },
 ];
 
@@ -31,7 +31,7 @@ const Footer = () => {
   const { logoUrl, sharedContent } = useSanityContent();
   const pathname = usePathname();
 
-  const footerEmail = t(sharedContent, "footerEmail", "hello@agency.io");
+  const footerEmail = t(sharedContent, "footerEmail", "hello@2hand2go.com");
 
   // Override the email in company links if changed in Sanity
   const companyLinks = company.map((item) =>
@@ -57,12 +57,12 @@ const Footer = () => {
             <div className="inline-block bg-white rounded-[8px] px-[12px] py-[8px] mb-[16px]">
               <img
                 src={logoUrl}
-                alt="REe"
+                alt="2hand2go"
                 className="h-[34px] w-auto max-w-[160px] object-contain"
               />
             </div>
             <p className="text-[16px] font-bold tracking-[0.05em] uppercase text-white leading-[1.4] mb-[8px]">
-              {t(sharedContent, "footerTagline", "Retail Automation\nConsulting")}
+              {t(sharedContent, "footerTagline", "Secondhand\nAutomation")}
             </p>
             <p className="text-[14px] text-gray-400 leading-[1.5]">
               {t(sharedContent, "footerDescription", "We automate what slows you down. So you can grow.")}
@@ -131,10 +131,10 @@ const Footer = () => {
 
         <div className="pt-[20px] text-center">
           <p className="text-[#DFDFDF] text-[14px] leading-[18px]">
-            &copy; {t(sharedContent, "footerCopyright", "2026 REe. All rights reserved.")}
+            &copy; {t(sharedContent, "footerCopyright", "2026 2hand2go. All rights reserved.")}
           </p>
           <p className="text-[#DFDFDF] text-[14px] leading-[18px]">
-            {t(sharedContent, "footerBottomText", "Retail automation consulting · Fashion · Secondhand · Merchandising · Software engineering")}
+            {t(sharedContent, "footerBottomText", "Built for secondhand businesses")}
           </p>
         </div>
       </div>

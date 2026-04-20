@@ -9,7 +9,7 @@ export default defineType({
       name: "siteName",
       title: "Site Name",
       type: "string",
-      initialValue: "REe — Retail Automation Consulting",
+      initialValue: "2hand2go",
     }),
     defineField({
       name: "logo",

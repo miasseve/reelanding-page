@@ -37,7 +37,7 @@ const defaultSlides = [
 ];
 
 const PhoneCard = ({ slide }) => (
- <div className="flex-shrink-0 h-[470px] w-[320px] bg-gradient-to-b from-[#0B0220] via-[#2A0F4F] to-[#3B0A3A] rounded-[20px]">
+ <div className="flex-shrink-0 min-h-[470px] w-[280px] sm:w-[320px] bg-gradient-to-b from-[#0B0220] via-[#2A0F4F] to-[#3B0A3A] rounded-[20px]">
   
   {/* Image Section */}
   <div className="rounded-tl-[16px] rounded-tr-[16px] overflow-hidden w-full h-[320px]">
@@ -50,7 +50,7 @@ const PhoneCard = ({ slide }) => (
 
   {/* Content Section */}
   <div className="pt-[14px] pb-[12px] px-[12px] text-center">
-    <h3 className="text-[18px] h-[44px] text-white font-medium leading-[20px]">
+    <h3 className="text-[16px] sm:text-[18px] min-h-[44px] text-white font-medium leading-[20px]">
       {slide.title}
     </h3>
     <p className="text-[14px] leading-[20px] text-white pt-2">
@@ -98,7 +98,7 @@ const ProblemCarousel = () => {
 
   return (
     <section className="pb-[80px] overflow-hidden">
-      <div ref={scrollRef} className="flex gap-[24px] px-[40px] overflow-x-hidden overflow-y-hidden">
+      <div ref={scrollRef} className="flex gap-[16px] sm:gap-[24px] px-[16px] sm:px-[40px] overflow-x-hidden overflow-y-hidden">
         {[...slides, ...slides].map((slide, index) => (
           <PhoneCard key={index} slide={slide} />
         ))}

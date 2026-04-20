@@ -2,26 +2,20 @@
 
 import {
   Shirt,
-  Sparkles,
-  Gem,
-  Sofa,
-  Monitor,
   Store,
+  Sparkles,
   PackageOpen,
 } from "lucide-react";
 import { useSanityContent, t } from "../SanityProvider";
 
 const DEFAULT_CATEGORIES = [
   "Secondhand & vintage stores",
-  "Multi-brand fashion & lifestyle",
-  "Beauty, shoes & accessories",
-  "Furniture & homeware",
-  "Electronics & IT retail",
-  "Department stores & warehouse concepts",
-  "Brands managing surplus or past-season stock",
+  "Resale boutiques",
+  "Consignment stores",
+  "Pre-loved specialists",
 ];
 
-const ICONS = [Shirt, Sparkles, Gem, Sofa, Monitor, Store, PackageOpen];
+const ICONS = [Shirt, Store, Sparkles, PackageOpen];
 
 export default function HelpSection() {
   const { homeContent } = useSanityContent();
@@ -36,17 +30,17 @@ export default function HelpSection() {
             {t(homeContent, "helpLabel", "WHO WE HELP")}
           </p>
           <h2 className="text-[26px] sm:text-[32px] md:text-[40px] font-bold leading-[32px] sm:leading-[38px] md:leading-[43px] gradient-text mb-[16px]">
-            {t(homeContent, "helpHeading", "Every kind of retailer. Every category. Every size.")}
+            {t(homeContent, "helpHeading", "Built for secondhand businesses.")}
           </h2>
           <p className="text-[15px] sm:text-[16px] md:text-[18px] font-medium leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#434343] max-w-[720px] mx-auto">
-            {t(homeContent, "helpDescription", "Whether you run a vintage boutique, a multi-brand fashion store, a beauty outlet, a furniture showroom, a department store or a warehouse concept if manual work is slowing you down, we can fix it.")}
+            {t(homeContent, "helpDescription", "Whether you run a vintage boutique, a resale store, or a consignment shop — if manual listing is slowing you down, we can fix it.")}
           </p>
         </div>
 
         {/* Body text */}
         <div className="text-center mb-[40px] sm:mb-[48px]">
           <p className="text-[15px] sm:text-[16px] md:text-[18px] leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#434343] max-w-[720px] mx-auto">
-            {t(homeContent, "helpBody", "We work with all retail categories. For secondhand and resale stores, we have ready-made tools that deploy in hours. For all other retailers, we start with an audit and build exactly what you need.")}
+            {t(homeContent, "helpBody", "For secondhand and resale stores, we have ready-made tools that deploy in hours.")}
           </p>
         </div>
 

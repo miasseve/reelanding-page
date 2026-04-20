@@ -2,6 +2,7 @@
 
 import { Phone, Mail } from "lucide-react";
 import { useSanityContent, t } from "../SanityProvider";
+import ButtonLink from "../ButtonLink";
 
 const CTASection = () => {
   const { images, homeContent } = useSanityContent();
@@ -18,12 +19,16 @@ const CTASection = () => {
                 {t(homeContent, "ctaHeading", "Stop doing manually what a machine can do better. Start growing.")}
               </h2>
               <div className="flex items-center gap-[12px] sm:gap-[16px] flex-wrap">
-                <button className="gradient-btn py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
-                  {t(homeContent, "ctaPrimary", "Book a free audit →")}
-                </button>
-                <button className="bg-[#E6E6E6] py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-[#414141] leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
-                  {t(homeContent, "ctaSecondary", "Try tool free")}
-                </button>
+                <ButtonLink href="contact">
+                  <button className="gradient-btn py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
+                    {t(homeContent, "ctaPrimary", "Book a free audit →")}
+                  </button>
+                </ButtonLink>
+                <ButtonLink href="/#tools">
+                  <button className="bg-[#E6E6E6] py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-[#414141] leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
+                    {t(homeContent, "ctaSecondary", "Try tool free")}
+                  </button>
+                </ButtonLink>
               </div>
             </div>
 
@@ -52,7 +57,7 @@ const CTASection = () => {
                     </div>
                     <div className="flex items-center gap-[10px] text-[#414141] text-[13px] sm:text-[14px]">
                       <Mail size={15} className="text-[#414141] flex-shrink-0" />
-                      <span>{t(homeContent, "ctaEmail", "hello@ree.com")}</span>
+                      <span>{t(homeContent, "ctaEmail", "hello@2hand2go.com")}</span>
                     </div>
                   </div>
                 </div>

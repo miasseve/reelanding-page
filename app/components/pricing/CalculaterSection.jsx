@@ -44,7 +44,7 @@ function ResultItem({ title, value, sub, barPct, numColor, barColor }) {
     return (
         <div>
             <p className="text-[14px] text-white mb-1">{title}</p>
-            <p className="text-[32px] sm:text-[36px] font-bold leading-none tracking-tight" style={{ color: numColor }}>
+            <p className="text-[22px] sm:text-[32px] md:text-[36px] font-bold leading-none tracking-tight break-words" style={{ color: numColor }}>
                 {value}
             </p>
             <p className="text-[14px] mt-1" style={{ color: numColor, opacity: 0.75 }}>{sub}</p>

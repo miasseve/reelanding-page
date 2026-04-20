@@ -25,7 +25,7 @@ const structure = (S) =>
           S.document()
             .schemaType("siteSettings")
             .documentId("siteSettings")
-            .title("Site Settings")
+            .title("Site Settings"),
         ),
       S.listItem()
         .title("Hero Section")
@@ -34,7 +34,7 @@ const structure = (S) =>
           S.document()
             .schemaType("heroVideo")
             .documentId("heroVideo")
-            .title("Hero Section")
+            .title("Hero Section"),
         ),
       S.listItem()
         .title("Footer Content")
@@ -43,7 +43,7 @@ const structure = (S) =>
           S.document()
             .schemaType("sharedContent")
             .documentId("sharedContent")
-            .title("Footer Content")
+            .title("Footer Content"),
         ),
 
       S.divider(),
@@ -56,7 +56,7 @@ const structure = (S) =>
           S.document()
             .schemaType("homeContent")
             .documentId("homeContent")
-            .title("Home Page Content")
+            .title("Home Page Content"),
         ),
       S.listItem()
         .title("Pricing Page Content")
@@ -65,7 +65,7 @@ const structure = (S) =>
           S.document()
             .schemaType("pricingContent")
             .documentId("pricingContent")
-            .title("Pricing Page Content")
+            .title("Pricing Page Content"),
         ),
 
       S.divider(),
@@ -89,7 +89,7 @@ export default defineConfig({
     types: schemaTypes,
     templates: (templates) =>
       templates.filter(
-        ({ schemaType }) => !singletonTypes.includes(schemaType)
+        ({ schemaType }) => !singletonTypes.includes(schemaType),
       ),
   },
 
@@ -98,7 +98,7 @@ export default defineConfig({
       if (singletonTypes.includes(context.schemaType)) {
         return input.filter(
           ({ action }) =>
-            action && !["unpublish", "delete", "duplicate"].includes(action)
+            action && !["unpublish", "delete", "duplicate"].includes(action),
         );
       }
       return input;

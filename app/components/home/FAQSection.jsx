@@ -11,7 +11,7 @@ const DEFAULT_FAQS = [
   },
   {
     question: "IS THIS ONLY FOR SECONDHAND STORES?",
-    answer: "No. We work with fashion retail, e-commerce, and any product-based business. Secondhand is our roots, but our systems work across all retail formats.",
+    answer: "Yes. 2hand2go is built specifically for secondhand businesses — resale stores, consignment shops, vintage boutiques, and pre-loved specialists.",
   },
   {
     question: "WHAT DOES GUARANTEE MEAN?",
@@ -50,7 +50,7 @@ const FAQSection = () => {
     >
       <div className="max-w-[896px] mx-auto">
         <div className="text-center mb-[40px]">
-          <h2 className="text-[40px] font-bold leading-[43px] text-white">
+          <h2 className="text-[28px] sm:text-[34px] md:text-[40px] font-bold leading-[1.1] text-white">
             {t(homeContent, "faqHeading", "FAQ")}
           </h2>
           <p className="text-[18px] pt-[12px] font-medium text-white">
@@ -65,7 +65,7 @@ const FAQSection = () => {
               className="bg-white rounded-[30px] overflow-hidden cursor-pointer"
               onClick={() => toggle(i)}
             >
-              <div className="flex items-center justify-between h-[90px] px-[32px]">
+              <div className="flex items-center justify-between min-h-[70px] sm:min-h-[90px] px-[16px] sm:px-[24px] md:px-[32px] py-[12px]">
                 <span className="text-[#000] font-bold text-[16px] sm:text-[18px] tracking-wide pr-4">
                   {faq.question}
                 </span>
@@ -80,9 +80,9 @@ const FAQSection = () => {
 
               <div
                 className="overflow-hidden transition-all duration-300 ease-in-out"
-                style={{ maxHeight: openIndex === i ? "200px" : "0px" }}
+                style={{ maxHeight: openIndex === i ? "500px" : "0px" }}
               >
-                <p className="text-[#555] text-md leading-normal font-semibold px-[32px] pb-[20px]">
+                <p className="text-[#555] text-md leading-normal font-semibold px-[16px] sm:px-[24px] md:px-[32px] pb-[20px]">
                   {faq.answer}
                 </p>
               </div>

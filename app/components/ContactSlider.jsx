@@ -73,9 +73,9 @@ const ContactSlider = ({ isOpen, onClose }) => {
         }`}
       >
         {/* Header */}
-        <div className="flex items-start justify-between px-[32px] pt-[32px] pb-[20px] border-b border-[#F0F0F0]">
+        <div className="flex items-start justify-between px-[16px] sm:px-[32px] pt-[24px] sm:pt-[32px] pb-[16px] sm:pb-[20px] border-b border-[#F0F0F0]">
           <div>
-            <h2 className="text-[22px] font-bold text-[#151515] leading-[1.2]">
+            <h2 className="text-[18px] sm:text-[22px] font-bold text-[#151515] leading-[1.2]">
               Let&apos;s talk
             </h2>
             <p className="text-[14px] text-[#666666] mt-[4px]">
@@ -91,7 +91,7 @@ const ContactSlider = ({ isOpen, onClose }) => {
         </div>
 
         {/* Form */}
-        <div className="flex-1 overflow-y-auto px-[32px] py-[24px]">
+        <div className="flex-1 overflow-y-auto px-[16px] sm:px-[32px] py-[20px] sm:py-[24px]">
           {status.message && (
             <div
               className={`mb-[20px] px-[14px] py-[12px] rounded-[8px] text-[13px] font-medium ${
@@ -106,7 +106,7 @@ const ContactSlider = ({ isOpen, onClose }) => {
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-[16px]">
             {/* Name + Store row */}
-            <div className="grid grid-cols-2 gap-[12px]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
               <div>
                 <label htmlFor="cp-name" className={labelClass}>Name</label>
                 <input

@@ -9,7 +9,7 @@ import {
 
 const SanityContext = createContext({
   settings: defaultSiteSettings,
-  logoUrl: "/Icons/reelogo.png",
+  logoUrl: "/Icons/2hand2go-logo.png",
   video: defaultHeroVideo,
   images: defaultImages,
   pageFonts: {},
@@ -34,7 +34,7 @@ export function t(content, field, fallback) {
 export default function SanityProvider({ data, children }) {
   const value = data || {
     settings: defaultSiteSettings,
-    logoUrl: "/Icons/reelogo.png",
+    logoUrl: "/Icons/2hand2go-logo.png",
     video: defaultHeroVideo,
     images: defaultImages,
     pageFonts: {},

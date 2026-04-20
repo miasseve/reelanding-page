@@ -7,19 +7,18 @@ export default defineType({
   title: "Footer Content",
   type: "document",
   initialValue: {
-    footerTagline: "Retail Automation Consulting",
+    footerTagline: "Secondhand Automation",
     footerDescription: "We automate what slows you down. So you can grow.",
-    footerEmail: "hello@agency.io",
-    footerCopyright: "2026 REe. All rights reserved.",
-    footerBottomText:
-      "Retail automation consulting · Fashion · Secondhand · Merchandising · Software engineering",
+    footerEmail: "hello@2hand2go.com",
+    footerCopyright: "2026 2hand2go. All rights reserved.",
+    footerBottomText: "Built for secondhand businesses",
   },
   fields: [
     defineField({
       name: "footerTagline",
       title: "Tagline",
       type: "string",
-      description: d("Retail Automation Consulting"),
+      description: d("Secondhand Automation"),
     }),
     defineField({
       name: "footerDescription",
@@ -31,19 +30,19 @@ export default defineType({
       name: "footerEmail",
       title: "Email",
       type: "string",
-      description: d("hello@agency.io"),
+      description: d("hello@2hand2go.com"),
     }),
     defineField({
       name: "footerCopyright",
       title: "Copyright Text",
       type: "string",
-      description: d("2026 REe. All rights reserved."),
+      description: d("2026 2hand2go. All rights reserved."),
     }),
     defineField({
       name: "footerBottomText",
       title: "Bottom Text",
       type: "string",
-      description: d("Retail automation consulting · Fashion · Secondhand · Merchandising · Software engineering"),
+      description: d("Built for secondhand businesses"),
     }),
   ],
   preview: {

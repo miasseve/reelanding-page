@@ -20,10 +20,10 @@ export default defineType({
   ],
   // Pre-fill ALL fields when the document is first created
   initialValue: {
-    heroEyebrow: "Retail Automation Consulting",
+    heroEyebrow: "2hand2go",
     heroHeadline: "WE AUTOMATE WHAT SLOWS YOU DOWN. SO YOU CAN GROW.",
     heroSubheadline:
-      "We Are Retail, Fashion, Merchandising And Software Experts. We Find What Is Blocking Your Growth — Even The Problems You Don't See — And We Build Automations That Fix Them.",
+      "We Build Automations That Fix What's Blocking Your Growth — Even The Problems You Don't See.",
     heroStats: [
       { _type: "object", value: "95%", label: "less listing time" },
       { _type: "object", value: "+30%", label: "average revenue increase" },
@@ -92,10 +92,11 @@ export default defineType({
     ],
     processQuote:
       "If we don't hit the agreed target — we return until we do.",
+    processCta: "Start with an audit →",
     toolsLabel: "OUR TOOLS",
     toolsHeading: "Ready to deploy. Proven in the field.",
     toolsSubheading:
-      "Tools can be standalone or part of our consulting service. Choose what works best for you.",
+      "Tools built for secondhand stores. Choose what works best for you.",
     toolCards: [
       {
         _type: "object",
@@ -123,35 +124,32 @@ export default defineType({
       },
     ],
     helpLabel: "WHO WE HELP",
-    helpHeading: "Every kind of retailer. Every category. Every size.",
+    helpHeading: "Built for secondhand businesses.",
     helpDescription:
-      "Whether you run a vintage boutique, a multi-brand fashion store, a beauty outlet, a furniture showroom, a department store or a warehouse concept if manual work is slowing you down, we can fix it.",
+      "Whether you run a vintage boutique, a resale store, or a consignment shop — if manual listing is slowing you down, we can fix it.",
     helpBody:
-      "We work with all retail categories. For secondhand and resale stores, we have ready-made tools that deploy in hours. For all other retailers, we start with an audit and build exactly what you need.",
+      "For secondhand and resale stores, we have ready-made tools that deploy in hours.",
     helpCategories: [
       "Secondhand & vintage stores",
-      "Multi-brand fashion & lifestyle",
-      "Beauty, shoes & accessories",
-      "Furniture & homeware",
-      "Electronics & IT retail",
-      "Department stores & warehouse concepts",
-      "Brands managing surplus or past-season stock",
+      "Resale boutiques",
+      "Consignment stores",
+      "Pre-loved specialists",
     ],
     helpQuote:
       "The online store for store owners who didn't want an online store.",
-    teamHeading: "Fashion people. Tech people. Retail people. One team.",
+    teamHeading: "Secondhand people. Tech people. One team.",
     teamSubheading:
-      "We are retail professionals and engineers who built the tools we wished existed.",
+      "We are secondhand professionals and engineers who built the tools we wished existed.",
     teamExpertise: [
-      "Fashion retail",
       "Secondhand commerce",
+      "Resale operations",
       "E-commerce",
       "Software engineering",
       "Merchandising",
-      "Retail consulting",
+      "Automation",
     ],
     teamQuote:
-      "We've spent years on both sides — running retail stores and building software. We know what breaks and we know how to fix it.",
+      "We've spent years on both sides — running secondhand stores and building software. We know what breaks and we know how to fix it.",
     teamQuoteAttribution: "— Founding Team",
     faqHeading: "FAQ",
     faqSubheading: "Common questions answered",
@@ -166,7 +164,7 @@ export default defineType({
         _type: "object",
         question: "IS THIS ONLY FOR SECONDHAND STORES?",
         answer:
-          "No. We work with fashion retail, e-commerce, and any product-based business. Secondhand is our roots, but our systems work across all retail formats.",
+          "Yes. 2hand2go is built specifically for secondhand businesses — resale stores, consignment shops, vintage boutiques, and pre-loved specialists.",
       },
       {
         _type: "object",
@@ -207,7 +205,7 @@ export default defineType({
       "We built these tools because we needed them ourselves. Now we're sharing them with retailers who want to grow without burning out.",
     ctaQuoteAttribution: "— Founding Team",
     ctaPhone: "+000 000 0000",
-    ctaEmail: "hello@ree.com",
+    ctaEmail: "hello@2hand2go.com",
   },
   fields: [
     // ── Hero Section ──
@@ -216,7 +214,7 @@ export default defineType({
       title: "Eyebrow Tag",
       type: "string",
       group: "hero",
-      description: d("Retail Automation Consulting"),
+      description: d("2hand2go"),
     }),
     defineField({
       name: "heroHeadline",
@@ -232,7 +230,7 @@ export default defineType({
       group: "hero",
       rows: 3,
       description: d(
-        "We Are Retail, Fashion, Merchandising And Software Experts..."
+        "We Build Automations That Fix What's Blocking Your Growth..."
       ),
     }),
     defineField({
@@ -361,6 +359,13 @@ export default defineType({
         "If we don't hit the agreed target — we return until we do."
       ),
     }),
+    defineField({
+      name: "processCta",
+      title: "Button Text",
+      type: "string",
+      group: "process",
+      description: d("Start with an audit →"),
+    }),
 
     // ── Tools Section ──
     defineField({
@@ -383,7 +388,7 @@ export default defineType({
       type: "text",
       group: "tools",
       rows: 2,
-      description: d("Tools can be standalone or part of our consulting service..."),
+      description: d("Tools built for secondhand stores. Choose what works best for you."),
     }),
     defineField({
       name: "toolCards",
@@ -408,6 +413,12 @@ export default defineType({
               type: "image",
               options: { hotspot: true },
             },
+            {
+              name: "learnMoreText",
+              title: "Button Text",
+              type: "string",
+              description: 'Default: "Learn More"',
+            },
           ],
           preview: { select: { title: "title", media: "image" } },
         },
@@ -427,7 +438,7 @@ export default defineType({
       title: "Heading",
       type: "string",
       group: "help",
-      description: d("Every kind of retailer. Every category. Every size."),
+      description: d("Built for secondhand businesses."),
     }),
     defineField({
       name: "helpDescription",
@@ -443,7 +454,7 @@ export default defineType({
       type: "text",
       group: "help",
       rows: 3,
-      description: d("We work with all retail categories..."),
+      description: d("For secondhand and resale stores, we have ready-made tools that deploy in hours."),
     }),
     defineField({
       name: "helpCategories",
@@ -582,7 +593,7 @@ export default defineType({
       title: "Email",
       type: "string",
       group: "cta",
-      description: d("hello@ree.com"),
+      description: d("hello@2hand2go.com"),
     }),
   ],
   preview: {

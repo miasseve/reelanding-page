@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useSanityContent, t } from "../SanityProvider";
+import ButtonLink from "../ButtonLink";
 
 const RevealCard = ({ children, index, className = "" }) => {
   const ref = useRef(null);
@@ -134,7 +135,7 @@ const ToolsSection = () => {
             {t(homeContent, "toolsHeading", "Ready to deploy. Proven in the field.")}
           </h2>
           <p className="text-[18px] text-white leading-[24px]">
-            {t(homeContent, "toolsSubheading", "Tools can be standalone or part of our consulting service. Choose what works best for you.")}
+            {t(homeContent, "toolsSubheading", "Tools built for secondhand stores. Choose what works best for you.")}
           </p>
         </div>
 
@@ -144,7 +145,7 @@ const ToolsSection = () => {
           <div className="flex flex-col gap-[16px]">
             <RevealCard
               index={0}
-              className="bg-white p-[20px] rounded-[16px] overflow-hidden h-[220px] sm:w-full sm:h-[323px]"
+              className="bg-white p-[20px] rounded-[16px] overflow-hidden min-h-[220px] sm:w-full sm:min-h-[323px]"
             >
               <PhoneMockup
                 className="h-full w-full"
@@ -155,7 +156,7 @@ const ToolsSection = () => {
 
             <RevealCard
               index={1}
-              className="bg-white rounded-[16px] p-[20px] flex flex-col gap-[16px] sm:h-[473px]"
+              className="bg-white rounded-[16px] p-[20px] flex flex-col gap-[16px] sm:min-h-[473px]"
             >
               <div className="flex gap-[16px] items-start">
                 <div className="flex-1 pl-[20px]">
@@ -182,9 +183,11 @@ const ToolsSection = () => {
                 <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
                   {toolCards[2]?.description || "When our ready tools don\u2019t cover your exact need, we build what does. Our engineering team scopes, builds and delivers custom automations tailored to your workflows, your data and your stack."}
                 </p>
-                <button className="text-[20px] text-[#151515] font-bold py-[8px]">
-                  Learn More
-                </button>
+                <ButtonLink href="#">
+                  <button className="text-[20px] text-[#151515] font-bold py-[8px]">
+                    {toolCards[2]?.learnMoreText || "Learn More"}
+                  </button>
+                </ButtonLink>
               </div>
               {toolCards[2]?.imageUrl && (
                 <PhoneMockup
@@ -200,7 +203,7 @@ const ToolsSection = () => {
           <div className="flex flex-col gap-[16px]">
             <RevealCard
               index={1}
-              className="bg-white rounded-[16px] p-[20px] flex flex-col gap-[16px] sm:h-[473px]"
+              className="bg-white rounded-[16px] p-[20px] flex flex-col gap-[16px] sm:min-h-[473px]"
             >
               <div className="flex gap-[16px] items-start">
                 <div className="flex-1 pl-[20px]">
@@ -210,9 +213,11 @@ const ToolsSection = () => {
                   <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
                     {toolCards[1]?.description || "For unique products or large Ref; keep track instantly with AI-synch."}
                   </p>
-                  <button className="text-[20px] text-[#151515] font-bold py-[8px]">
-                    Learn More
-                  </button>
+                  <ButtonLink href="#">
+                    <button className="text-[20px] text-[#151515] font-bold py-[8px]">
+                      {toolCards[1]?.learnMoreText || "Learn More"}
+                    </button>
+                  </ButtonLink>
                 </div>
               </div>
               <PhoneMockup
@@ -230,9 +235,11 @@ const ToolsSection = () => {
                 <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
                   {toolCards[3]?.description || "Connect POS, ERP, CRM, marketplaces. If connector doesn\u2019t exist \u2014 we build it."}
                 </p>
-                <button className="text-[20px] text-[#151515] font-bold py-[8px]">
-                  Learn More
-                </button>
+                <ButtonLink href="#">
+                  <button className="text-[20px] text-[#151515] font-bold py-[8px]">
+                    {toolCards[3]?.learnMoreText || "Learn More"}
+                  </button>
+                </ButtonLink>
               </div>
               {toolCards[3]?.imageUrl && (
                 <PhoneMockup
@@ -245,7 +252,7 @@ const ToolsSection = () => {
 
             <RevealCard
               index={3}
-              className="bg-white p-[20px] rounded-[16px] overflow-hidden h-[220px] sm:w-full sm:h-[323px]"
+              className="bg-white p-[20px] rounded-[16px] overflow-hidden min-h-[220px] sm:w-full sm:min-h-[323px]"
             >
               <PhoneMockup
                 className="h-full w-full"

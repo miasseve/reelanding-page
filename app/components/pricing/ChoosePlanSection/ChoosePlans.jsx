@@ -61,7 +61,7 @@ const featureRows = [
     { label: "Auto Split payments", cols: [true, true, true, true] },
     { label: "Support", cols: [true, true, true, true] },
     { label: "Instagram integration", cols: [true, true, true, true] },
-    { label: "Get Favorite free by inviting a friend", cols: [true, true, true, false] },
+    { label: "Get a month free by inviting a friend", cols: [true, true, true, false] },
 ];
 
 const comparisonColumns = [

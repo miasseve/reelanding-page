@@ -2,6 +2,7 @@
 
 import React from "react";
 import { useSanityContent, t } from "../SanityProvider";
+import ButtonLink from "../ButtonLink";
 
 const DEFAULT_STATS = [
   { value: "95%", label: "less listing time" },
@@ -21,7 +22,7 @@ export default function HeroSection() {
         <div className="mb-[clamp(14px,2.5vw,22px)]">
           <span className="inline-flex items-center gap-[8px] text-[clamp(11px,1.4vw,13px)] font-medium tracking-[0.18em] uppercase text-[#252525]">
             <span className="inline-block w-7 h-px bg-[#252525]" />
-            {t(homeContent, "heroEyebrow", "Retail Automation Consulting")}
+            {t(homeContent, "heroEyebrow", "2hand2go")}
             <span className="inline-block w-7 h-px bg-[#252525]" />
           </span>
         </div>
@@ -33,17 +34,21 @@ export default function HeroSection() {
 
         {/* Sub-copy */}
         <p className="text-[clamp(16px,1.25vw,16px)] leading-[1.7] text-[#434343] max-w-[660px] mx-auto mb-[clamp(28px,4.5vw,44px)] font-normal">
-          {t(homeContent, "heroSubheadline", "We Are Retail, Fashion, Merchandising And Software Experts. We Find What Is Blocking Your Growth — Even The Problems You Don't See — And We Build Automations That Fix Them.")}
+          {t(homeContent, "heroSubheadline", "We Build Automations That Fix What's Blocking Your Growth — Even The Problems You Don't See.")}
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-wrap justify-center gap-[clamp(10px,2vw,16px)] mb-[clamp(36px,6vw,60px)]">
-          <button className="gradient-btn py-[12px] px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer">
-            {t(homeContent, "heroCtaPrimary", "Book a free audit →")}
-          </button>
-          <button className="border-[1.5px] border-purple-600 py-[12px] px-[35px] rounded-[35px] text-purple-600 leading-[18px] font-medium cursor-pointer">
-            {t(homeContent, "heroCtaSecondary", "How we work")}
-          </button>
+          <ButtonLink href="contact">
+            <button className="gradient-btn py-[12px] px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer">
+              {t(homeContent, "heroCtaPrimary", "Book a free audit →")}
+            </button>
+          </ButtonLink>
+          <ButtonLink href="/#tools">
+            <button className="border-[1.5px] border-purple-600 py-[12px] px-[35px] rounded-[35px] text-purple-600 leading-[18px] font-medium cursor-pointer">
+              {t(homeContent, "heroCtaSecondary", "How we work")}
+            </button>
+          </ButtonLink>
         </div>
 
         {/* Stats */}
@@ -51,7 +56,7 @@ export default function HeroSection() {
           <div className="flex items-center gap-[clamp(10px,2vw,20px)] mb-[clamp(20px,3vw,32px)]">
             <div className="flex-1 h-px bg-[#252525]" />
             <span className="font-semibold text-[12px] sm:text-[13px] md:text-[14px] tracking-[0.12em] uppercase text-[#252525] whitespace-nowrap">
-              Trusted across retail
+              Trusted by secondhand stores
             </span>
             <div className="flex-1 h-px bg-[#252525]" />
           </div>

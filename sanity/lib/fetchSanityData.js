@@ -49,7 +49,7 @@ export async function fetchSanityData() {
 
     const logoUrl = settings.logo
       ? urlFor(settings.logo).height(68).fit("clip").auto("format").url()
-      : "/Icons/reelogo.png";
+      : "/Icons/2hand2go-logo.png";
 
     // Process video
     const video = {
@@ -112,7 +112,7 @@ export async function fetchSanityData() {
   } catch {
     return {
       settings: defaultSiteSettings,
-      logoUrl: "/Icons/reelogo.png",
+      logoUrl: "/Icons/2hand2go-logo.png",
       video: defaultHeroVideo,
       images: defaultImages,
       pageFonts: {},

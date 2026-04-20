@@ -2,6 +2,7 @@
 
 import { Search, Lightbulb, Rocket } from "lucide-react";
 import { useSanityContent, t } from "../SanityProvider";
+import ButtonLink from "../ButtonLink";
 
 const DEFAULT_STEPS = [
   {
@@ -61,7 +62,7 @@ export default function ProcessSection() {
                 <h3 className="text-[18px] mt-[8px]">{item.title}</h3>
               </div>
               <div className="mt-[23px]">
-                <p className="text-[16px] leading-[18px] text-[#252525] h-[70px] overflow-hidden">
+                <p className="text-[16px] leading-[18px] text-[#252525] min-h-[70px]">
                   {item.description || item.desc}
                 </p>
                 <div className="border-t border-[#D9D9D9] mt-[16px] pt-[16px] text-[14px]">
@@ -82,9 +83,11 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        <button className="mt-[24px] sm:mt-[32px] gradient-btn cursor-pointer text-white px-[24px] sm:px-[32px] py-[12px] rounded-full font-medium transition">
-          Start with an audit →
-        </button>
+        <ButtonLink href="contact">
+          <button className="mt-[24px] sm:mt-[32px] gradient-btn cursor-pointer text-white px-[24px] sm:px-[32px] py-[12px] rounded-full font-medium transition">
+            {t(homeContent, "processCta", "Start with an audit →")}
+          </button>
+        </ButtonLink>
       </div>
     </section>
   );

@@ -26,7 +26,6 @@ export default defineType({
       options: {
         list: [
           { title: "Header - Secondhand Dropdown", value: "header-secondhand" },
-          { title: "Header - All Retail Dropdown", value: "header-allretail" },
           { title: "Problem Carousel - Slide 1", value: "carousel-1" },
           { title: "Problem Carousel - Slide 2", value: "carousel-2" },
           { title: "Problem Carousel - Slide 3", value: "carousel-3" },

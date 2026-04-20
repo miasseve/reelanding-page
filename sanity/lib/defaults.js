@@ -2,8 +2,8 @@
 // These match the current hardcoded content so the site works identically without Sanity.
 
 export const defaultSiteSettings = {
-  siteName: "REe | 2hand2go",
-  logo: null, // falls back to /Icons/reelogo.png
+  siteName: "2hand2go",
+  logo: null, // falls back to /Icons/2hand2go-logo.png
   font: "Space_Grotesk",
   fontWeights: ["300", "400", "500", "600", "700"],
 };
@@ -25,10 +25,6 @@ export const defaultImages = {
   "header-secondhand": {
     src: "/Icons/pink_bag.avif",
     alt: "Fashion",
-  },
-  "header-allretail": {
-    src: "/Icons/leestore_img.png",
-    alt: "Lestores",
   },
   "carousel-1": {
     src: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80",

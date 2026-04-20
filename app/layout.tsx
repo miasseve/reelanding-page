@@ -9,11 +9,11 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "REE | 2hand2go",
+  title: "2hand2go",
   description:
-    "We automate what slows you down so you can grow. Retail, fashion, merchandising and software experts.",
+    "All-in-one setup for secondhand businesses. Sell online without extra work.",
   icons: {
-    icon: "/Icons/reelogo.png",
+    icon: "/Icons/2hand2go-logo.png",
   },
 };
 

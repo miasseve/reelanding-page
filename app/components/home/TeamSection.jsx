@@ -3,7 +3,7 @@
 import { ShoppingBag, RefreshCw, ShoppingCart, Code2, LayoutGrid, Users } from "lucide-react";
 import { useSanityContent, t } from "../SanityProvider";
 
-const DEFAULT_EXPERTISE = ["Fashion retail", "Secondhand commerce", "E-commerce", "Software engineering", "Merchandising", "Retail consulting"];
+const DEFAULT_EXPERTISE = ["Secondhand commerce", "Resale operations", "E-commerce", "Software engineering", "Merchandising", "Automation"];
 const ICONS = [
   <ShoppingBag key="sb" size={20} className="text-purple-500" />,
   <RefreshCw key="rw" size={20} className="text-purple-500" />,
@@ -26,10 +26,10 @@ const TeamSection = () => {
             <div className="flex-1 flex flex-col justify-between">
               <div>
                 <h2 className="text-[26px] sm:text-[32px] lg:text-[40px] font-bold leading-[1.1] sm:leading-[1.1] lg:leading-[43px] text-[#252525]">
-                  {t(homeContent, "teamHeading", "Fashion people. Tech people. Retail people. One team.")}
+                  {t(homeContent, "teamHeading", "Secondhand people. Tech people. One team.")}
                 </h2>
                 <p className="text-[15px] sm:text-[16px] lg:text-[18px] font-semibold leading-[22px] sm:leading-[25px] text-[#434343] pt-[12px] sm:pt-[15px]">
-                  {t(homeContent, "teamSubheading", "We are retail professionals and engineers who built the tools we wished existed.")}
+                  {t(homeContent, "teamSubheading", "We are secondhand professionals and engineers who built the tools we wished existed.")}
                 </p>
               </div>
 
@@ -61,7 +61,7 @@ const TeamSection = () => {
               style={{ background: "linear-gradient(to right, #f5f3ff, #ffffff)" }}
             >
               <p className="text-[17px] sm:text-[20px] lg:text-[20px] font-medium text-[#414141] w-full lg:w-[67%]">
-                &quot;{t(homeContent, "teamQuote", "We've spent years on both sides — running retail stores and building software. We know what breaks and we know how to fix it.")}&quot;
+                &quot;{t(homeContent, "teamQuote", "We've spent years on both sides — running secondhand stores and building software. We know what breaks and we know how to fix it.")}&quot;
               </p>
               <p className="text-[15px] sm:text-[16px] lg:text-[18px] text-black leading-[18px] pt-[10px] sm:pt-[12px]">
                 {t(homeContent, "teamQuoteAttribution", "— Founding Team")}

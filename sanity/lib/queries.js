@@ -48,7 +48,12 @@ export const PAGE_FONTS_QUERY = `*[_type == "pageFont"]{
   fontWeights
 }`;
 
-// Page text content
-export const HOME_CONTENT_QUERY = `*[_type == "homeContent"][0]`;
+export const HOME_CONTENT_QUERY = `*[_type == "homeContent"][0]{
+  ...,
+  toolCards[]{
+    ...,
+    "imageUrl": image.asset->url
+  }
+}`;
 export const PRICING_CONTENT_QUERY = `*[_type == "pricingContent"][0]`;
 export const SHARED_CONTENT_QUERY = `*[_type == "sharedContent"][0]`;

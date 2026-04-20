@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { useSanityContent } from "../SanityProvider";
+import ButtonLink from "../ButtonLink";
 
 const Video = () => {
   const { video } = useSanityContent();
@@ -13,6 +14,7 @@ const Video = () => {
     video.heroText ||
     "Share your thoughts, questions, or suggestions on how we can further promote diversity, equity, and inclusivity.";
   const heroButtonText = video.heroButtonText || "Join Us";
+  const heroButtonHref = "contact";
   const instagramUrl = video.instagramUrl || "#";
   const facebookUrl = video.facebookUrl || "#";
 
@@ -27,7 +29,7 @@ const Video = () => {
       }}
     >
       {/* Mobile layout: video on top, text below */}
-      <div className="sm:hidden flex flex-col h-[calc(105svh+56px)] -mt-[56px]">
+      <div className="sm:hidden flex flex-col min-h-[calc(105svh+56px)] -mt-[56px]">
         <div className="relative w-full aspect-[9/5] shrink-0 mt-[56px]">
           {!videoLoaded && (
             <div className="absolute inset-0 z-10 bg-black/20 flex items-center justify-center">
@@ -56,9 +58,11 @@ const Video = () => {
           <p className="text-[20px] leading-[1.55] text-white/80 mb-10">
             {heroText}
           </p>
-          <button className="w-full border-2 border-white py-[18px] rounded-full text-white text-[20px] font-medium cursor-pointer hover:bg-white/10 transition-colors">
-            {heroButtonText}
-          </button>
+          <ButtonLink href={heroButtonHref}>
+            <button className="w-full border-2 border-white py-[18px] rounded-full text-white text-[20px] font-medium cursor-pointer hover:bg-white/10 transition-colors">
+              {heroButtonText}
+            </button>
+          </ButtonLink>
 
           <div className="mt-12">
             <p className="text-[15px] font-semibold tracking-[0.15em] uppercase mb-[14px]">
@@ -92,9 +96,11 @@ const Video = () => {
           </p>
 
           <div>
-            <button className="border-2 border-white py-[14px] px-[40px] rounded-full text-white text-[clamp(15px,1.1vw,17px)] font-medium cursor-pointer hover:bg-white/10 transition-colors">
-              {heroButtonText}
-            </button>
+            <ButtonLink href={heroButtonHref}>
+              <button className="border-2 border-white py-[14px] px-[40px] rounded-full text-white text-[clamp(15px,1.1vw,17px)] font-medium cursor-pointer hover:bg-white/10 transition-colors">
+                {heroButtonText}
+              </button>
+            </ButtonLink>
           </div>
 
           <div className="mt-[clamp(40px,6vw,80px)]">
