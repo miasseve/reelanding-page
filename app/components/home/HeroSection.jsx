@@ -16,7 +16,7 @@ export default function HeroSection() {
 
   return (
     <section className="bg-[#f0ebe3] py-[56px] flex flex-col justify-center">
-      <div className="w-full max-w-[900px] mx-auto px-[clamp(20px,5vw,48px)] py-[clamp(48px,8vw,96px)] text-center">
+      <div className="w-full max-w-[900px] mx-auto px-[16px] sm:px-[clamp(20px,5vw,48px)] py-[clamp(48px,8vw,96px)] text-center">
 
         {/* Eyebrow tag */}
         <div className="mb-[clamp(14px,2.5vw,22px)]">
@@ -69,7 +69,7 @@ export default function HeroSection() {
           <div className="flex justify-center items-stretch">
             {stats.map((s, i) => (
               <React.Fragment key={s.value}>
-                <div className="flex-1 min-w-0 text-left px-[clamp(8px,2.5vw,28px)] py-[clamp(8px,1.5vw,12px)]">
+                <div className="flex-1 min-w-0 text-center sm:text-left px-[clamp(4px,2.5vw,28px)] py-[clamp(8px,1.5vw,12px)]">
                   <div className="font-bold text-[28px] sm:text-[36px] md:text-[42px] leading-[1.1] text-[#252525] mb-1 whitespace-nowrap">
                     {s.value}
                   </div>
