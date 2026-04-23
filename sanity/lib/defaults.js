@@ -9,16 +9,10 @@ export const defaultSiteSettings = {
 };
 
 export const defaultHeroVideo = {
-videoUrl: "/ree_mainvideo.mp4",
+  videoUrl: "/ree_mainvideo.mp4",
   mobileVideoUrl: "/ree_mainvideo.mp4",
   gradientFrom: "#7C3AED",
   gradientTo: "#EC4899",
-  heroTitle: "We'd love to hear from you.",
-  heroText:
-    "Share your thoughts, questions, or suggestions on how we can further promote diversity, equity, and inclusivity.",
-  heroButtonText: "Contact Us",
-  instagramUrl: "#",
-  facebookUrl: "#",
 };
 
 export const defaultImages = {

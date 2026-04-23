@@ -15,7 +15,7 @@ export default defineType({
     heroTitle: "YOUR WAY, YOUR SYSTEM",
     heroSubtitle: "WITH YOUR WEBSTORE",
     heroBody:
-      "All product registration, synchronisation, and dev work — done for you. No staff needed.",
+      "All product registration, synchronisation, and dev work done for you. No staff needed.",
     calcLabel: "Cost calculator",
     calcHeading: "How much is manual work costing you?",
     calcDescription:
@@ -49,7 +49,7 @@ export default defineType({
       type: "text",
       group: "hero",
       rows: 2,
-      description: d("All product registration, synchronisation, and dev work — done for you. No staff needed."),
+      description: d("All product registration, synchronisation, and dev work done for you. No staff needed."),
     }),
     defineField({
       name: "calcLabel",

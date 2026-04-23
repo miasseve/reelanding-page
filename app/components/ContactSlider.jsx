@@ -175,7 +175,7 @@ const ContactSlider = ({ isOpen, onClose }) => {
               >
                 <option value="" disabled>Select an option...</option>
                 <option value="General Inquiry">General Inquiry</option>
-                <option value="Book an Audit">Book an Audit</option>
+                <option value="Book a workflow review">Book a workflow review</option>
                 <option value="Tool Demo">Tool Demo</option>
                 <option value="Technical Support">Technical Support</option>
                 <option value="Billing / Subscription">Billing / Subscription</option>

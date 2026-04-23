@@ -6,33 +6,33 @@ import { useSanityContent } from "../SanityProvider";
 const defaultSlides = [
   {
     id: 1,
-    title: "Products sitting unlisted while customers look elsewhere",
-    desc: "Every day an item isn't live is a day it can't sell. Manual listing slows your entire revenue cycle.",
-    img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80",
+    title: "Time loss you can't measure",
+    desc: "Minutes per product add up to whole days each month. You feel the overload, but you can't see where the hours go.",
+    img: "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&q=80",
   },
   {
     id: 2,
-    title: "Stock out of sync across channels",
+    title: "No time to learn new systems",
+    desc: "Every new tool promises to help but steals a week of setup. You need something that fits your current routine.",
+    img: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&q=80",
+  },
+  {
+    id: 3,
+    title: "Manual listing is too slow for unique items",
+    desc: "Every secondhand product is one-of-a-kind. Writing titles, descriptions, and prices one by one kills your pipeline.",
+    img: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80",
+  },
+  {
+    id: 4,
+    title: "Physical and online stock out of sync",
     desc: "Selling the same item twice. Customers arriving for something already gone. Manual updates that are always behind.",
     img: "https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=600&q=80",
   },
   {
-    id: 3,
-    title: "Hidden admin crushing your team's capacity",
-    desc: "Before we audit a store, we calculate the real cost. It's almost always higher than the owner expects.",
-    img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80",
-  },
-  {
-    id: 4,
-    title: "Growth capped by process, not potential",
-    desc: "You can't scale what you can't automate. We find the ceiling and remove it.",
-    img: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80",
-  },
-  {
     id: 5,
-    title: "Tools that don't talk to each other",
-    desc: "Most retailers have tools  but they weren't built for your workflow and no one is accountable for the outcome.",
-    img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80",
+    title: "Admin kills your margin",
+    desc: "Consignor splits, payments, reconciliation — the invisible work eats the profit on every sale.",
+    img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
   },
 ];
 

@@ -8,7 +8,7 @@ export default defineType({
   title: "Home Page Content",
   type: "document",
   groups: [
-    { name: "hero", title: "Hero Section" },
+    { name: "card", title: "Info Card (below Video)" },
     { name: "retailerCta", title: "Retailer CTA" },
     { name: "problems", title: "Problem Carousel" },
     { name: "process", title: "Process Section" },
@@ -20,113 +20,130 @@ export default defineType({
   ],
   // Pre-fill ALL fields when the document is first created
   initialValue: {
-    heroEyebrow: "2hand2go",
-    heroHeadline: "WE AUTOMATE WHAT SLOWS YOU DOWN. SO YOU CAN GROW.",
-    heroSubheadline:
-      "We Build Automations That Fix What's Blocking Your Growth — Even The Problems You Don't See.",
-    heroStats: [
-      { _type: "object", value: "95%", label: "less listing time" },
-      { _type: "object", value: "+30%", label: "average revenue increase" },
-      { _type: "object", value: "1", label: "minute per product" },
+    // ── Info Card (below Video) ──
+    cardEyebrow: "THE 2HAND2GO WORKFLOW",
+    cardHeadline: "Zero intake admin. 1 picture = full workflow.",
+    cardBody:
+      "Expert in unique product handling. We automate your workflow from 1 picture: multichannel listing, synchronisation and admin. Save 13 minutes per item and sell across every channel with one action.",
+    cardCtaPrimary: "Start for free",
+    cardCtaSecondary: "How it works",
+    cardReassurance:
+      "We handle your next product batch free, so you can see how fast and simple it is in your own store.",
+    cardLongReassurance:
+      "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Start taking pictures or uploading on List and the rest runs automatically.",
+    cardStats: [
+      { _type: "object", value: "13×", label: "less listing workload" },
+      { _type: "object", value: "20×", label: "less work with web listing" },
+      { _type: "object", value: "1", label: "picture per product" },
     ],
-    heroCtaPrimary: "Book a free audit →",
-    heroCtaSecondary: "How we work",
     retailerHeading:
-      "Most Retailers Lose Time And Money To Manual Work — They Just Don't Know How Much.",
+      "Nothing changes in your store routine. The work just gets faster.",
     retailerBody:
-      "Every hour spent on repetitive tasks is an hour not spent selling and growing. Most of this can be automated.",
-    retailerCta: "Get a free audit →",
+      "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Start taking pictures or uploading on List and the rest runs automatically.",
+    retailerCta: "Book Mia now",
     problems: [
       {
         _type: "object",
-        title: "Products sitting unlisted while customers look elsewhere",
-        desc: "Every day an item isn't live is a day it can't sell. Manual listing slows your entire revenue cycle.",
+        title: "Time loss you can't measure",
+        desc: "Minutes per product add up to whole days each month. You feel the overload, but you can't see where the hours go.",
       },
       {
         _type: "object",
-        title: "Stock out of sync across channels",
+        title: "No time to learn new systems",
+        desc: "Every new tool promises to help but steals a week of setup. You need something that fits your current routine.",
+      },
+      {
+        _type: "object",
+        title: "Manual listing is too slow for unique items",
+        desc: "Every secondhand product is one-of-a-kind. Writing titles, descriptions, and prices one by one kills your pipeline.",
+      },
+      {
+        _type: "object",
+        title: "Physical and online stock out of sync",
         desc: "Selling the same item twice. Customers arriving for something already gone. Manual updates that are always behind.",
       },
       {
         _type: "object",
-        title: "Hidden admin crushing your team's capacity",
-        desc: "Before we audit a store, we calculate the real cost. It's almost always higher than the owner expects.",
-      },
-      {
-        _type: "object",
-        title: "Growth capped by process, not potential",
-        desc: "You can't scale what you can't automate. We find the ceiling and remove it.",
-      },
-      {
-        _type: "object",
-        title: "Tools that don't talk to each other",
-        desc: "Most retailers have tools but they weren't built for your workflow and no one is accountable for the outcome.",
+        title: "Admin kills your margin",
+        desc: "Consignor splits, payments, reconciliation — the invisible work eats the profit on every sale.",
       },
     ],
-    processHeading: "We come in. We find it. We fix it.",
-    processSubheading: "Four steps. One team. Your operations transformed.",
+    processHeading: "From picture to shoppable — in one flow.",
+    processSubheading: "Just take or upload 1 picture. The rest is handled automatically.",
     processSteps: [
       {
         _type: "object",
         label: "Step 1",
-        title: "Audit",
-        description:
-          "We map manual work and lost time. We show the cost in time and money.",
-        deliverable: "Automation opportunity map.",
+        title: "Take or upload 1 picture",
+        description: "Snap a quick photo of the product. That's your only manual step.",
+        deliverable: "Your single action.",
       },
       {
         _type: "object",
         label: "Step 2",
-        title: "Recommend",
-        description:
-          "We design the right automation setup. Ready tools when possible. Custom builds if needed.",
-        deliverable: "Custom roadmap.",
+        title: "Get a ready product listing",
+        description: "Title, description, category, and price suggestions — generated automatically.",
+        deliverable: "Ready to publish.",
       },
       {
         _type: "object",
         label: "Step 3",
-        title: "Build & Deploy",
-        description: "We implement everything.",
-        deliverable: "Live automations.",
+        title: "Go live instantly",
+        description: "Product is published across your connected channels in one click.",
+        deliverable: "Shoppable everywhere.",
+      },
+      {
+        _type: "object",
+        label: "Step 4",
+        title: "Stay synced automatically",
+        description: "Stock updates in real time across every channel. No double-selling.",
+        deliverable: "Always accurate.",
+      },
+      {
+        _type: "object",
+        label: "Step 5",
+        title: "Complete the sale with less admin",
+        description: "Payments, consignor splits, and reporting handled in the background.",
+        deliverable: "More margin, less work.",
       },
     ],
     processQuote:
-      "If we don't hit the agreed target — we return until we do.",
-    processCta: "Start with an audit →",
-    toolsLabel: "OUR TOOLS",
-    toolsHeading: "Ready to deploy. Proven in the field.",
+      "The customer action is only the picture. Everything else is handled automatically.",
+    processCta: "Try with 1 picture",
+    toolsLabel: "WHAT CHANGES FOR YOU",
+    toolsHeading: "Less manual work. More sold products.",
     toolsSubheading:
-      "Tools built for secondhand stores. Choose what works best for you.",
+      "Reduce your workload by up to 13× on listing and up to 20× when web listing is included.",
     toolCards: [
       {
         _type: "object",
-        title: "Automatic Tagging, Barcode & Digital Passport",
+        title: "One picture, shoppable everywhere",
         description:
-          "Add a product in 1 minute. AI writes description, generates barcode, prints label.",
+          "Take or upload 1 picture. The product is shoppable across every channel you use — no extra steps from your team.",
       },
       {
         _type: "object",
-        title: "Physical & E-com AI-synch",
+        title: "Stock stays in sync automatically",
         description:
-          "For unique products or large Ref; keep track instantly with AI-synch.",
+          "Physical and online inventory update in real time. No double-selling, no manual updates, no stale listings.",
       },
       {
         _type: "object",
-        title: "Custom Development",
+        title: "Consignor handling without the DMs",
         description:
-          "When our ready tools don't cover your exact need, we build what does. Our engineering team scopes, builds and delivers custom automations tailored to your workflows, your data and your stack.",
+          "Consignors access their own information directly. You stop being the middle person for every status update.",
       },
       {
         _type: "object",
-        title: "Plugins & Integrations",
+        title: "Split payments run themselves",
         description:
-          "Connect POS, ERP, CRM, marketplaces. If connector doesn't exist — we build it.",
+          "Accounting and consignor splits are automatic. Less admin, higher margin, cleaner reporting.",
       },
     ],
-    helpLabel: "WHO WE HELP",
-    helpHeading: "Built for secondhand businesses.",
+    helpLabel: "OUR SOLUTIONS",
+    helpHeading: "Two solutions. One secondhand workflow.",
     helpDescription:
-      "Whether you run a vintage boutique, a resale store, or a consignment shop — if manual listing is slowing you down, we can fix it.",
+      "Use List to get products shoppable. Add Web to sell through your own branded webstore. Use both together for the full 2hand2go setup.",
     helpBody:
       "For secondhand and resale stores, we have ready-made tools that deploy in hours.",
     helpCategories: [
@@ -136,7 +153,7 @@ export default defineType({
       "Pre-loved specialists",
     ],
     helpQuote:
-      "The online store for store owners who didn't want an online store.",
+      "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Start taking pictures or uploading on List and the rest runs automatically.",
     teamHeading: "Secondhand people. Tech people. One team.",
     teamSubheading:
       "We are secondhand professionals and engineers who built the tools we wished existed.",
@@ -156,89 +173,117 @@ export default defineType({
     faqItems: [
       {
         _type: "object",
-        question: "WHY USE YOU IF WE ALREADY HAVE TOOLS?",
+        question: "WHY USE 2HAND2GO IF WE ALREADY HAVE TOOLS?",
         answer:
-          "Most tools solve one problem. We connect everything — your POS, webstore, inventory, and team workflows — into one automated system. We also handle the gaps your current tools leave behind.",
+          "Most tools solve one problem. 2hand2go connects your listing, stock, channels, and webstore into one flow starting from 1 picture. We don't replace what works in your store. We remove the manual work around it.",
       },
       {
         _type: "object",
         question: "IS THIS ONLY FOR SECONDHAND STORES?",
         answer:
-          "Yes. 2hand2go is built specifically for secondhand businesses — resale stores, consignment shops, vintage boutiques, and pre-loved specialists.",
+          "Yes. 2hand2go is built specifically for secondhand businesses resale stores, consignment shops, vintage boutiques, and pre-loved specialists.",
       },
       {
         _type: "object",
-        question: "WHAT DOES GUARANTEE MEAN?",
+        question: "DO I NEED TO CHANGE MY TEAM'S ROUTINE?",
         answer:
-          "We agree on a target upfront — for example, 60 hours saved per month. We measure it. If we don't hit it, we keep working until we do. No extra charge.",
+          "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Start taking pictures or uploading on List and the rest runs automatically.",
       },
       {
         _type: "object",
-        question: "HOW FAST DO WE SEE RESULTS?",
+        question: "HOW FAST CAN I GO LIVE?",
         answer:
-          "Most clients see measurable time savings within the first two weeks of deployment. Full impact is typically visible within 30-60 days.",
+          "List works from day one — we handle your next product batch free so you can see it in your own store. 2hand2go Web launches in 3 days: fully branded, synced, and ready to sell.",
       },
       {
         _type: "object",
-        question: "CAN WE START SMALL?",
+        question: "CAN I START WITH JUST LIST OR JUST WEB?",
         answer:
-          "Yes. We offer a standalone audit with no commitment to continue. Many clients start with one automation and expand from there.",
+          "Yes. You can start with either solution and add the other later. Most stores use both together for the full 2hand2go setup List gets products shoppable, Web is where they sell.",
       },
       {
         _type: "object",
         question: "WHAT IF MY TEAM ISN'T TECHNICAL?",
         answer:
-          "That's exactly who we build for. We handle all implementation and provide hands-on training. Your team just uses the result.",
+          "The only manual step is taking or uploading 1 picture. No developer brief, no complex configuration. If your team can send a picture, they can use 2hand2go.",
       },
       {
         _type: "object",
-        question: "WHAT DOES THE DAY RATE INCLUDE?",
+        question: "WHAT'S INCLUDED IN THE PLAN?",
         answer:
-          "Everything: discovery, build, testing, deployment, and documentation. No hidden costs. You know the scope and price before we start.",
+          "Your plan covers the full 2hand2go setup: listing automation, channel sync, consignor portal, and automatic payment splits. See the Pricing page for current plans and what each one includes.",
       },
     ],
     ctaHeading:
-      "Stop doing manually what a machine can do better. Start growing.",
-    ctaPrimary: "Book a free audit →",
-    ctaSecondary: "Try tool free",
+      "Sell secondhand online, without extra work.",
+    ctaPrimary: "Try with 1 picture",
+    ctaSecondary: "Launch your webstore in 3 days",
     ctaQuote:
-      "We built these tools because we needed them ourselves. Now we're sharing them with retailers who want to grow without burning out.",
+      "We built these tools because we needed them ourselves. Now we're sharing them with secondhand businesses who want to grow without burning out.",
     ctaQuoteAttribution: "— Founding Team",
     ctaPhone: "+000 000 0000",
     ctaEmail: "mia@le-stores.com",
   },
   fields: [
-    // ── Hero Section ──
+    // ── Info Card (below Video) ──
     defineField({
-      name: "heroEyebrow",
+      name: "cardEyebrow",
       title: "Eyebrow Tag",
       type: "string",
-      group: "hero",
-      description: d("2hand2go"),
+      group: "card",
+      description: d("THE 2HAND2GO WORKFLOW"),
     }),
     defineField({
-      name: "heroHeadline",
+      name: "cardHeadline",
       title: "Headline",
       type: "string",
-      group: "hero",
-      description: d("WE AUTOMATE WHAT SLOWS YOU DOWN. SO YOU CAN GROW."),
+      group: "card",
+      description: d("Zero intake admin. 1 picture = full workflow."),
     }),
     defineField({
-      name: "heroSubheadline",
-      title: "Sub-headline",
+      name: "cardBody",
+      title: "Body Text",
       type: "text",
-      group: "hero",
+      group: "card",
       rows: 3,
-      description: d(
-        "We Build Automations That Fix What's Blocking Your Growth..."
-      ),
+      description: d("Expert in unique product handling. We automate your workflow from 1 picture..."),
     }),
     defineField({
-      name: "heroStats",
+      name: "cardCtaPrimary",
+      title: "Primary Button Text",
+      type: "string",
+      group: "card",
+      description: d("Start for free"),
+    }),
+    defineField({
+      name: "cardCtaSecondary",
+      title: "Secondary Button Text",
+      type: "string",
+      group: "card",
+      description: d("How it works"),
+    }),
+    defineField({
+      name: "cardReassurance",
+      title: "Reassurance Line (below buttons)",
+      type: "text",
+      group: "card",
+      rows: 2,
+      description: d("We handle your next product batch free..."),
+    }),
+    defineField({
+      name: "cardLongReassurance",
+      title: "Long Reassurance Line (bottom)",
+      type: "text",
+      group: "card",
+      rows: 3,
+      description: d("No new habits for your team..."),
+    }),
+    defineField({
+      name: "cardStats",
       title: "Stats",
       type: "array",
-      group: "hero",
-      description: "Default: 95% less listing time, +30% avg revenue, 1 min per product. Remove all items to restore defaults.",
+      group: "card",
+      description: "Default: 13× / 20× / 1. Remove all items to restore defaults.",
       of: [
         {
           type: "object",
@@ -252,20 +297,6 @@ export default defineType({
         },
       ],
     }),
-    defineField({
-      name: "heroCtaPrimary",
-      title: "Primary Button Text",
-      type: "string",
-      group: "hero",
-      description: d("Book a free audit →"),
-    }),
-    defineField({
-      name: "heroCtaSecondary",
-      title: "Secondary Button Text",
-      type: "string",
-      group: "hero",
-      description: d("How we work"),
-    }),
 
     // ── Retailer CTA ──
     defineField({
@@ -274,7 +305,7 @@ export default defineType({
       type: "text",
       group: "retailerCta",
       rows: 2,
-      description: d("Most Retailers Lose Time And Money To Manual Work..."),
+      description: d("Nothing changes in your store routine. The work just gets faster."),
     }),
     defineField({
       name: "retailerBody",
@@ -282,14 +313,14 @@ export default defineType({
       type: "text",
       group: "retailerCta",
       rows: 2,
-      description: d("Every hour spent on repetitive tasks..."),
+      description: d("No new habits for your team..."),
     }),
     defineField({
       name: "retailerCta",
       title: "Button Text",
       type: "string",
       group: "retailerCta",
-      description: d("Get a free audit →"),
+      description: d("Book Mia now"),
     }),
 
     // ── Problem Carousel ──
@@ -317,14 +348,14 @@ export default defineType({
       title: "Heading",
       type: "string",
       group: "process",
-      description: d("We come in. We find it. We fix it."),
+      description: d("From picture to shoppable — in one flow."),
     }),
     defineField({
       name: "processSubheading",
       title: "Sub-heading",
       type: "string",
       group: "process",
-      description: d("Four steps. One team. Your operations transformed."),
+      description: d("Just take or upload 1 picture. The rest is handled automatically."),
     }),
     defineField({
       name: "processSteps",
@@ -356,7 +387,7 @@ export default defineType({
       type: "string",
       group: "process",
       description: d(
-        "If we don't hit the agreed target — we return until we do."
+        "The customer action is only the picture. Everything else is handled automatically."
       ),
     }),
     defineField({
@@ -364,7 +395,7 @@ export default defineType({
       title: "Button Text",
       type: "string",
       group: "process",
-      description: d("Start with an audit →"),
+      description: d("Try with 1 picture"),
     }),
 
     // ── Tools Section ──
@@ -373,14 +404,14 @@ export default defineType({
       title: "Section Label",
       type: "string",
       group: "tools",
-      description: d("OUR TOOLS"),
+      description: d("WHAT CHANGES FOR YOU"),
     }),
     defineField({
       name: "toolsHeading",
       title: "Heading",
       type: "string",
       group: "tools",
-      description: d("Ready to deploy. Proven in the field."),
+      description: d("Less manual work. More sold products."),
     }),
     defineField({
       name: "toolsSubheading",
@@ -388,7 +419,7 @@ export default defineType({
       type: "text",
       group: "tools",
       rows: 2,
-      description: d("Tools built for secondhand stores. Choose what works best for you."),
+      description: d("Reduce your workload by up to 13× on listing and up to 20× when web listing is included."),
     }),
     defineField({
       name: "toolCards",
@@ -431,14 +462,14 @@ export default defineType({
       title: "Section Label",
       type: "string",
       group: "help",
-      description: d("WHO WE HELP"),
+      description: d("OUR SOLUTIONS"),
     }),
     defineField({
       name: "helpHeading",
       title: "Heading",
       type: "string",
       group: "help",
-      description: d("Built for secondhand businesses."),
+      description: d("Two solutions. One secondhand workflow."),
     }),
     defineField({
       name: "helpDescription",
@@ -446,7 +477,7 @@ export default defineType({
       type: "text",
       group: "help",
       rows: 3,
-      description: d("Whether you run a vintage boutique..."),
+      description: d("Use List to get products shoppable. Add Web to sell through your own branded webstore..."),
     }),
     defineField({
       name: "helpBody",
@@ -469,7 +500,7 @@ export default defineType({
       title: "Quote",
       type: "string",
       group: "help",
-      description: d("The online store for store owners who didn't want an online store."),
+      description: d("No new habits for your team..."),
     }),
 
     // ── Team Section ──
@@ -478,14 +509,14 @@ export default defineType({
       title: "Heading",
       type: "string",
       group: "team",
-      description: d("Fashion people. Tech people. Retail people. One team."),
+      description: d("Secondhand people. Tech people. One team."),
     }),
     defineField({
       name: "teamSubheading",
       title: "Sub-heading",
       type: "string",
       group: "team",
-      description: d("We are retail professionals and engineers who built the tools we wished existed."),
+      description: d("We are secondhand professionals and engineers who built the tools we wished existed."),
     }),
     defineField({
       name: "teamExpertise",
@@ -501,7 +532,7 @@ export default defineType({
       type: "text",
       group: "team",
       rows: 2,
-      description: d("We've spent years on both sides — running retail stores and building software..."),
+      description: d("We've spent years on both sides — running secondhand stores and building software..."),
     }),
     defineField({
       name: "teamQuoteAttribution",
@@ -550,21 +581,21 @@ export default defineType({
       title: "Heading",
       type: "string",
       group: "cta",
-      description: d("Stop doing manually what a machine can do better. Start growing."),
+      description: d("Sell secondhand online, without extra work."),
     }),
     defineField({
       name: "ctaPrimary",
       title: "Primary Button Text",
       type: "string",
       group: "cta",
-      description: d("Book a free audit →"),
+      description: d("Book Mia now"),
     }),
     defineField({
       name: "ctaSecondary",
       title: "Secondary Button Text",
       type: "string",
       group: "cta",
-      description: d("Try tool free"),
+      description: d("Launch your webstore in 3 days"),
     }),
     defineField({
       name: "ctaQuote",

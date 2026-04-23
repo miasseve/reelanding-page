@@ -54,11 +54,14 @@ export async function fetchSanityData() {
       mobileVideoUrl: videoData?.mobileVideoUrl || defaultHeroVideo.mobileVideoUrl,
       gradientFrom: videoData?.gradientFrom || defaultHeroVideo.gradientFrom,
       gradientTo: videoData?.gradientTo || defaultHeroVideo.gradientTo,
-      heroTitle: videoData?.heroTitle || defaultHeroVideo.heroTitle,
-      heroText: videoData?.heroText || defaultHeroVideo.heroText,
-      heroButtonText: videoData?.heroButtonText || defaultHeroVideo.heroButtonText,
-      instagramUrl: videoData?.instagramUrl || defaultHeroVideo.instagramUrl,
-      facebookUrl: videoData?.facebookUrl || defaultHeroVideo.facebookUrl,
+      heroHeadline: videoData?.heroHeadline || null,
+      heroSubheadline: videoData?.heroSubheadline || null,
+      heroCtaPrimary: videoData?.heroCtaPrimary || null,
+      heroCtaSecondary: videoData?.heroCtaSecondary || null,
+      heroReassurance: videoData?.heroReassurance || null,
+      heroLongReassurance: videoData?.heroLongReassurance || null,
+      instagramUrl: videoData?.instagramUrl || null,
+      facebookUrl: videoData?.facebookUrl || null,
     };
 
     // Process images

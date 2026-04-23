@@ -42,20 +42,20 @@ const PhoneMockup = ({ className = "", imageSrc, imageAlt }) => (
 
 const defaultToolCards = [
   {
-    title: "Automatic Tagging, Barcode & Digital Passport",
-    description: "Add a product in 1 minute. AI writes description, generates barcode, prints label.",
+    title: "One picture, shoppable everywhere",
+    description: "Take or upload 1 picture. The product is shoppable across every channel you use — no extra steps from your team.",
   },
   {
-    title: "Physical & E-com AI-synch",
-    description: "For unique products or large Ref; keep track instantly with AI-synch.",
+    title: "Stock stays in sync automatically",
+    description: "Physical and online inventory update in real time. No double-selling, no manual updates, no stale listings.",
   },
   {
-    title: "Custom Development",
-    description: "When our ready tools don\u2019t cover your exact need, we build what does. Our engineering team scopes, builds and delivers custom automations tailored to your workflows, your data and your stack.",
+    title: "Consignor handling without the DMs",
+    description: "Consignors access their own information directly. You stop being the middle person for every status update.",
   },
   {
-    title: "Plugins & Integrations",
-    description: "Connect POS, ERP, CRM, marketplaces. If connector doesn\u2019t exist \u2014 we build it.",
+    title: "Split payments run themselves",
+    description: "Accounting and consignor splits are automatic. Less admin, higher margin, cleaner reporting.",
   },
 ];
 
@@ -129,13 +129,13 @@ const ToolsSection = () => {
       <div className="max-w-[1040px] mx-auto relative z-10">
         <div className="text-center mb-[48px]">
           <p className="text-[20px] font-medium leading-[40px] text-white">
-            {t(homeContent, "toolsLabel", "OUR TOOLS")}
+            {t(homeContent, "toolsLabel", "WHAT CHANGES FOR YOU")}
           </p>
           <h2 className="text-white text-[30px] sm:text-[36px] md:text-[42px] font-bold leading-tight mb-[16px]">
-            {t(homeContent, "toolsHeading", "Ready to deploy. Proven in the field.")}
+            {t(homeContent, "toolsHeading", "Less manual work. More sold products.")}
           </h2>
           <p className="text-[18px] text-white leading-[24px]">
-            {t(homeContent, "toolsSubheading", "Tools built for secondhand stores. Choose what works best for you.")}
+            {t(homeContent, "toolsSubheading", "Reduce your workload by up to 13× on listing and up to 20× when web listing is included.")}
           </p>
         </div>
 
@@ -161,10 +161,10 @@ const ToolsSection = () => {
               <div className="flex gap-[16px] items-start">
                 <div className="flex-1 pl-[20px]">
                   <h3 className="pt-[10px] text-[21px] leading-[22px] font-medium text-[#000]">
-                    {toolCards[0]?.title || "Automatic Tagging, Barcode & Digital Passport"}
+                    {toolCards[0]?.title || defaultToolCards[0].title}
                   </h3>
                   <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
-                    {toolCards[0]?.description || "Add a product in 1 minute. AI writes description, generates barcode, prints label."}
+                    {toolCards[0]?.description || defaultToolCards[0].description}
                   </p>
                 </div>
               </div>
@@ -178,10 +178,10 @@ const ToolsSection = () => {
             <RevealCard index={2} className="bg-white rounded-[16px] p-[20px]">
               <div className="flex-1 pl-[20px]">
                 <h3 className="pt-[10px] text-[21px] leading-[22px] font-medium text-[#000]">
-                  {toolCards[2]?.title || "Custom Development"}
+                  {toolCards[2]?.title || defaultToolCards[2].title}
                 </h3>
                 <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
-                  {toolCards[2]?.description || "When our ready tools don\u2019t cover your exact need, we build what does. Our engineering team scopes, builds and delivers custom automations tailored to your workflows, your data and your stack."}
+                  {toolCards[2]?.description || defaultToolCards[2].description}
                 </p>
                 <ButtonLink href="#">
                   <button className="text-[20px] text-[#151515] font-bold py-[8px]">
@@ -208,10 +208,10 @@ const ToolsSection = () => {
               <div className="flex gap-[16px] items-start">
                 <div className="flex-1 pl-[20px]">
                   <h3 className="pt-[10px] text-[21px] leading-[22px] font-medium text-[#000]">
-                    {toolCards[1]?.title || "Physical & E-com AI-synch"}
+                    {toolCards[1]?.title || defaultToolCards[1].title}
                   </h3>
                   <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
-                    {toolCards[1]?.description || "For unique products or large Ref; keep track instantly with AI-synch."}
+                    {toolCards[1]?.description || defaultToolCards[1].description}
                   </p>
                   <ButtonLink href="#">
                     <button className="text-[20px] text-[#151515] font-bold py-[8px]">
@@ -230,10 +230,10 @@ const ToolsSection = () => {
             <RevealCard index={2} className="bg-white rounded-[16px] p-[20px]">
               <div className="flex-1 pl-[20px]">
                 <h3 className="pt-[10px] text-[21px] leading-[22px] font-medium text-[#000]">
-                  {toolCards[3]?.title || "Plugins & Integrations"}
+                  {toolCards[3]?.title || defaultToolCards[3].title}
                 </h3>
                 <p className="text-[18px] font-normal leading-[25px] pt-[14px] text-[#414141]">
-                  {toolCards[3]?.description || "Connect POS, ERP, CRM, marketplaces. If connector doesn\u2019t exist \u2014 we build it."}
+                  {toolCards[3]?.description || defaultToolCards[3].description}
                 </p>
                 <ButtonLink href="#">
                   <button className="text-[20px] text-[#151515] font-bold py-[8px]">

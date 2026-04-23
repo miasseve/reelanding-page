@@ -6,32 +6,32 @@ import { useSanityContent, t } from "../SanityProvider";
 
 const DEFAULT_FAQS = [
   {
-    question: "WHY USE YOU IF WE ALREADY HAVE TOOLS?",
-    answer: "Most tools solve one problem. We connect everything — your POS, webstore, inventory, and team workflows — into one automated system. We also handle the gaps your current tools leave behind.",
+    question: "WHY USE 2HAND2GO IF WE ALREADY HAVE TOOLS?",
+    answer: "Most tools solve one problem. 2hand2go connects your listing, stock, channels, and webstore into one flow starting from 1 picture. We don't replace what works in your store. We remove the manual work around it.",
   },
   {
     question: "IS THIS ONLY FOR SECONDHAND STORES?",
-    answer: "Yes. 2hand2go is built specifically for secondhand businesses — resale stores, consignment shops, vintage boutiques, and pre-loved specialists.",
+    answer: "Yes. 2hand2go is built specifically for secondhand businesses resale stores, consignment shops, vintage boutiques, and pre-loved specialists.",
   },
   {
-    question: "WHAT DOES GUARANTEE MEAN?",
-    answer: "We agree on a target upfront — for example, 60 hours saved per month. We measure it. If we don't hit it, we keep working until we do. No extra charge.",
+    question: "DO I NEED TO CHANGE MY TEAM'S ROUTINE?",
+    answer: "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Start taking pictures or uploading on List and the rest runs automatically.",
   },
   {
-    question: "HOW FAST DO WE SEE RESULTS?",
-    answer: "Most clients see measurable time savings within the first two weeks of deployment. Full impact is typically visible within 30–60 days.",
+    question: "HOW FAST CAN I GO LIVE?",
+    answer: "List works from day one we handle your next product batch free so you can see it in your own store. 2hand2go Web launches in 3 days: fully branded, synced, and ready to sell.",
   },
   {
-    question: "CAN WE START SMALL?",
-    answer: "Yes. We offer a standalone audit with no commitment to continue. Many clients start with one automation and expand from there.",
+    question: "CAN I START WITH JUST LIST OR JUST WEB?",
+    answer: "Yes. You can start with either solution and add the other later. Most stores use both together for the full 2hand2go setup List gets products shoppable, Web is where they sell.",
   },
   {
     question: "WHAT IF MY TEAM ISN'T TECHNICAL?",
-    answer: "That's exactly who we build for. We handle all implementation and provide hands-on training. Your team just uses the result.",
+    answer: "The only manual step is taking or uploading 1 picture. No developer brief, no complex configuration. If your team can send a picture, they can use 2hand2go.",
   },
   {
-    question: "WHAT DOES THE DAY RATE INCLUDE?",
-    answer: "Everything: discovery, build, testing, deployment, and documentation. No hidden costs. You know the scope and price before we start.",
+    question: "WHAT'S INCLUDED IN THE PLAN?",
+    answer: "Your plan covers the full 2hand2go setup: listing automation, channel sync, consignor portal, and automatic payment splits. See the Pricing page for current plans and what each one includes.",
   },
 ];
 

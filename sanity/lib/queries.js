@@ -14,9 +14,12 @@ export const HERO_VIDEO_QUERY = `*[_type == "heroVideo"] | order(_updatedAt desc
   "mobileVideoUrl": mobileVideoFile.asset->url,
   "gradientFrom": gradientFrom.hex,
   "gradientTo": gradientTo.hex,
-  heroTitle,
-  heroText,
-  heroButtonText,
+  heroHeadline,
+  heroSubheadline,
+  heroCtaPrimary,
+  heroCtaSecondary,
+  heroReassurance,
+  heroLongReassurance,
   instagramUrl,
   facebookUrl
 }`;

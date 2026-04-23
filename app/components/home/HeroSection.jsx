@@ -5,14 +5,14 @@ import { useSanityContent, t } from "../SanityProvider";
 import ButtonLink from "../ButtonLink";
 
 const DEFAULT_STATS = [
-  { value: "95%", label: "less listing time" },
-  { value: "+30%", label: "average revenue increase" },
-  { value: "1", label: "minute per product" },
+  { value: "13×", label: "less listing workload" },
+  { value: "20×", label: "less work with web listing" },
+  { value: "1", label: "picture per product" },
 ];
 
 export default function HeroSection() {
   const { homeContent } = useSanityContent();
-  const stats = homeContent?.heroStats?.length > 0 ? homeContent.heroStats : DEFAULT_STATS;
+  const stats = homeContent?.cardStats?.length > 0 ? homeContent.cardStats : DEFAULT_STATS;
 
   return (
     <section className="bg-[#f0ebe3] py-[56px] flex flex-col justify-center">
@@ -22,34 +22,39 @@ export default function HeroSection() {
         <div className="mb-[clamp(14px,2.5vw,22px)]">
           <span className="inline-flex items-center gap-[8px] text-[clamp(11px,1.4vw,13px)] font-medium tracking-[0.18em] uppercase text-[#252525]">
             <span className="inline-block w-7 h-px bg-[#252525]" />
-            {t(homeContent, "heroEyebrow", "2hand2go")}
+            {t(homeContent, "cardEyebrow", "THE 2HAND2GO WORKFLOW")}
             <span className="inline-block w-7 h-px bg-[#252525]" />
           </span>
         </div>
 
         {/* Headline */}
         <h1 className="font-black text-[32px] sm:text-[clamp(36px,4.5vw,54px)] leading-[1.08] tracking-[-0.01em] text-[#252525] mx-auto mb-[clamp(18px,3vw,28px)] max-w-[820px]">
-          {t(homeContent, "heroHeadline", "WE AUTOMATE WHAT SLOWS YOU DOWN. SO YOU CAN GROW.")}
+          {t(homeContent, "cardHeadline", "Zero intake admin. 1 picture = full workflow.")}
         </h1>
 
         {/* Sub-copy */}
         <p className="text-[clamp(16px,1.25vw,16px)] leading-[1.7] text-[#434343] max-w-[660px] mx-auto mb-[clamp(28px,4.5vw,44px)] font-normal">
-          {t(homeContent, "heroSubheadline", "We Build Automations That Fix What's Blocking Your Growth — Even The Problems You Don't See.")}
+          {t(homeContent, "cardBody", "Expert in unique product handling. We automate your workflow from 1 picture: multichannel listing, synchronisation and admin. Save 13 minutes per item and sell across every channel with one action.")}
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap justify-center gap-[clamp(10px,2vw,16px)] mb-[clamp(36px,6vw,60px)]">
+        <div className="flex flex-wrap justify-center gap-[clamp(10px,2vw,16px)] mb-[clamp(16px,2.5vw,20px)]">
           <ButtonLink href="contact">
             <button className="gradient-btn py-[12px] px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer">
-              {t(homeContent, "heroCtaPrimary", "Book a free audit →")}
+              {t(homeContent, "cardCtaPrimary", "Start for free")}
             </button>
           </ButtonLink>
-          <ButtonLink href="/#tools">
+          <ButtonLink href="/#process">
             <button className="border-[1.5px] border-purple-600 py-[12px] px-[35px] rounded-[35px] text-purple-600 leading-[18px] font-medium cursor-pointer">
-              {t(homeContent, "heroCtaSecondary", "How we work")}
+              {t(homeContent, "cardCtaSecondary", "How it works")}
             </button>
           </ButtonLink>
         </div>
+
+        {/* Reassurance line below buttons */}
+        <p className="text-[clamp(13px,1.1vw,15px)] leading-[1.6] text-[#434343] max-w-[620px] mx-auto mb-[clamp(28px,4vw,44px)] italic">
+          {t(homeContent, "cardReassurance", "We handle your next product batch free, so you can see how fast and simple it is in your own store.")}
+        </p>
 
         {/* Stats */}
         <div className="max-w-[700px] mx-auto">

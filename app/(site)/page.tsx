@@ -8,7 +8,7 @@ import TeamSection from "../components/home/TeamSection";
 import FAQSection from "../components/home/FAQSection";
 import HelpSection from "../components/home/HelpSection";
 import CTASection from "../components/home/CTASection";
-import CalculatorSection from "../components/pricing/CalculaterSection";
+// import CalculatorSection from "../components/pricing/CalculaterSection"; // hidden until redesigned per v11 spec
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
       <ProcessSection />
       <ToolsSection />
       <HelpSection />
-      <CalculatorSection/>
+      {/* <CalculatorSection /> hidden until redesigned per v11 spec */}
       <TeamSection />
       <FAQSection />
       <CTASection />

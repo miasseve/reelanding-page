@@ -8,30 +8,24 @@ import { useSanityContent } from "./SanityProvider";
 
 const NAV_ITEMS = [
   {
-    title: "Secondhand retail",
+    title: "Solutions",
     isDropdown: true,
-    submenuHeading: "Large Volume Unique Product Handling",
+    submenuHeading: "Built for Secondhand Businesses",
     col1: [
       {
-        title: "Automated Webstore",
-        desc: "Webstore and physical store connected in 1 day",
-        href: "#",
-      },
-      { title: "Automatic Bulk Labelling", desc: "", href: "#" },
-      {
-        title: "Solutions",
-        desc: "Explain your need; We solve your inefficiency by adding an automatic tool for it.",
-        href: "#",
+        title: "2hand2go List",
+        desc: "One picture. One ready-to-sell product. Stock synced automatically.",
+        href: "https://re-e.dk/",
       },
     ],
     col2: [
-      { title: "Automatic Product Ad", desc: "", href: "#" },
-      { title: "Automatic Market-Ready", desc: "", href: "#" },
-      { title: "Prices", desc: "", href: "/pricing" },
-      { title: "Calculate savings", desc: "", href: "#calculate" },
+      {
+        title: "2hand2go Web",
+        desc: "Launch your webstore in 3 days. White-label. No developer brief.",
+        href: "/web",
+      },
     ],
   },
-  { title: "Our tools", href: "/#tools", isDropdown: false },
   { title: "Pricing", href: "/pricing", isDropdown: false },
   { title: "FAQ", href: "/#faq", isDropdown: false },
 ];

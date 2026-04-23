@@ -16,17 +16,17 @@ const CTASection = () => {
             {/* Left */}
             <div className="flex-1 flex flex-col justify-between md:pr-[40px] py-[24px] sm:py-[40px] md:py-[64px] lg:py-[80px]">
               <h2 className="text-[26px] sm:text-[32px] lg:text-[40px] font-normal text-black leading-[1.1] sm:leading-[1.15] lg:leading-[42px] pb-[32px] sm:pb-[40px] lg:pb-[61px]">
-                {t(homeContent, "ctaHeading", "Stop doing manually what a machine can do better. Start growing.")}
+                {t(homeContent, "ctaHeading", "Sell secondhand online, without extra work.")}
               </h2>
               <div className="flex items-center gap-[12px] sm:gap-[16px] flex-wrap">
-                <ButtonLink href="contact">
+                <ButtonLink href="https://re-e.dk/">
                   <button className="gradient-btn py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
-                    {t(homeContent, "ctaPrimary", "Book a free audit →")}
+                    {t(homeContent, "ctaPrimary", "Try with 1 picture")}
                   </button>
                 </ButtonLink>
-                <ButtonLink href="/#tools">
+                <ButtonLink href="/web">
                   <button className="bg-[#E6E6E6] py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-[#414141] leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
-                    {t(homeContent, "ctaSecondary", "Try tool free")}
+                    {t(homeContent, "ctaSecondary", "Launch your webstore in 3 days")}
                   </button>
                 </ButtonLink>
               </div>
@@ -44,7 +44,7 @@ const CTASection = () => {
                 </div>
                 <div className="flex-1 sm:w-[70%]">
                   <p className="text-[17px] sm:text-[20px] lg:text-[25px] leading-[1.4] sm:leading-[1.4] lg:leading-[35px] italic text-[#414141]">
-                    &quot;{t(homeContent, "ctaQuote", "We built these tools because we needed them ourselves. Now we're sharing them with retailers who want to grow without burning out.")}&quot;
+                    &quot;{t(homeContent, "ctaQuote", "We built these tools because we needed them ourselves. Now we're sharing them with secondhand businesses who want to grow without burning out.")}&quot;
                   </p>
                   <p className="text-[17px] sm:text-[20px] lg:text-[25px] leading-[1.4] lg:leading-[35px] font-bold text-[#414141]">
                     {t(homeContent, "ctaQuoteAttribution", "— Founding Team")}

@@ -12,10 +12,10 @@ const whoWeHelp = [
 ];
 
 const ourTools = [
-  { label: "Webstore sync", href: "#" },
-  { label: "Tagging & barcode", href: "#" },
-  { label: "Plugins", href: "#" },
-  { label: "Custom development", href: "#" },
+  { label: "2hand2go List", href: "https://re-e.dk/" },
+  { label: "2hand2go Web", href: "/web" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 const company = [
@@ -83,22 +83,38 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* OUR TOOLS */}
+          {/* SOLUTIONS */}
           <div>
             <p className="text-[16px] font-bold tracking-[0.12em] uppercase text-white mb-[6px]">
-              Our Tools
+              Solutions
             </p>
             <div className="flex flex-col gap-[14px]">
-              {ourTools.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  onClick={item.href.startsWith("/#") ? (e) => scrollToHash(e, item.href.slice(2)) : undefined}
-                  className="text-[14px] text-gray-400 leading-[1.4] hover:text-white transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {ourTools.map((item) => {
+                const isExternal = item.href.startsWith("http");
+                if (isExternal) {
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[14px] text-gray-400 leading-[1.4] hover:text-white transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  );
+                }
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={item.href.startsWith("/#") ? (e) => scrollToHash(e, item.href.slice(2)) : undefined}
+                    className="text-[14px] text-gray-400 leading-[1.4] hover:text-white transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
