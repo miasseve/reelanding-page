@@ -85,6 +85,89 @@ export default defineType({
         ],
       },
     }),
+    defineField({
+      name: "navItems",
+      title: "Header Navigation",
+      type: "array",
+      description:
+        "Top-level header menu items. Leave empty to use the built-in defaults.",
+      of: [
+        {
+          type: "object",
+          name: "navItem",
+          fields: [
+            defineField({
+              name: "title",
+              title: "Title",
+              type: "string",
+              validation: (r) => r.required(),
+            }),
+            defineField({
+              name: "href",
+              title: "Link URL",
+              type: "string",
+              description:
+                "e.g. /pricing, /#process, or https://example.com. Leave blank for dropdowns.",
+            }),
+            defineField({
+              name: "isDropdown",
+              title: "Is Dropdown?",
+              type: "boolean",
+              initialValue: false,
+            }),
+            defineField({
+              name: "submenuHeading",
+              title: "Dropdown Heading",
+              type: "string",
+              hidden: ({ parent }) => !parent?.isDropdown,
+            }),
+            defineField({
+              name: "col1",
+              title: "Dropdown Column 1",
+              type: "array",
+              hidden: ({ parent }) => !parent?.isDropdown,
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    defineField({ name: "title", title: "Title", type: "string" }),
+                    defineField({ name: "desc", title: "Description", type: "text", rows: 2 }),
+                    defineField({ name: "href", title: "Link URL", type: "string" }),
+                  ],
+                  preview: { select: { title: "title", subtitle: "href" } },
+                },
+              ],
+            }),
+            defineField({
+              name: "col2",
+              title: "Dropdown Column 2",
+              type: "array",
+              hidden: ({ parent }) => !parent?.isDropdown,
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    defineField({ name: "title", title: "Title", type: "string" }),
+                    defineField({ name: "desc", title: "Description", type: "text", rows: 2 }),
+                    defineField({ name: "href", title: "Link URL", type: "string" }),
+                  ],
+                  preview: { select: { title: "title", subtitle: "href" } },
+                },
+              ],
+            }),
+          ],
+          preview: {
+            select: { title: "title", isDropdown: "isDropdown", href: "href" },
+            prepare({ title, isDropdown, href }) {
+              return {
+                title,
+                subtitle: isDropdown ? "Dropdown" : href || "—",
+              };
+            },
+          },
+        },
+      ],
+    }),
   ],
   preview: {
     prepare() {

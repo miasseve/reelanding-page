@@ -213,8 +213,11 @@ export default function ChoosePlans() {
 
                             {/* CTA */}
                             <div className="mt-4">
-                                <button
-                                    className="w-full py-3.5 rounded-2xl border text-[16px] font-semibold transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98]"
+                                <a
+                                    href="https://re-e.dk/try/subscription-plan"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block w-full py-3.5 rounded-2xl border text-[16px] font-semibold text-center transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.98]"
                                     style={{
                                         borderColor: tier.accentColor + "66",
                                         background: tier.popular
@@ -236,7 +239,7 @@ export default function ChoosePlans() {
                                     }}
                                 >
                                     Get started
-                                </button>
+                                </a>
                             </div>
                         </div>
                     ))}

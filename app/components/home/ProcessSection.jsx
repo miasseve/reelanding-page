@@ -50,10 +50,10 @@ export default function ProcessSection() {
   const steps = homeContent?.processSteps?.length > 0 ? homeContent.processSteps : DEFAULT_STEPS;
 
   return (
-    <section className="bg-white py-[48px] sm:py-[64px] md:py-[96px] px-[16px] sm:px-[24px] lg:mx-[64px] lg:my-[80px]">
+    <section id="process" className="bg-white py-[48px] sm:py-[64px] md:py-[96px] px-[16px] sm:px-[24px] lg:mx-[64px] lg:my-[80px] scroll-mt-[80px]">
       <div className="w-full max-w-[95%] sm:max-w-[85%] md:max-w-[75%] lg:max-w-[77%] mx-auto text-center">
         <h2 className="text-[26px] sm:text-[32px] md:text-[40px] font-bold leading-[32px] sm:leading-[38px] md:leading-[43px] text-[#252525]">
-          {t(homeContent, "processHeading", "From picture to shoppable — in one flow.")}
+          {t(homeContent, "processHeading", "From picture to shoppable in one flow.")}
         </h2>
 
         <p className="text-[15px] sm:text-[16px] md:text-[18px] font-medium mt-[12px] leading-[24px] sm:leading-[27px] md:leading-[30px] text-[#434343]">
@@ -107,7 +107,7 @@ export default function ProcessSection() {
           </div>
         </div>
 
-        <ButtonLink href="https://re-e.dk/">
+        <ButtonLink href="https://re-e.dk/try/add-product">
           <button className="mt-[24px] sm:mt-[32px] gradient-btn cursor-pointer text-white px-[24px] sm:px-[32px] py-[12px] rounded-full font-medium transition">
             {t(homeContent, "processCta", "Try with 1 picture")}
           </button>

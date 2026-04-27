@@ -4,7 +4,15 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
   siteName,
   logo,
   font,
-  fontWeights
+  fontWeights,
+  navItems[]{
+    title,
+    href,
+    isDropdown,
+    submenuHeading,
+    col1[]{ title, desc, href },
+    col2[]{ title, desc, href }
+  }
 }`;
 
 // Get the Hero Section singleton — always fetch, let the client handle fallback

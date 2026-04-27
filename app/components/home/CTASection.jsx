@@ -19,7 +19,7 @@ const CTASection = () => {
                 {t(homeContent, "ctaHeading", "Sell secondhand online, without extra work.")}
               </h2>
               <div className="flex items-center gap-[12px] sm:gap-[16px] flex-wrap">
-                <ButtonLink href="https://re-e.dk/">
+                <ButtonLink href="https://re-e.dk/try/add-product">
                   <button className="gradient-btn py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
                     {t(homeContent, "ctaPrimary", "Try with 1 picture")}
                   </button>

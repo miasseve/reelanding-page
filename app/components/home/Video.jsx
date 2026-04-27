@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSanityContent } from "../SanityProvider";
 import ButtonLink from "../ButtonLink";
 
@@ -28,12 +28,26 @@ const FacebookIcon = ({ size = 18 }) => (
 const Video = () => {
   const { video } = useSanityContent();
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const mobileVideoRef = useRef(null);
+  const desktopVideoRef = useRef(null);
 
   const gradientFrom = video.gradientFrom || "#7C3AED";
   const gradientTo = video.gradientTo || "#EC4899";
 
   const desktopSrc = video.videoUrl;
   const mobileSrc = video.mobileVideoUrl || video.videoUrl;
+
+  // iOS Safari sometimes ignores autoplay even with muted+playsInline.
+  // Manually attempt play() once the video is mounted; swallow promise rejection.
+  useEffect(() => {
+    const tryPlay = (el) => {
+      if (!el) return;
+      const p = el.play();
+      if (p && typeof p.catch === "function") p.catch(() => {});
+    };
+    tryPlay(mobileVideoRef.current);
+    tryPlay(desktopVideoRef.current);
+  }, [mobileSrc, desktopSrc]);
 
   const heroHeadline = video.heroHeadline?.trim() || DEFAULT_HEADLINE;
   const heroBody = video.heroSubheadline?.trim() || DEFAULT_BODY;
@@ -47,13 +61,13 @@ const Video = () => {
 
   return (
     <section
-      className="relative w-full sm:min-h-[600px] lg:min-h-[700px] overflow-hidden"
+      className="relative w-full lg:min-h-[700px] overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${gradientFrom}, ${gradientTo})`,
       }}
     >
-      {/* Mobile layout: video on top, hero content below */}
-      <div className="sm:hidden flex flex-col min-h-[calc(105svh+56px)] -mt-[56px]">
+      {/* Mobile + landscape phone layout: video on top, hero content below */}
+      <div className="lg:hidden flex flex-col min-h-[calc(105svh+56px)] -mt-[56px]">
         <div className="relative w-full aspect-[9/5] shrink-0 mt-[56px]">
           {!videoLoaded && (
             <div className="absolute inset-0 z-10 bg-black/20 flex items-center justify-center">
@@ -61,6 +75,7 @@ const Video = () => {
             </div>
           )}
           <video
+            ref={mobileVideoRef}
             key={mobileSrc}
             className={`w-full h-full object-cover transition-opacity duration-500 ${
               videoLoaded ? "opacity-100" : "opacity-0"
@@ -69,7 +84,8 @@ const Video = () => {
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
+            onLoadedData={() => setVideoLoaded(true)}
             onCanPlay={() => setVideoLoaded(true)}
             src={mobileSrc}
           />
@@ -89,19 +105,19 @@ const Video = () => {
                 {ctaPrimary}
               </button>
             </ButtonLink>
-            <ButtonLink href="https://re-e.dk/">
+            <ButtonLink href="https://re-e.dk/try/add-product">
               <button className="border-[1.5px] border-purple-600 bg-white py-[12px] px-[35px] rounded-[35px] text-purple-600 leading-[18px] font-medium cursor-pointer">
                 {ctaSecondary}
               </button>
             </ButtonLink>
           </div>
 
-          <p className="text-[14px] leading-[1.5] text-white/80 italic mb-5">
+          <p className="text-[16px] leading-[1.5] text-white/80 italic mb-5">
             {heroReassurance}
           </p>
 
           <div className="bg-white/10 border border-white/20 rounded-[12px] px-4 py-3 mb-7">
-            <p className="text-[14px] leading-[1.6] text-white">
+            <p className="text-[16px] leading-[1.6] text-white">
               {heroLongReassurance}
             </p>
           </div>
@@ -136,7 +152,7 @@ const Video = () => {
       </div>
 
       {/* Desktop layout: hero content left, video right */}
-      <div className="hidden sm:flex max-w-[1240px] mx-auto px-4 py-[clamp(48px,8vw,80px)] flex-row items-center gap-8">
+      <div className="hidden lg:flex max-w-[1240px] mx-auto px-4 py-[clamp(48px,8vw,80px)] flex-row items-center gap-8">
         <div className="flex-1 flex flex-col justify-center text-white z-10">
           <h1 className="font-bold text-[clamp(32px,5vw,54px)] leading-[1.08] mb-[clamp(16px,2.5vw,22px)]">
             {heroHeadline}
@@ -152,7 +168,7 @@ const Video = () => {
                 {ctaPrimary}
               </button>
             </ButtonLink>
-            <ButtonLink href="https://re-e.dk/">
+            <ButtonLink href="https://re-e.dk/try/add-product">
               <button className="border-[1.5px] border-purple-600 bg-white py-[12px] px-[35px] rounded-[35px] text-purple-600 leading-[18px] font-medium cursor-pointer">
                 {ctaSecondary}
               </button>
@@ -205,6 +221,7 @@ const Video = () => {
               </div>
             )}
             <video
+              ref={desktopVideoRef}
               key={desktopSrc}
               className={`w-full h-full object-cover transition-opacity duration-500 ${
                 videoLoaded ? "opacity-100" : "opacity-0"
@@ -213,7 +230,8 @@ const Video = () => {
               muted
               loop
               playsInline
-              preload="auto"
+              preload="metadata"
+              onLoadedData={() => setVideoLoaded(true)}
               onCanPlay={() => setVideoLoaded(true)}
               src={desktopSrc}
             />

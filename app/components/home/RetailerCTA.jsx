@@ -19,7 +19,7 @@ const RetailerCTA = () => {
           </p>
         </div>
 
-        <ButtonLink href="contact">
+        <ButtonLink href="https://re-e.dk/try/add-product">
           <button className="gradient-btn py-[12px] px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer">
             {t(homeContent, "retailerCta", "Book Mia now")}
           </button>

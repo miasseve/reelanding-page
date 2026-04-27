@@ -1,11 +1,37 @@
 // Default content values — used as fallback when Sanity data is not available.
 // These match the current hardcoded content so the site works identically without Sanity.
 
+export const defaultNavItems = [
+  {
+    title: "Solutions",
+    isDropdown: true,
+    submenuHeading: "Built for Secondhand Businesses",
+    col1: [
+      {
+        title: "2hand2go List",
+        desc: "One picture. One ready-to-sell product. Stock synced automatically.",
+        href: "https://re-e.dk/",
+      },
+    ],
+    col2: [
+      {
+        title: "2hand2go Web",
+        desc: "Launch your webstore in 3 days. White-label. No developer brief.",
+        href: "/web",
+      },
+    ],
+  },
+  { title: "How it works", href: "/#process", isDropdown: false },
+  { title: "Pricing", href: "/pricing", isDropdown: false },
+  { title: "FAQ", href: "/#faq", isDropdown: false },
+];
+
 export const defaultSiteSettings = {
   siteName: "2hand2go",
   logo: null, // falls back to /Icons/2hand2go-logo.png
   font: "Space_Grotesk",
   fontWeights: ["300", "400", "500", "600", "700"],
+  navItems: defaultNavItems,
 };
 
 export const defaultHeroVideo = {

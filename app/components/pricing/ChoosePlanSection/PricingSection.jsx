@@ -171,9 +171,14 @@ export default function PricingSection() {
 
                             {/* CTA */}
                             <div className="mt-8">
-                                <button className="w-full py-3.5 rounded-2xl border border-gray-200 bg-white text-gray-800 text-[16px] font-semibold transition-all duration-300 ease-out hover:border-gray-300 hover:shadow-sm hover:scale-[1.02] active:scale-[0.98]">
+                                <a
+                                    href="https://re-e.dk/try/subscription-plan"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="block w-full py-3.5 rounded-2xl border border-gray-200 bg-white text-gray-800 text-[16px] font-semibold text-center transition-all duration-300 ease-out hover:border-gray-300 hover:shadow-sm hover:scale-[1.02] active:scale-[0.98]"
+                                >
                                     {plan.cta}
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </motion.div>

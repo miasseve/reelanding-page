@@ -50,7 +50,15 @@ const PhoneCard = ({ slide }) => (
 
   {/* Content Section */}
   <div className="pt-[14px] pb-[12px] px-[12px] text-center">
-    <h3 className="text-[16px] sm:text-[18px] min-h-[44px] text-white font-medium leading-[20px]">
+    <h3
+      className="text-[16px] sm:text-[18px] min-h-[44px] font-medium leading-[20px]"
+      style={{
+        background: "linear-gradient(90deg, #FFB088, #FF6B9D)",
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        backgroundClip: "text",
+      }}
+    >
       {slide.title}
     </h3>
     <p className="text-[14px] leading-[20px] text-white pt-2">

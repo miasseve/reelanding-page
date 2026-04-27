@@ -41,6 +41,10 @@ export async function fetchSanityData() {
           font: settingsData.font || defaultSiteSettings.font,
           fontWeights:
             settingsData.fontWeights || defaultSiteSettings.fontWeights,
+          navItems:
+            settingsData.navItems?.length > 0
+              ? settingsData.navItems
+              : defaultSiteSettings.navItems,
         }
       : defaultSiteSettings;
 

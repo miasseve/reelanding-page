@@ -26,6 +26,7 @@ const NAV_ITEMS = [
       },
     ],
   },
+  { title: "How it works", href: "/#process", isDropdown: false },
   { title: "Pricing", href: "/pricing", isDropdown: false },
   { title: "FAQ", href: "/#faq", isDropdown: false },
 ];
@@ -33,7 +34,7 @@ const NAV_ITEMS = [
 const CTA_TEXT = "Contact Us";
 
 const Header = () => {
-  const { logoUrl, images } = useSanityContent();
+  const { logoUrl, images, settings } = useSanityContent();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
@@ -43,7 +44,7 @@ const Header = () => {
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
-  const navItems = NAV_ITEMS;
+  const navItems = settings?.navItems?.length > 0 ? settings.navItems : NAV_ITEMS;
   const ctaText = CTA_TEXT;
 
   const scrollToHash = (e, hash) => {

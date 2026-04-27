@@ -68,8 +68,8 @@ export default defineType({
         desc: "Consignor splits, payments, reconciliation — the invisible work eats the profit on every sale.",
       },
     ],
-    processHeading: "From picture to shoppable — in one flow.",
-    processSubheading: "Just take or upload 1 picture. The rest is handled automatically.",
+    processHeading: "Just take or upload 1 picture. The rest is handled automatically.",
+    processSubheading: "From picture to shoppable in one flow.",
     processSteps: [
       {
         _type: "object",
@@ -348,14 +348,14 @@ export default defineType({
       title: "Heading",
       type: "string",
       group: "process",
-      description: d("From picture to shoppable — in one flow."),
+      description: d("From picture to shoppable in one flow."),
     }),
     defineField({
       name: "processSubheading",
       title: "Sub-heading",
       type: "string",
       group: "process",
-      description: d("Just take or upload 1 picture. The rest is handled automatically."),
+      description: d("From picture to shoppable in one flow."),
     }),
     defineField({
       name: "processSteps",
