@@ -18,8 +18,8 @@ export const SITE_SETTINGS_QUERY = `*[_type == "siteSettings"][0]{
 // Get the Hero Section singleton — always fetch, let the client handle fallback
 export const HERO_VIDEO_QUERY = `*[_type == "heroVideo"] | order(_updatedAt desc) [0]{
   title,
-  "videoUrl": heroVideoFile.asset->url,
-  "mobileVideoUrl": mobileVideoFile.asset->url,
+  "heroVideoFileUrl": heroVideoFile.asset->url,
+  "mobileVideoFileUrl": mobileVideoFile.asset->url,
   "gradientFrom": gradientFrom.hex,
   "gradientTo": gradientTo.hex,
   heroHeadline,

@@ -58,7 +58,7 @@ export default defineType({
       group: "media",
       options: { accept: "video/mp4,video/webm" },
       description:
-        "Desktop video displayed in the hero section (max 10MB, landscape recommended). Compress at handbrake.fr or freeconvert.com before uploading.",
+        "Desktop hero video. Max 10MB — compress at handbrake.fr or freeconvert.com before uploading. The site automatically delivers it through Cloudinary's CDN with auto format/quality optimization.",
       validation: fileSizeValidation,
     }),
     defineField({
@@ -68,7 +68,7 @@ export default defineType({
       group: "media",
       options: { accept: "video/mp4,video/webm" },
       description:
-        "Mobile video displayed in the hero section (max 10MB, 900x500 or 9:5 aspect ratio recommended). Compress at handbrake.fr or freeconvert.com before uploading.",
+        "Mobile hero video (900x500 or 9:5 recommended). Max 10MB — compress before uploading. The site automatically delivers it through Cloudinary's CDN with auto format/quality optimization.",
       validation: fileSizeValidation,
     }),
     defineField({

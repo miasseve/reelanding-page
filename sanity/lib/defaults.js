@@ -35,8 +35,8 @@ export const defaultSiteSettings = {
 };
 
 export const defaultHeroVideo = {
-  videoUrl: "/ree_mainvideo.mp4",
-  mobileVideoUrl: "/ree_mainvideo.mp4",
+  videoUrl: "https://res.cloudinary.com/dlkgz4a2j/video/upload/q_auto,f_auto/v1777285750/ree_mainvideo_qgejbi.mp4",
+  mobileVideoUrl: "https://res.cloudinary.com/dlkgz4a2j/video/upload/q_auto:eco,f_auto,w_900,c_limit/v1777285794/ree_mobileview_oznsf3.mp4",
   gradientFrom: "#7C3AED",
   gradientTo: "#EC4899",
 };

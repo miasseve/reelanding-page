@@ -13,6 +13,19 @@ import {
   defaultImages,
 } from "./defaults";
 
+// Wrap a public URL in a Cloudinary fetch URL so the asset is delivered through
+// Cloudinary's CDN with on-the-fly transcoding (q_auto, f_auto). Requires the
+// Cloudinary account to allow fetched URLs from the source domain (cdn.sanity.io).
+function toCloudinaryFetchUrl(rawUrl, { mobile = false } = {}) {
+  if (!rawUrl) return null;
+  const cloudName = process.env.CLOUDINARY_CLOUD_NAME;
+  if (!cloudName) return rawUrl;
+  const transforms = mobile
+    ? "q_auto:eco,f_auto,w_900,c_limit"
+    : "q_auto,f_auto";
+  return `https://res.cloudinary.com/${cloudName}/video/fetch/${transforms}/${encodeURIComponent(rawUrl)}`;
+}
+
 // Server-side function — fetches all Sanity data at once
 // Called from server components (layout/page), not from the browser
 export async function fetchSanityData() {
@@ -52,10 +65,18 @@ export async function fetchSanityData() {
       ? urlFor(settings.logo).height(68).fit("clip").auto("format").url()
       : "/Icons/2hand2go-logo.png";
 
-    // Process video
+    // Wrap the Sanity-uploaded asset URL in a Cloudinary fetch URL so the
+    // client uploads via Sanity normally and the site delivers through
+    // Cloudinary's CDN with auto format/quality transcoding.
+    const desktopUrl =
+      toCloudinaryFetchUrl(videoData?.heroVideoFileUrl) ||
+      defaultHeroVideo.videoUrl;
+    const mobileUrl =
+      toCloudinaryFetchUrl(videoData?.mobileVideoFileUrl, { mobile: true }) ||
+      defaultHeroVideo.mobileVideoUrl;
     const video = {
-      videoUrl: videoData?.videoUrl || defaultHeroVideo.videoUrl,
-      mobileVideoUrl: videoData?.mobileVideoUrl || defaultHeroVideo.mobileVideoUrl,
+      videoUrl: desktopUrl,
+      mobileVideoUrl: mobileUrl,
       gradientFrom: videoData?.gradientFrom || defaultHeroVideo.gradientFrom,
       gradientTo: videoData?.gradientTo || defaultHeroVideo.gradientTo,
       heroHeadline: videoData?.heroHeadline || null,
