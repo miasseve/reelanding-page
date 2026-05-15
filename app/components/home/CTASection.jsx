@@ -20,12 +20,18 @@ const CTASection = () => {
               </h2>
               <div className="flex items-center gap-[12px] sm:gap-[16px] flex-wrap">
                 <ButtonLink href="https://re-e.dk/try/add-product">
-                  <button className="gradient-btn py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
+                  <button
+                    className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]"
+                    style={{ backgroundColor: "#FF2E7E" }}
+                  >
                     {t(homeContent, "ctaPrimary", "Try with 1 picture")}
                   </button>
                 </ButtonLink>
-                <ButtonLink href="/web">
-                  <button className="bg-[#E6E6E6] py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-[#414141] leading-[18px] font-medium cursor-pointer text-[14px] sm:text-[16px]">
+                <ButtonLink href="/#web">
+                  <button
+                    className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] bg-white border-[1.5px] leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]"
+                    style={{ borderColor: "#FF2E7E", color: "#FF2E7E" }}
+                  >
                     {t(homeContent, "ctaSecondary", "Launch your webstore in 3 days")}
                   </button>
                 </ButtonLink>

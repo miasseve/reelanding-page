@@ -79,7 +79,7 @@ const ContactSlider = ({ isOpen, onClose }) => {
               Let&apos;s talk
             </h2>
             <p className="text-[14px] text-[#666666] mt-[4px]">
-              Tell us about your store — we&apos;ll take it from there.
+              Tell us about your store we&apos;ll take it from there.
             </p>
           </div>
           <button
@@ -200,7 +200,8 @@ const ContactSlider = ({ isOpen, onClose }) => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full gradient-btn text-white font-semibold py-[14px] rounded-[8px] text-[15px] flex items-center justify-center gap-[8px] transition-colors disabled:opacity-60 cursor-pointer mt-[4px]"
+              className="w-full text-white font-semibold py-[14px] rounded-[8px] text-[15px] flex items-center justify-center gap-[8px] transition-colors disabled:opacity-60 cursor-pointer mt-[4px]"
+              style={{ backgroundColor: "#FF2E7E" }}
             >
               {isSubmitting ? "Sending..." : <>Send →</>}
             </button>

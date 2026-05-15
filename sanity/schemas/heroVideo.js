@@ -33,15 +33,17 @@ export default defineType({
   ],
   initialValue: {
     title: "Hero Section",
-    heroHeadline: "Sell secondhand online, without extra work.",
+    heroHeadlineLead: "That photo does nothing",
+    heroHeadlineTail: "for you.",
     heroSubheadline:
-      "From 1 picture, create a ready product listing, sync stock automatically, and sell through your webstore with zero manual work.",
-    heroCtaPrimary: "Book Mia now",
-    heroCtaSecondary: "Try with 1 picture",
-    heroReassurance:
-      "We handle your next product batch free, so you can see how fast and simple it is in your own store.",
-    heroLongReassurance:
-      "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Start taking pictures or uploading on List and the rest runs automatically.",
+      "Now it: Automates YOUR webstore, YOUR sales channels, YOUR complete selling workflow.",
+    heroListItem1: "webshop that sync automatically",
+    heroListItem2: "Automatic workflow",
+    heroHighlight: "All in one",
+    heroReassurance: "All existing solution in 1 place",
+    heroReassuranceSub: "Mia does it in your space",
+    heroCtaPrimary: "START for free",
+    heroCtaSecondary: "BOOK",
   },
   fields: [
     defineField({
@@ -71,74 +73,88 @@ export default defineType({
         "Mobile hero video (900x500 or 9:5 recommended). Max 10MB — compress before uploading. The site automatically delivers it through Cloudinary's CDN with auto format/quality optimization.",
       validation: fileSizeValidation,
     }),
-    defineField({
-      name: "gradientFrom",
-      title: "Gradient Color (Start)",
-      type: "color",
-      group: "media",
-      description: "Start color for background gradient. Default: purple (#7C3AED)",
-      options: { disableAlpha: true },
-    }),
-    defineField({
-      name: "gradientTo",
-      title: "Gradient Color (End)",
-      type: "color",
-      group: "media",
-      description: "End color for background gradient. Default: pink (#EC4899)",
-      options: { disableAlpha: true },
-    }),
-
     // ── Hero Text & Buttons ──
     defineField({
-      name: "heroHeadline",
-      title: "Headline",
+      name: "heroHeadlineLead",
+      title: "Headline — Lead (sits over image)",
       type: "string",
       group: "text",
-      description: d("Sell secondhand online, without extra work."),
+      description: d("That photo does nothing"),
+    }),
+    defineField({
+      name: "heroHeadlineTail",
+      title: "Headline — Tail (italic, after image)",
+      type: "string",
+      group: "text",
+      description: d("for you."),
+    }),
+    defineField({
+      name: "heroHeadlineImage",
+      title: "Headline Background Image (behind 'lead' text)",
+      type: "image",
+      group: "text",
+      options: { hotspot: true },
+      description:
+        "Optional image rendered as the background behind the headline lead text (e.g. the dark photo strip in the design).",
     }),
     defineField({
       name: "heroSubheadline",
-      title: "Body Text",
+      title: "Intro Line",
       type: "text",
       group: "text",
-      rows: 3,
+      rows: 2,
       description: d(
-        "From 1 picture, create a ready product listing, sync stock automatically, and sell through your webstore with zero manual work."
+        "Now it: Automates YOUR webstore, YOUR sales channels, YOUR complete selling workflow."
       ),
+    }),
+    defineField({
+      name: "heroListItem1",
+      title: "List Item 1",
+      type: "string",
+      group: "text",
+      description: d("webshop that sync automatically"),
+    }),
+    defineField({
+      name: "heroListItem2",
+      title: "List Item 2",
+      type: "string",
+      group: "text",
+      description: d("Automatic workflow"),
+    }),
+    defineField({
+      name: "heroHighlight",
+      title: "Highlight Phrase (e.g. 'All in one')",
+      type: "string",
+      group: "text",
+      description: d("All in one"),
+    }),
+    defineField({
+      name: "heroReassurance",
+      title: "Reassurance Title",
+      type: "string",
+      group: "text",
+      description: d("All existing solution in 1 place"),
+    }),
+    defineField({
+      name: "heroReassuranceSub",
+      title: "Reassurance Sub-line",
+      type: "string",
+      group: "text",
+      description: d("Mia does it in your store"),
     }),
     defineField({
       name: "heroCtaPrimary",
       title: "Primary Button Text",
       type: "string",
       group: "text",
-      description: d("Book Mia now"),
+      description: d("START for free"),
     }),
     defineField({
       name: "heroCtaSecondary",
       title: "Secondary Button Text",
       type: "string",
       group: "text",
-      description: d("Try with 1 picture"),
-    }),
-    defineField({
-      name: "heroReassurance",
-      title: "Reassurance Line (below buttons)",
-      type: "text",
-      group: "text",
-      rows: 2,
-      description: d(
-        "We handle your next product batch free, so you can see how fast and simple it is in your own store."
-      ),
-    }),
-    defineField({
-      name: "heroLongReassurance",
-      title: "Long Reassurance Line (bottom)",
-      type: "text",
-      group: "text",
-      rows: 3,
-      description: d(
-        "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Start taking pictures or uploading on List and the rest runs automatically."
-      ),
+      description: d("BOOK"),
     }),
 
     // ── Social Links ──

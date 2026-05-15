@@ -22,19 +22,18 @@ const NAV_ITEMS = [
       {
         title: "2hand2go Web",
         desc: "Launch your webstore in 3 days. White-label. No developer brief.",
-        href: "/web",
+        href: "/#web",
       },
     ],
   },
-  { title: "How it works", href: "/#process", isDropdown: false },
-  { title: "Pricing", href: "/pricing", isDropdown: false },
+  { title: "Pricing", href: "/#pricing", isDropdown: false },
   { title: "FAQ", href: "/#faq", isDropdown: false },
 ];
 
-const CTA_TEXT = "Contact Us";
+const CTA_TEXT = "Start Free";
 
 const Header = () => {
-  const { logoUrl, images, settings } = useSanityContent();
+  const { images, settings } = useSanityContent();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
@@ -255,31 +254,34 @@ const Header = () => {
   return (
     <>
       <header
-        className={`bg-white fixed top-0 left-0 right-0 z-[997] shadow-[0px_1px_8px_rgba(0,0,0,0.06)] transition-transform duration-300 ease-in-out ${
+        className={`bg-[#0d0810] fixed top-0 left-0 right-0 z-[997] shadow-[0px_1px_12px_rgba(0,0,0,0.5)] transition-transform duration-300 ease-in-out ${
           visible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
         <div className="container">
           <nav className="w-full px-[32px] py-[12px] flex items-center justify-between">
-            {/* Logo */}
-            <Link href="/">
+            {/* Logo + tagline */}
+            <Link href="/" className="flex flex-col leading-none">
               <img
-                src={logoUrl}
+                src="/Icons/2H_logo.png"
                 alt="2hand2go"
-                className="h-[34px] w-auto max-w-[160px] object-contain"
+                className="h-[28px] sm:h-[32px] w-auto max-w-[170px] object-contain"
               />
+              <span className="text-white text-[8px] sm:text-[9px] tracking-[0.18em] mt-[4px] font-medium">
+                AUTOMATION FOR SECONDHAND RETAIL
+              </span>
             </Link>
 
             {/* Desktop nav */}
             <ul
               ref={dropdownRef}
-              className="hidden lg:flex items-center gap-[40px] text-gray-800 font-medium text-[16px]"
+              className="hidden lg:flex items-center gap-[40px] text-[#ff2e7e] font-semibold text-[16px]"
             >
               {navItems.map((nav, index) =>
                 nav.isDropdown ? (
                   <li
                     key={nav.title}
-                    className="list-none cursor-pointer hover:text-black flex items-center gap-[4px] relative"
+                    className="list-none cursor-pointer hover:text-[#ff7aa6] flex items-center gap-[4px] relative"
                     onClick={() => toggleDropdown(index)}
                   >
                     {nav.title}
@@ -305,7 +307,7 @@ const Header = () => {
                 ) : (
                   <li
                     key={nav.title}
-                    className="cursor-pointer hover:text-black"
+                    className="cursor-pointer hover:text-[#ff7aa6]"
                   >
                     <Link
                       href={nav.href || "#"}
@@ -326,7 +328,7 @@ const Header = () => {
             {/* Desktop CTA */}
             <button
               onClick={() => setContactOpen(true)}
-              className="hidden lg:block gradient-btn text-white px-[20px] py-[8px] rounded-full font-medium transition text-[16px] cursor-pointer"
+              className="hidden lg:block bg-[#ff2e7e] hover:bg-[#ff5294] text-white px-[28px] py-[10px] rounded-full font-semibold transition text-[15px] cursor-pointer"
             >
               {ctaText}
             </button>
@@ -338,17 +340,17 @@ const Header = () => {
               aria-label="Toggle menu"
             >
               <span
-                className={`block h-[2px] w-[24px] bg-gray-800 transition-all duration-300 ${
+                className={`block h-[2px] w-[24px] bg-white transition-all duration-300 ${
                   menuOpen ? "rotate-45 translate-y-[7px]" : ""
                 }`}
               />
               <span
-                className={`block h-[2px] w-[24px] bg-gray-800 transition-all duration-300 ${
+                className={`block h-[2px] w-[24px] bg-white transition-all duration-300 ${
                   menuOpen ? "opacity-0" : ""
                 }`}
               />
               <span
-                className={`block h-[2px] w-[24px] bg-gray-800 transition-all duration-300 ${
+                className={`block h-[2px] w-[24px] bg-white transition-all duration-300 ${
                   menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
                 }`}
               />
@@ -357,12 +359,12 @@ const Header = () => {
 
           {/* Mobile dropdown menu */}
           {menuOpen && (
-            <div className="lg:hidden px-[32px] pb-[20px] flex flex-col gap-[16px] text-gray-800 font-medium text-[16px]">
+            <div className="lg:hidden px-[32px] pb-[20px] flex flex-col gap-[16px] text-[#ff2e7e] font-semibold text-[16px]">
               {navItems.map((nav, index) =>
                 nav.isDropdown ? (
                   <li
                     key={nav.title}
-                    className="list-none cursor-pointer hover:text-black"
+                    className="list-none cursor-pointer hover:text-[#ff7aa6]"
                   >
                     <div
                       className="flex items-center gap-[4px]"
@@ -400,7 +402,7 @@ const Header = () => {
                 ) : (
                   <li
                     key={nav.title}
-                    className="list-none cursor-pointer hover:text-black"
+                    className="list-none cursor-pointer hover:text-[#ff7aa6]"
                   >
                     <Link
                       href={nav.href || "#"}
@@ -422,7 +424,7 @@ const Header = () => {
                   setMenuOpen(false);
                   setContactOpen(true);
                 }}
-                className="gradient-btn text-white px-[20px] py-[8px] rounded-full font-medium transition w-fit cursor-pointer"
+                className="bg-[#ff2e7e] hover:bg-[#ff5294] text-white px-[28px] py-[10px] rounded-full font-semibold transition w-fit cursor-pointer"
               >
                 {ctaText}
               </button>

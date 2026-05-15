@@ -77,14 +77,19 @@ export async function fetchSanityData() {
     const video = {
       videoUrl: desktopUrl,
       mobileVideoUrl: mobileUrl,
-      gradientFrom: videoData?.gradientFrom || defaultHeroVideo.gradientFrom,
-      gradientTo: videoData?.gradientTo || defaultHeroVideo.gradientTo,
-      heroHeadline: videoData?.heroHeadline || null,
+      heroHeadlineLead: videoData?.heroHeadlineLead || null,
+      heroHeadlineTail: videoData?.heroHeadlineTail || null,
+      heroHeadlineImageUrl: videoData?.heroHeadlineImage
+        ? urlFor(videoData.heroHeadlineImage).url()
+        : null,
       heroSubheadline: videoData?.heroSubheadline || null,
+      heroListItem1: videoData?.heroListItem1 || null,
+      heroListItem2: videoData?.heroListItem2 || null,
+      heroHighlight: videoData?.heroHighlight || null,
+      heroReassurance: videoData?.heroReassurance || null,
+      heroReassuranceSub: videoData?.heroReassuranceSub || null,
       heroCtaPrimary: videoData?.heroCtaPrimary || null,
       heroCtaSecondary: videoData?.heroCtaSecondary || null,
-      heroReassurance: videoData?.heroReassurance || null,
-      heroLongReassurance: videoData?.heroLongReassurance || null,
       instagramUrl: videoData?.instagramUrl || null,
       facebookUrl: videoData?.facebookUrl || null,
     };
@@ -100,14 +105,6 @@ export async function fetchSanityData() {
           };
         }
       });
-    }
-
-    // Process tool card images
-    if (homeContentData?.toolCards) {
-      homeContentData.toolCards = homeContentData.toolCards.map((card) => ({
-        ...card,
-        imageUrl: card.image ? urlFor(card.image).url() : null,
-      }));
     }
 
     return {

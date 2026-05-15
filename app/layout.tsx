@@ -1,11 +1,36 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import {
+  Space_Grotesk,
+  Playfair_Display,
+  Bricolage_Grotesque,
+  Instrument_Serif,
+} from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-space-grotesk",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair",
+});
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-bricolage",
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-DK" className={`${spaceGrotesk.variable}`}>
+    <html lang="en-DK" className={`${spaceGrotesk.variable} ${playfair.variable} ${bricolage.variable} ${instrumentSerif.variable}`}>
       <body className="font-[family-name:var(--font-space-grotesk)]">
         {children}
       </body>

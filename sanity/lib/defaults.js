@@ -17,12 +17,11 @@ export const defaultNavItems = [
       {
         title: "2hand2go Web",
         desc: "Launch your webstore in 3 days. White-label. No developer brief.",
-        href: "/web",
+        href: "/#web",
       },
     ],
   },
-  { title: "How it works", href: "/#process", isDropdown: false },
-  { title: "Pricing", href: "/pricing", isDropdown: false },
+  { title: "Pricing", href: "/#pricing", isDropdown: false },
   { title: "FAQ", href: "/#faq", isDropdown: false },
 ];
 
@@ -37,8 +36,6 @@ export const defaultSiteSettings = {
 export const defaultHeroVideo = {
   videoUrl: "https://res.cloudinary.com/dlkgz4a2j/video/upload/q_auto,f_auto/v1777285750/ree_mainvideo_qgejbi.mp4",
   mobileVideoUrl: "https://res.cloudinary.com/dlkgz4a2j/video/upload/q_auto:eco,f_auto,w_900,c_limit/v1777285794/ree_mobileview_oznsf3.mp4",
-  gradientFrom: "#7C3AED",
-  gradientTo: "#EC4899",
 };
 
 export const defaultImages = {
@@ -47,24 +44,28 @@ export const defaultImages = {
     alt: "Fashion",
   },
   "carousel-1": {
-    src: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600&q=80",
-    alt: "Products sitting unlisted while customers look elsewhere",
+    src: "/Icons/colouredshirts.png",
+    alt: "Coloured shirts",
   },
   "carousel-2": {
-    src: "https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=600&q=80",
-    alt: "Stock out of sync across channels",
+    src: "/Icons/personpaper.jpg",
+    alt: "Person with paper",
   },
   "carousel-3": {
-    src: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=600&q=80",
-    alt: "Hidden admin crushing your team's capacity",
+    src: "/Icons/girls.jpg",
+    alt: "Fashion girls",
   },
   "carousel-4": {
-    src: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&q=80",
-    alt: "Growth capped by process, not potential",
+    src: "/Icons/Bestie_Staycation.jpg",
+    alt: "Friends at a staycation",
   },
   "carousel-5": {
-    src: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=600&q=80",
-    alt: "Tools that don't talk to each other",
+    src: "/Icons/girl-fashion.png",
+    alt: "Girl in fashion",
+  },
+  "carousel-6": {
+    src: "/Icons/shirt-tag.jpg",
+    alt: "Shirt with paper price tag",
   },
 
   "team-photo": {

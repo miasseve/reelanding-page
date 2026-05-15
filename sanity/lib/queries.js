@@ -20,14 +20,17 @@ export const HERO_VIDEO_QUERY = `*[_type == "heroVideo"] | order(_updatedAt desc
   title,
   "heroVideoFileUrl": heroVideoFile.asset->url,
   "mobileVideoFileUrl": mobileVideoFile.asset->url,
-  "gradientFrom": gradientFrom.hex,
-  "gradientTo": gradientTo.hex,
-  heroHeadline,
+  heroHeadlineLead,
+  heroHeadlineTail,
+  heroHeadlineImage,
   heroSubheadline,
+  heroListItem1,
+  heroListItem2,
+  heroHighlight,
+  heroReassurance,
+  heroReassuranceSub,
   heroCtaPrimary,
   heroCtaSecondary,
-  heroReassurance,
-  heroLongReassurance,
   instagramUrl,
   facebookUrl
 }`;
@@ -52,12 +55,6 @@ export const SECTION_IMAGE_QUERY = `*[_type == "pageImages" && section == $secti
   alt
 }`;
 
-export const HOME_CONTENT_QUERY = `*[_type == "homeContent"][0]{
-  ...,
-  toolCards[]{
-    ...,
-    "imageUrl": image.asset->url
-  }
-}`;
+export const HOME_CONTENT_QUERY = `*[_type == "homeContent"][0]`;
 export const PRICING_CONTENT_QUERY = `*[_type == "pricingContent"][0]`;
 export const SHARED_CONTENT_QUERY = `*[_type == "sharedContent"][0]`;
