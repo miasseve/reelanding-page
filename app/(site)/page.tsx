@@ -1,6 +1,6 @@
 import Video from "../components/home/Video";
 import RetailerCTA from "../components/home/RetailerCTA";
-import ProblemCarousel from "../components/home/ProblemCarousel";
+import TimeSavingsSection from "../components/home/TimeSavingsSection";
 import WorkflowSection from "../components/home/WorkflowSection";
 import ListPromoSection from "../components/home/ListPromoSection";
 import WebPromoSection from "../components/home/WebPromoSection";
@@ -16,7 +16,7 @@ export default function Home() {
     <>
       <Video />
       <Reveal><RetailerCTA /></Reveal>
-      <Reveal><ProblemCarousel /></Reveal>
+      <Reveal><TimeSavingsSection /></Reveal>
       <Reveal><WorkflowSection /></Reveal>
       <Reveal><ListPromoSection /></Reveal>
       <Reveal><ProcessSection /></Reveal>

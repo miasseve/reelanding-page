@@ -2,13 +2,14 @@
 // These match the current hardcoded content so the site works identically without Sanity.
 
 export const defaultNavItems = [
+  { title: "How it works", href: "/#process", isDropdown: false },
   {
-    title: "Solutions",
+    title: "Features",
     isDropdown: true,
-    submenuHeading: "Built for Secondhand Businesses",
+    submenuHeading: "2hand2go is powered by Ree",
     col1: [
       {
-        title: "2hand2go List",
+        title: "Ree",
         desc: "One picture. One ready-to-sell product. Stock synced automatically.",
         href: "https://re-e.dk/",
       },

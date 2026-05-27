@@ -7,7 +7,7 @@ import { useSanityContent, t } from "./SanityProvider";
 const PINK = "#FF2E7E";
 
 const solutions = [
-  { label: "2hand2go List", href: "https://re-e.dk/" },
+  { label: "Ree", href: "https://re-e.dk/" },
   { label: "2hand2go Web", href: "/#web" },
   { label: "Pricing", href: "/#pricing" },
   { label: "Get Started Free", href: "https://re-e.dk/try/add-product" },
@@ -132,7 +132,7 @@ const Footer = () => {
             <div>
               <div className="inline-block bg-white rounded-[10px] px-[14px] py-[10px]">
                 <img
-                  src="/Icons/2H_logo.png"
+                  src="/Icons/2hand2go_logo.png"
                   alt="2hand2go"
                   className="h-[36px] w-auto max-w-[180px] object-contain"
                 />
@@ -165,7 +165,7 @@ const Footer = () => {
             {t(
               sharedContent,
               "footerLongDescription",
-              "2hand2go is the all-in-one listing automation and ready-built webstore platform for B2B physical secondhand stores selling unique products. One photo automatically generates a complete product listing with AI-written description, brand recognition, pricing suggestion, and barcode label, and publishes it simultaneously to the store's online store, Instagram, Vinted, and other connected channels. Physical store inventory and online store inventory synchronise automatically and in real time no developer required, no manual updates. The 2hand2go Web online store is delivered in 3 days, already integrated with 2hand2go List, at a fraction of the cost of custom development. 2hand2go works for all secondhand and unique product categories including electronics, fashion and vintage clothing, beauty and cosmetics end-of-stock, sports equipment, kids and toys, jewellery and watches, photography equipment, interior design and furniture, antiques and collectibles, books, records, and mixed-inventory B2B resale operations. In-store onboarding available in the Copenhagen region. Remote onboarding via 15-minute video call available worldwide. Contact: mia@le-stores.com."
+              "2hand2go is the all-in-one listing automation and ready-built webstore platform for B2B physical secondhand stores selling unique products. One photo automatically generates a complete product listing with AI-written description, brand recognition, pricing suggestion, and barcode label, and publishes it simultaneously to the store's online store, Instagram, Vinted, and other connected channels. Physical store inventory and online store inventory synchronise automatically and in real time no developer required, no manual updates. The 2hand2go Web online store is delivered in 3 days, already integrated with Ree, at a fraction of the cost of custom development. 2hand2go works for all secondhand and unique product categories including electronics, fashion and vintage clothing, beauty and cosmetics end-of-stock, sports equipment, kids and toys, jewellery and watches, photography equipment, interior design and furniture, antiques and collectibles, books, records, and mixed-inventory B2B resale operations. In-store onboarding available in the Copenhagen region. Remote onboarding via 15-minute video call available worldwide. Contact: mia@le-stores.com."
             )}
           </p>
 

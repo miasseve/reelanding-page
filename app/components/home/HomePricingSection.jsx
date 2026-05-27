@@ -1,103 +1,85 @@
 "use client";
 
-import { useState } from "react";
 import { useSanityContent, t } from "../SanityProvider";
 
 const PINK = "#FF2E7E";
+const PINK_SOFT = "#fce7ed";
 const DEFAULT_CTA_URL = "https://re-e.dk/try/subscription-plan";
 
-const DEFAULT_WEB_BRANDED = {
-  eyebrow: "WEBSTORE",
-  title: "Your branded online store",
-  sub: "5 users · 300 products/month",
-  standardTag: "STANDARD",
-  standardSub: "Pay monthly, low upfront",
-  standardPrice: "4,800",
-  standardSuffix: "DKK / month",
-  standardNote: "+ 4% per transaction",
-  customTag: "CUSTOM BUILD",
-  customSub: "Pay once, zero fees forever",
-  customPrice: "35,000",
-  customSuffix: "DKK / once",
-  customNote: "Zero transaction fees",
-  features: [
-    "Basic webstore with your logo",
-    "Runs automatically with 2hand2list",
-    "No developers needed — ready in 3 days",
-  ],
-};
-
-const DEFAULT_CONNECT_PLANS = [
+const ENGINE_PLANS = [
   {
-    tag: "BASIC",
-    sub: "2 users · 300 products / month",
-    price: "3,200",
-    suffix: "DKK",
-    note: "per month",
-    features: ["Core listing workflow", "Auto-sync with your webstore"],
+    title: "Pay as you go",
+    description: "No monthly commitment. For low or seasonal volume.",
+    price: "10",
+    priceSuffix: "DKK / item",
+    features: [
+      "AI listing generation",
+      "Print-ready barcode labels",
+      "Publish to one channel",
+    ],
+    ctaLabel: "Choose pay as you go",
+    ctaStyle: "outline",
+    popular: false,
   },
   {
-    tag: "PRO",
-    sub: "5 users · 1,000 products / month",
-    price: "6,000",
-    suffix: "DKK",
-    note: "one-time",
+    title: "Basic",
+    description:
+      "Up to 300 items per month. The sweet spot for growing stores.",
+    price: "390",
+    priceSuffix: "DKK / month",
+    features: [
+      "Everything in Pay as you go",
+      "Publish across all connected channels",
+      "Consignor management and split payments",
+      "Up to 2 users",
+    ],
+    ctaLabel: "Get Basic",
+    ctaStyle: "filled",
+    popular: true,
+    popularLabel: "MOST POPULAR",
+  },
+  {
+    title: "Pro",
+    description:
+      "Up to 1,000 items per month. For established multi-channel stores.",
+    price: "1,990",
+    priceSuffix: "DKK / month",
     features: [
       "Everything in Basic",
-      "Scale to 1,000 products/month",
+      "Connect via API to your own systems",
       "Priority support",
+      "Up to 5 users",
     ],
+    ctaLabel: "Get Pro",
+    ctaStyle: "outline",
+    popular: false,
   },
 ];
 
-const LIST_PLANS = [
+const WEBSHOP_PLANS = [
   {
-    eyebrow: "PER PRODUCT",
-    title: "Pay as you go",
-    description: "No monthly commitment. Perfect for trying the platform.",
-    price: "10",
-    priceSuffix: "DKK",
-    priceNote: "per product · no monthly fees",
-    ctaLabel: "Start",
-    ctaStyle: "outline",
-    features: ["AI listing generation", "Barcode label", "One channel publish"],
-    popular: false,
-  },
-  {
-    eyebrow: "UP TO 2 USERS",
     title: "Basic",
     description:
-      "Up to 300 products per month. The sweet spot for growing stores.",
-    price: "390",
-    priceSuffix: "DKK",
-    priceNote: "per month",
-    ctaLabel: "Get Basic",
+      "Branded storefront, built and launched by our team in 3 days.",
+    price: "4,800",
+    priceSuffix: "DKK one-time",
+    priceRate: "4%",
+    priceNote: "per transaction",
+    ctaLabel: "Claim your webshop",
     ctaStyle: "filled",
-    features: [
-      "Entire product catalogue",
-      "Barcodes with one swipe",
-      "Designed staff workflow",
-      "Safe payment processing",
-    ],
-    popular: true,
+    boxedPrice: true,
   },
   {
-    eyebrow: "UP TO 5 USERS",
     title: "Pro",
     description:
-      "Up to 1,000 products per month. For established multi-channel operations.",
-    price: "1,990",
-    priceSuffix: "DKK",
-    priceNote: "per month",
-    ctaLabel: "Get Pro",
-    ctaStyle: "filled",
-    features: [
-      "Ready listing across channels",
-      "Automatic stock sync",
-      "Connect via API to your systems",
-      "Priority support",
-    ],
-    popular: false,
+      "Full-featured storefront with advanced integrations and support.",
+    price: "35,000",
+    priceSuffix: "DKK one-time",
+    priceRate: "2%",
+    priceNote: "per transaction",
+    ctaLabel: "Claim your webshop",
+    ctaStyle: "outline",
+    boxedPrice: true,
   },
 ];
 
@@ -112,7 +94,7 @@ const Check = () => (
     strokeWidth="3"
     strokeLinecap="round"
     strokeLinejoin="round"
-    className="shrink-0"
+    className="shrink-0 mt-[3px]"
   >
     <polyline points="20 6 9 17 4 12" />
   </svg>
@@ -131,292 +113,153 @@ const PlanCard = ({ plan, ctaUrl }) => {
     >
       {plan.popular && (
         <span
-          className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[11px] font-bold tracking-[0.12em] px-3 py-[5px] rounded-full"
+          className="absolute -top-3 left-1/2 -translate-x-1/2 text-white text-[11px] font-bold tracking-[0.14em] px-3 py-[5px] rounded-full whitespace-nowrap"
           style={{ backgroundColor: PINK }}
         >
-          Popular
+          {plan.popularLabel || "MOST POPULAR"}
         </span>
       )}
 
-      <span className="text-[13px] sm:text-[14px] tracking-[0.18em] font-semibold text-[#6b7280]">
-        {plan.eyebrow}
-      </span>
-      <h3 className="text-[28px] sm:text-[32px] font-bold text-[#1a1a1a] mt-2">
+      <h3
+        className="text-[28px] sm:text-[32px] font-bold"
+        style={
+          plan.boxedPrice
+            ? {
+                fontFamily: "var(--font-playfair)",
+                fontStyle: "italic",
+                fontWeight: 700,
+                color: PINK,
+              }
+            : { color: "#1a1a1a" }
+        }
+      >
         {plan.title}
       </h3>
-      <p className="text-[16px] sm:text-[17px] text-[#6b7280] mt-3 leading-[1.55] min-h-[60px]">
+      <p className="text-[16px] sm:text-[17px] text-[#6b7280] mt-3 leading-[1.55] min-h-[52px]">
         {plan.description}
       </p>
 
-      <div className="mt-6">
-        <div className="flex items-baseline gap-2">
-          <span
-            className="text-[48px] sm:text-[54px] font-bold leading-none"
-            style={{ color: PINK }}
-          >
-            {plan.price}
-          </span>
-          <span className="text-[16px] sm:text-[17px] font-semibold text-[#374151]">
-            {plan.priceSuffix}
-          </span>
+      {plan.boxedPrice ? (
+        <div
+          className="mt-6 rounded-[14px] px-5 py-6 text-center"
+          style={{ backgroundColor: PINK_SOFT }}
+        >
+          <div className="flex items-baseline justify-center gap-2">
+            <span className="text-[36px] sm:text-[42px] font-bold leading-none text-[#1a1a1a]">
+              {plan.price}
+            </span>
+            <span
+              className="text-[15px] sm:text-[16px] font-semibold"
+              style={{ color: PINK }}
+            >
+              {plan.priceSuffix}
+            </span>
+          </div>
+          {plan.priceNote && (
+            <p className="text-[15px] sm:text-[16px] text-[#374151] mt-3">
+              +{" "}
+              <span className="font-bold" style={{ color: PINK }}>
+                {plan.priceRate || "2%"}
+              </span>{" "}
+              {plan.priceNote}
+            </p>
+          )}
         </div>
-        <p className="text-[14px] sm:text-[15px] text-[#6b7280] mt-2">
-          {plan.priceNote}
-        </p>
-      </div>
+      ) : (
+        <div className="mt-6">
+          <div className="flex items-baseline gap-2">
+            <span className="text-[44px] sm:text-[52px] font-bold leading-none text-[#1a1a1a]">
+              {plan.price}
+            </span>
+            <span className="text-[15px] sm:text-[16px] font-semibold text-[#6b7280]">
+              {plan.priceSuffix}
+            </span>
+          </div>
+          {plan.priceNote && (
+            <p className="text-[13px] sm:text-[14px] text-[#6b7280] mt-2">
+              {plan.priceNote}
+            </p>
+          )}
+        </div>
+      )}
+
+      {plan.features?.length > 0 && (
+        <ul className="mt-7 space-y-[14px] flex-1">
+          {plan.features.map((f) => (
+            <li
+              key={f}
+              className="flex items-start gap-3 text-[15px] sm:text-[16px] text-[#374151] leading-[1.45]"
+            >
+              <Check />
+              <span>{f}</span>
+            </li>
+          ))}
+        </ul>
+      )}
+      {!plan.features?.length && <div className="flex-1" />}
 
       <a
         href={ctaUrl || DEFAULT_CTA_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className={`mt-6 w-full block text-center py-[14px] rounded-full text-[16px] sm:text-[17px] font-semibold transition-transform duration-200 hover:scale-[1.02] ${
-          isFilled
-            ? "text-white"
-            : "border-[1.5px] bg-white"
+        className={`mt-8 w-full block text-center py-[14px] rounded-full text-[15px] sm:text-[16px] font-semibold transition-transform duration-200 hover:scale-[1.02] ${
+          isFilled ? "text-white" : "border-[1.5px] bg-white"
         }`}
         style={
           isFilled
             ? { backgroundColor: PINK }
-            : { borderColor: PINK, color: PINK }
+            : { borderColor: "#d1d5db", color: "#1a1a1a" }
         }
       >
         {plan.ctaLabel}
       </a>
-
-      <ul className="mt-7 space-y-[14px]">
-        {plan.features.map((f) => (
-          <li
-            key={f}
-            className="flex items-start gap-3 text-[15px] sm:text-[16px] text-[#1a1a1a] leading-[1.45]"
-          >
-            <span className="mt-[4px]">
-              <Check />
-            </span>
-            <span>{f}</span>
-          </li>
-        ))}
-      </ul>
     </div>
   );
 };
 
-const ListPanel = ({ plans, ctaUrl }) => (
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-    {plans.map((p) => (
-      <PlanCard key={p.title} plan={p} ctaUrl={ctaUrl} />
-    ))}
-  </div>
-);
-
-const DarkCheck = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke={PINK}
-    strokeWidth="3"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="shrink-0 mt-[3px]"
-  >
-    <polyline points="20 6 9 17 4 12" />
-  </svg>
-);
-
-const PriceBlock = ({ tag, sub, price, suffix, note }) => (
-  <div>
-    <div className="flex items-center gap-3 flex-wrap">
-      <span
-        className="text-[11px] tracking-[0.18em] font-bold uppercase px-3 py-[5px] rounded-full"
-        style={{ backgroundColor: "rgba(255,46,126,0.18)", color: PINK }}
-      >
-        {tag}
-      </span>
-      <span className="text-white/80 text-[14px]">{sub}</span>
-    </div>
-    <div className="flex items-baseline gap-2 mt-3">
-      <span
-        className="text-[40px] sm:text-[44px] font-bold leading-none"
-        style={{ color: PINK }}
-      >
-        {price}
-      </span>
-      <span className="text-[15px] text-white/85 font-semibold">{suffix}</span>
-    </div>
-    {note && <p className="text-[13px] text-white/65 mt-2">{note}</p>}
-  </div>
-);
-
-const ConnectPlanCard = ({ plan }) => (
-  <div className="rounded-[16px] border border-white/10 bg-white/[0.04] p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(255,46,126,0.18)] hover:border-white/20">
-    <span
-      className="text-[11px] tracking-[0.2em] font-bold uppercase px-3 py-[5px] rounded-full"
-      style={{ backgroundColor: "rgba(255,46,126,0.18)", color: PINK }}
-    >
-      {plan.tag}
-    </span>
-    <p className="text-white/75 text-[14px] mt-3">{plan.sub}</p>
-    <div className="flex items-baseline gap-2 mt-2">
-      <span
-        className="text-[40px] sm:text-[44px] font-bold leading-none"
-        style={{ color: PINK }}
-      >
-        {plan.price}
-      </span>
-      <span className="text-[15px] text-white/85 font-semibold">
-        {plan.suffix}
-      </span>
-    </div>
-    <p className="text-[13px] text-white/70 mt-1">{plan.note}</p>
-
-    <ul className="mt-5 space-y-[10px]">
-      {plan.features?.map((f) => (
-        <li
-          key={f}
-          className="flex items-start gap-3 text-[14px] text-white/90"
-        >
-          <DarkCheck />
-          <span>{f}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
-
-const WebPanel = ({
-  headingLead,
-  headingAccent,
-  description,
-  branded,
-  connectPlans,
-}) => (
-  <div className="bg-[#0c0c0c] rounded-[20px] p-7 sm:p-10 text-white shadow-[0_20px_60px_rgba(0,0,0,0.15)]">
-    <h3 className="text-[28px] sm:text-[32px] font-bold leading-[1.2]">
-      {headingLead}{" "}
-      <span
-        className="italic underline decoration-[3px] underline-offset-[6px]"
-        style={{ color: PINK, fontFamily: "var(--font-playfair)" }}
-      >
-        {headingAccent}
-      </span>
-    </h3>
-    <p className="text-white/85 text-[15px] sm:text-[16px] mt-4 max-w-[680px] leading-[1.6]">
-      {description}
-    </p>
-
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mt-8">
-      {/* LEFT — Your branded online store */}
-      <div className="rounded-[16px] border border-white/10 bg-white/[0.04] p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_30px_rgba(255,46,126,0.18)] hover:border-white/20">
-        <span
-          className="text-[12px] tracking-[0.2em] font-bold uppercase"
-          style={{ color: PINK }}
-        >
-          {branded.eyebrow}
-        </span>
-        <h4 className="text-[22px] sm:text-[24px] font-bold text-white mt-1">
-          {branded.title}
-        </h4>
-        <p className="text-white/75 text-[14px] mt-1">{branded.sub}</p>
-
-        <div className="h-px bg-white/10 my-6" />
-
-        <PriceBlock
-          tag={branded.standardTag}
-          sub={branded.standardSub}
-          price={branded.standardPrice}
-          suffix={branded.standardSuffix}
-          note={branded.standardNote}
-        />
-
-        <div className="flex items-center gap-3 my-6">
-          <div className="flex-1 h-px bg-white/10" />
-          <span className="text-[11px] tracking-[0.22em] font-bold text-white/55">
-            OR
-          </span>
-          <div className="flex-1 h-px bg-white/10" />
-        </div>
-
-        <PriceBlock
-          tag={branded.customTag}
-          sub={branded.customSub}
-          price={branded.customPrice}
-          suffix={branded.customSuffix}
-          note={branded.customNote}
-        />
-
-        <div className="h-px bg-white/10 my-6" />
-
-        <ul className="space-y-[12px]">
-          {branded.features?.map((f) => (
-            <li
-              key={f}
-              className="flex items-start gap-3 text-[15px] text-white/90"
-            >
-              <DarkCheck />
-              <span>{f}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* RIGHT — Plans column */}
-      <div className="flex flex-col gap-5 sm:gap-6">
-        {connectPlans.map((plan) => (
-          <ConnectPlanCard key={plan.tag} plan={plan} />
-        ))}
-      </div>
-    </div>
-  </div>
-);
-
 const HomePricingSection = () => {
-  const [tab, setTab] = useState("list");
   const { pricingContent } = useSanityContent();
 
-  const heading = t(pricingContent, "pricingHeading", "Choose The Plan That Fits");
-  const subheading = t(
+  const engineEyebrow = t(pricingContent, "engineEyebrow", "REE");
+  const engineHeadingLead = t(
     pricingContent,
-    "pricingSubheading",
-    "Simple pricing. Cancel anytime. No hidden fees."
+    "engineHeadingLead",
+    "Resale Ecommerce"
   );
-  const listLabel = t(pricingContent, "listTabLabel", "2hand2list");
-  const webLabel = t(pricingContent, "webTabLabel", "2hand2web");
+  const engineHeadingAccent = t(
+    pricingContent,
+    "engineHeadingAccent",
+    "Engine."
+  );
+  const engineSubheading = t(
+    pricingContent,
+    "engineSubheading",
+    "Simple pricing that grows with your store. Free for your first 25 items no card required."
+  );
+
+  const addonEyebrow = t(pricingContent, "addonEyebrow", "ADD-ON");
+  const addonHeadingLead = t(
+    pricingContent,
+    "addonHeadingLead",
+    "Add your own"
+  );
+  const addonHeadingAccent = t(
+    pricingContent,
+    "addonHeadingAccent",
+    "webshop."
+  );
+  const addonSubheading = t(
+    pricingContent,
+    "addonSubheading",
+    "Branded and launched by our team, synced so every item lists automatically. One-time setup, no monthly fee."
+  );
+
   const ctaUrl = t(pricingContent, "ctaUrl", DEFAULT_CTA_URL);
-
-  const listPlans =
-    pricingContent?.listPlans?.length > 0 ? pricingContent.listPlans : LIST_PLANS;
-
-  const branded = {
-    eyebrow: t(pricingContent, "webBrandedEyebrow", DEFAULT_WEB_BRANDED.eyebrow),
-    title: t(pricingContent, "webBrandedTitle", DEFAULT_WEB_BRANDED.title),
-    sub: t(pricingContent, "webBrandedSub", DEFAULT_WEB_BRANDED.sub),
-    standardTag: t(pricingContent, "webBrandedStandardTag", DEFAULT_WEB_BRANDED.standardTag),
-    standardSub: t(pricingContent, "webBrandedStandardSub", DEFAULT_WEB_BRANDED.standardSub),
-    standardPrice: t(pricingContent, "webBrandedStandardPrice", DEFAULT_WEB_BRANDED.standardPrice),
-    standardSuffix: t(pricingContent, "webBrandedStandardSuffix", DEFAULT_WEB_BRANDED.standardSuffix),
-    standardNote: t(pricingContent, "webBrandedStandardNote", DEFAULT_WEB_BRANDED.standardNote),
-    customTag: t(pricingContent, "webBrandedCustomTag", DEFAULT_WEB_BRANDED.customTag),
-    customSub: t(pricingContent, "webBrandedCustomSub", DEFAULT_WEB_BRANDED.customSub),
-    customPrice: t(pricingContent, "webBrandedCustomPrice", DEFAULT_WEB_BRANDED.customPrice),
-    customSuffix: t(pricingContent, "webBrandedCustomSuffix", DEFAULT_WEB_BRANDED.customSuffix),
-    customNote: t(pricingContent, "webBrandedCustomNote", DEFAULT_WEB_BRANDED.customNote),
-    features:
-      pricingContent?.webBrandedFeatures?.length > 0
-        ? pricingContent.webBrandedFeatures
-        : DEFAULT_WEB_BRANDED.features,
-  };
-
-  const connectPlans =
-    pricingContent?.webConnectPlans?.length > 0
-      ? pricingContent.webConnectPlans
-      : DEFAULT_CONNECT_PLANS;
 
   return (
     <section
       id="pricing"
-      className="relative px-4 sm:px-6 py-[60px] sm:py-[80px] md:py-[100px] scroll-mt-[80px] overflow-hidden"
+      className="relative scroll-mt-[80px] overflow-hidden"
       style={{
         backgroundImage: "url('/Icons/view_of_sky.jpg')",
         backgroundSize: "cover",
@@ -428,63 +271,88 @@ const HomePricingSection = () => {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.9)" }}
+        style={{ backgroundColor: "rgba(255, 248, 246, 0.94)" }}
       />
 
-      <div className="relative z-10 max-w-[1100px] mx-auto">
-        <h2 className="text-center font-bold text-[30px] sm:text-[40px] md:text-[48px] leading-[1.12] text-[#1a1a1a]">
-          {heading}
-        </h2>
-        <p className="text-center text-[#6b7280] mt-3 text-[14px] sm:text-[16px]">
-          {subheading}
-        </p>
+      <div className="relative z-10">
+        {/* Engine pricing */}
+        <div className="px-4 sm:px-6 py-[60px] sm:py-[80px] md:py-[100px]">
+          <div className="max-w-[1200px] mx-auto">
+            <div className="text-center mb-[40px] sm:mb-[56px]">
+              <p
+                className="text-[12px] sm:text-[13px] tracking-[0.22em] font-bold uppercase"
+                style={{ color: PINK }}
+              >
+                {engineEyebrow}
+              </p>
+              <h2
+                className="text-[34px] sm:text-[44px] md:text-[54px] leading-[1.1] text-[#1a1a1a] mt-3"
+                style={{ fontFamily: "var(--font-playfair)", fontWeight: 700 }}
+              >
+                {engineHeadingLead}{" "}
+                <span
+                  className="italic"
+                  style={{
+                    fontFamily: "var(--font-playfair)",
+                    fontStyle: "italic",
+                    fontWeight: 700,
+                    color: PINK,
+                  }}
+                >
+                  {engineHeadingAccent}
+                </span>
+              </h2>
+              <p className="text-[#6b7280] text-[15px] sm:text-[17px] mt-4 max-w-[600px] mx-auto leading-[1.55]">
+                {engineSubheading}
+              </p>
+            </div>
 
-        {/* Tabs */}
-        <div className="flex justify-center mt-7 sm:mt-9">
-          <div className="inline-flex bg-[#f3f4f6] rounded-full p-[4px]">
-            <button
-              type="button"
-              onClick={() => setTab("list")}
-              className={`px-5 py-[10px] rounded-full text-[13px] sm:text-[14px] font-semibold transition-colors ${
-                tab === "list" ? "text-white" : "text-[#374151]"
-              }`}
-              style={tab === "list" ? { backgroundColor: PINK } : undefined}
-            >
-              {listLabel}
-            </button>
-            <button
-              type="button"
-              onClick={() => setTab("web")}
-              className={`px-5 py-[10px] rounded-full text-[13px] sm:text-[14px] font-semibold transition-colors ${
-                tab === "web" ? "text-white" : "text-[#374151]"
-              }`}
-              style={tab === "web" ? { backgroundColor: PINK } : undefined}
-            >
-              {webLabel}
-            </button>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+              {ENGINE_PLANS.map((plan) => (
+                <PlanCard key={plan.title} plan={plan} ctaUrl={ctaUrl} />
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-9 sm:mt-12">
-          {tab === "list" ? (
-            <ListPanel plans={listPlans} ctaUrl={ctaUrl} />
-          ) : (
-            <WebPanel
-              headingLead={t(
-                pricingContent,
-                "webHeadingLead",
-                "Your webstore ready in"
-              )}
-              headingAccent={t(pricingContent, "webHeadingAccent", "3 days")}
-              description={t(
-                pricingContent,
-                "webDescription",
-                "Already have a webstore? Connect it to 2hand2list and it'll handle the workflow synchronisation automatically."
-              )}
-              branded={branded}
-              connectPlans={connectPlans}
-            />
-          )}
+        {/* Webshop add-on */}
+        <div className="px-4 sm:px-6 py-[60px] sm:py-[80px] md:py-[100px]">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="text-center mb-[40px] sm:mb-[56px]">
+              <p
+                className="text-[12px] sm:text-[13px] tracking-[0.22em] font-bold uppercase"
+                style={{ color: PINK }}
+              >
+                {addonEyebrow}
+              </p>
+              <h2
+                className="text-[32px] sm:text-[44px] md:text-[56px] leading-[1.1] text-[#1a1a1a] mt-3"
+                style={{ fontFamily: "var(--font-playfair)", fontWeight: 700 }}
+              >
+                {addonHeadingLead}{" "}
+                <span
+                  className="italic"
+                  style={{
+                    fontFamily: "var(--font-playfair)",
+                    fontStyle: "italic",
+                    fontWeight: 700,
+                    color: PINK,
+                  }}
+                >
+                  {addonHeadingAccent}
+                </span>
+              </h2>
+              <p className="text-[#4b5563] text-[15px] sm:text-[17px] mt-4 max-w-[680px] mx-auto leading-[1.55]">
+                {addonSubheading}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              {WEBSHOP_PLANS.map((plan) => (
+                <PlanCard key={plan.title} plan={plan} ctaUrl={ctaUrl} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

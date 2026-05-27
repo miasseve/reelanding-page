@@ -19,7 +19,7 @@ const defaultSlides = [
   {
     id: 3,
     title: "Manual listing is too slow for unique items",
-    desc: "Every secondhand product is one-of-a-kind. Writing titles, descriptions, and prices one by one kills your pipeline.",
+    desc: "Every secondhand product is one of a kind. Writing titles, descriptions, and prices one by one kills your pipeline.",
     img: "/Icons/girls.jpg",
   },
   {

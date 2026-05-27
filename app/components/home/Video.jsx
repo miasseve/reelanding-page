@@ -1,138 +1,179 @@
 "use client";
-import { Fragment, useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { useSanityContent } from "../SanityProvider";
 import ButtonLink from "../ButtonLink";
 
-const ACCENT_LIME = "#ffee24";
+// Polaroid + tilted-tablet composition that sits where the hero video used to be.
+// The video block lives in ./HeroVideoBlock.jsx, available for reuse elsewhere.
+const HeroMediaShowcase = ({ variant = "desktop" }) => {
+  const isMobile = variant === "mobile";
 
-const HERO_METRICS = [
-  { value: "95 %", label: "Less time listing per product" },
-  { value: "+ 30 %", label: "Average revenue potential in 6 months" },
-  { value: "× 13", label: "Less work.\n×13 faster" },
-];
-
-const PROCESS_CARDS_TOP = [
-  { value: "1", unit: "min", label: "PHOTO" },
-  { value: "3", unit: "min", label: "DETAILS" },
-  { value: "2", unit: "min", label: "PRICING" },
-  { value: "2", unit: "min", label: "LABELS" },
-];
-
-const PROCESS_CARDS_BOTTOM = [
-  { value: "4", unit: "min", label: "WEBSHOP" },
-  { value: "3", unit: "min", label: "CHECKS" },
-  { value: "5", unit: "min", label: "POSTING" },
-];
-
-const ProcessCard = ({ value, unit, label }) => (
-  <div
-    className="rounded-[12px] flex flex-col items-stretch overflow-hidden shadow-[0_8px_22px_rgba(0,0,0,0.25)] w-[100px] sm:w-[122px] md:w-[136px] h-[124px] sm:h-[146px] md:h-[160px] backdrop-blur-[2px]"
-    style={{ backgroundColor: "rgba(170, 40, 80, 0.6)" }}
-  >
-    <div className="flex-1 flex flex-col items-center justify-center text-white">
-      <div className="font-extrabold text-[32px] sm:text-[40px] md:text-[44px] leading-none">
-        {value}
-      </div>
-      <div className="text-[12px] sm:text-[14px] md:text-[15px] opacity-95 mt-[4px]">
-        {unit}
-      </div>
-    </div>
+  return (
     <div
-      className="text-center py-[7px] sm:py-[9px]"
-      style={{ backgroundColor: "rgba(105, 18, 45, 0.6)" }}
+      className={
+        isMobile
+          ? "relative w-full h-[360px] sm:h-[440px] mx-auto"
+          : "relative w-[760px] h-[700px] max-w-full mx-auto"
+      }
     >
-      <span className="text-[11px] sm:text-[13px] md:text-[14px] font-semibold tracking-[0.14em] uppercase text-white">
-        {label}
-      </span>
-    </div>
-  </div>
-);
+      {/* Polaroid photo — drops down with a bounce */}
+      <motion.div
+        className={`absolute top-0 left-0 ${
+          isMobile ? "w-[66%]" : "w-[74%]"
+        }`}
+        initial={{ y: -380, opacity: 0, rotate: -3 }}
+        animate={{ y: 0, opacity: 1, rotate: -3 }}
+        transition={{
+          type: "spring",
+          stiffness: 110,
+          damping: 9,
+          mass: 1.1,
+          delay: 0.15,
+        }}
+      >
+        {/* Silvery ambient halo (outer, wider) */}
+        <div
+          aria-hidden
+          className="absolute -inset-x-[12%] -bottom-[40px] -top-[24px] rounded-[40%] blur-3xl pointer-events-none"
+          style={{ backgroundColor: "rgba(235,238,245,0.28)" }}
+        />
+        {/* Dark contact shadow (tight, directly under card) */}
+        <div
+          aria-hidden
+          className="absolute left-[12%] right-[10%] -bottom-[10px] h-[26px] rounded-[50%] blur-xl pointer-events-none"
+          style={{ backgroundColor: "rgba(0,0,0,0.6)" }}
+        />
 
-const ProcessCardRow = ({ cards, trailingPlus = false }) => (
-  <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-5 sm:gap-x-4 sm:gap-y-6 md:gap-x-6 md:gap-y-8 lg:gap-x-10">
-    {cards.map((card, i) => (
-      <Fragment key={card.label}>
-        <ProcessCard {...card} />
-        {(i < cards.length - 1 || trailingPlus) && (
-          <span className="text-white font-bold text-[20px] sm:text-[22px] select-none">+</span>
-        )}
-      </Fragment>
-    ))}
-  </div>
-);
-
-const HeroProofBlock = () => (
-  <div className="relative z-10 max-w-[1100px] mx-auto px-4 pb-[clamp(32px,5vw,64px)] pt-2 lg:pt-0">
-    <div className="grid grid-cols-3 gap-4 sm:gap-8 mb-[clamp(20px,3vw,32px)]">
-      {HERO_METRICS.map((m) => (
-        <div key={m.label} className="text-center">
+        <div
+          className="relative bg-white p-[12px] sm:p-[18px] pb-[44px] sm:pb-[60px] shadow-[0_40px_70px_-14px_rgba(0,0,0,0.7),0_22px_38px_-10px_rgba(0,0,0,0.5)]"
+          style={{
+            borderRadius: "2px",
+            backgroundImage:
+              "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.04) 100%)",
+          }}
+        >
+          {/* Beige washi tape */}
           <div
-            className="font-extrabold text-[clamp(20px,2.4vw,28px)] mb-2"
-            style={{ color: ACCENT_LIME }}
-          >
-            {m.value}
-          </div>
-          <div className="text-white/95 text-[clamp(14px,1.2vw,18px)] leading-snug max-w-[180px] mx-auto whitespace-pre-line">
-            {m.label}
+            aria-hidden
+            className="absolute -top-[16px] left-1/2 -translate-x-1/2 w-[110px] sm:w-[150px] h-[30px] sm:h-[38px] rotate-[-4deg] shadow-[0_3px_6px_rgba(0,0,0,0.22)]"
+            style={{
+              backgroundColor: "#d9c8a9",
+              backgroundImage:
+                "linear-gradient(90deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 30%, rgba(0,0,0,0.08) 100%)",
+              opacity: 0.94,
+            }}
+          />
+          <div className="group relative w-full aspect-square overflow-hidden">
+            <img
+              src="/Icons/walking_girl.jpg"
+              alt="Walking on the street"
+              className="w-full h-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-110"
+            />
           </div>
         </div>
-      ))}
-    </div>
+      </motion.div>
 
-    <h2
-      className="text-center text-[clamp(28px,4.5vw,52px)] leading-[1.1] mb-2 text-white"
-      style={{ fontFamily: "var(--font-playfair)", fontWeight: 700 }}
-    >
-      <span
-        className="italic"
-        style={{ color: ACCENT_LIME, fontStyle: "italic", fontWeight: 700 }}
+      {/* Tablet with product page — slides in from the right with overshoot */}
+      <motion.div
+        className={`absolute right-0 ${
+          isMobile ? "w-[76%] bottom-[20px]" : "w-[78%] bottom-[30px]"
+        }`}
+        initial={{ x: 480, opacity: 0, rotate: -12 }}
+        animate={{ x: 0, opacity: 1, rotate: -12 }}
+        transition={{
+          type: "spring",
+          stiffness: 90,
+          damping: 11,
+          mass: 1,
+          delay: 0.45,
+        }}
       >
-        Three minutes
-      </span>{" "}
-      is how it feels.
-    </h2>
-    <p
-      className="text-center text-white/90 text-[clamp(14px,1.4vw,20px)] mb-[clamp(20px,3vw,32px)]"
-      style={{ fontFamily: "var(--font-playfair)", fontWeight: 400 }}
-    >
-      Twenty minutes is what it costs, when you do this manually
-    </p>
+        {/* Silvery ambient halo (outer, wider) */}
+        <div
+          aria-hidden
+          className="absolute -inset-x-[10%] -bottom-[44px] -top-[20px] rounded-[40%] blur-3xl pointer-events-none"
+          style={{ backgroundColor: "rgba(235,238,245,0.32)" }}
+        />
+        {/* Dark contact shadow (tight, directly under card) */}
+        <div
+          aria-hidden
+          className="absolute left-[10%] right-[10%] -bottom-[14px] h-[32px] rounded-[50%] blur-xl pointer-events-none"
+          style={{ backgroundColor: "rgba(0,0,0,0.65)" }}
+        />
 
-    <div className="space-y-6 sm:space-y-8 md:space-y-10">
-      <ProcessCardRow cards={PROCESS_CARDS_TOP} trailingPlus />
-      <ProcessCardRow cards={PROCESS_CARDS_BOTTOM} />
+        <div className="relative bg-black rounded-[30px] p-[12px] sm:p-[16px] shadow-[0_48px_80px_-16px_rgba(0,0,0,0.78),0_24px_44px_-12px_rgba(0,0,0,0.55)]">
+          {/* Power button (top edge) */}
+          <span
+            aria-hidden
+            className="absolute -top-[3px] right-[24%] w-[48px] h-[4px] bg-[#1a1a1a] rounded-t-[2px]"
+          />
+          {/* Volume rocker (right edge) */}
+          <span
+            aria-hidden
+            className="absolute top-[24%] -right-[3px] w-[4px] h-[64px] bg-[#1a1a1a] rounded-r-[2px]"
+          />
+          {/* Camera dot */}
+          <span
+            aria-hidden
+            className="absolute left-[12px] sm:left-[16px] top-1/2 -translate-y-1/2 w-[6px] h-[6px] rounded-full bg-[#2a2a2a] z-10"
+          />
+          <div className="group relative overflow-hidden rounded-[20px] bg-white">
+            <img
+              src="/Icons/product_Des.png"
+              alt="Product detail page"
+              className="block w-full h-auto transition-transform duration-[600ms] ease-out group-hover:scale-110"
+            />
+          </div>
+        </div>
+      </motion.div>
     </div>
+  );
+};
 
-    <div className="flex justify-center mt-[clamp(20px,3vw,32px)]">
-      <div
-        className="rounded-full px-8 sm:px-10 md:px-12 py-[12px] sm:py-[14px] md:py-[18px] text-white flex items-baseline gap-[12px] sm:gap-[14px] shadow-[0_10px_30px_rgba(0,0,0,0.32)]"
-        style={{ backgroundColor: "rgba(130, 28, 60, 0.8)" }}
-      >
-        <span
-          className="text-[32px] sm:text-[40px] md:text-[48px] leading-none"
-          style={{ fontFamily: "var(--font-playfair)", fontWeight: 700 }}
-        >
-          20
-        </span>
-        <span className="text-[15px] sm:text-[17px] md:text-[19px] text-white/90 font-medium">
-          minutes per item
-        </span>
-      </div>
-    </div>
-  </div>
+const DEFAULT_HEADLINE_LEAD = "From one photo to";
+const DEFAULT_HEADLINE_TAIL = "selling everywhere.";
+const DEFAULT_SUBHEADLINE =
+  "2hand2go turns a single photo into a complete, priced listing, live on your own branded webshop and every channel you sell on. The omnichannel move mainstream retail made a decade ago, built for one of a kind stock.";
+const DEFAULT_CTA_PRIMARY = "Try it free";
+const DEFAULT_CTA_SECONDARY = "Book Mia";
+
+const ArrowRightIcon = ({ size = 18 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="13 6 19 12 13 18" />
+  </svg>
 );
 
-const DEFAULT_HEADLINE_LEAD = "That photo does nothing";
-const DEFAULT_HEADLINE_TAIL = "for you.";
-const DEFAULT_SUBHEADLINE =
-  "Now it: Automates YOUR webstore, YOUR sales channels, YOUR complete selling workflow.";
-const DEFAULT_LIST_ITEM_1 = "webshop that sync automatically";
-const DEFAULT_LIST_ITEM_2 = "Automatic workflow";
-const DEFAULT_HIGHLIGHT = "All in one";
-const DEFAULT_REASSURANCE = "All existing solution in 1 place";
-const DEFAULT_REASSURANCE_SUB = "Mia does it in your store";
-const DEFAULT_CTA_PRIMARY = "START for free";
-const DEFAULT_CTA_SECONDARY = "BOOK";
+const CalendarPlusIcon = ({ size = 18 }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="3" y="5" width="18" height="16" rx="2" />
+    <line x1="3" y1="10" x2="21" y2="10" />
+    <line x1="8" y1="3" x2="8" y2="7" />
+    <line x1="16" y1="3" x2="16" y2="7" />
+    <line x1="12" y1="13" x2="12" y2="18" />
+    <line x1="9.5" y1="15.5" x2="14.5" y2="15.5" />
+  </svg>
+);
 
 const InstagramIcon = ({ size = 18 }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="white">
@@ -178,15 +219,11 @@ const HeroCopy = ({
   headlineTail,
   headlineImageUrl,
   heroBody,
-  listItem1,
-  listItem2,
-  highlight,
-  reassurance,
-  reassuranceSub,
   ctaPrimary,
   ctaSecondary,
   instagramUrl,
   facebookUrl,
+  onBookMia,
 }) => {
   const isDesktop = variant === "desktop";
   return (
@@ -221,63 +258,7 @@ const HeroCopy = ({
         }
         style={{ fontFamily: "var(--font-bricolage)", fontWeight: 500 }}
       >
-        <span style={{ fontWeight: 700 }}>Now it:</span>{" "}
-        {heroBody.replace(/^now it[:\s-]*/i, "")}
-      </p>
-
-      <ul
-        className={
-          isDesktop
-            ? "mb-[clamp(16px,2.2vw,22px)] space-y-[10px] text-[clamp(17px,1.45vw,21px)] text-white"
-            : "mb-5 space-y-[10px] text-[18px] text-white"
-        }
-        style={{ fontFamily: "var(--font-bricolage)", fontWeight: 500 }}
-      >
-        {[listItem1, listItem2].map((item) => (
-          <li key={item} className="flex items-center gap-[12px]">
-            <span
-              className="inline-block w-[12px] h-[12px] rounded-full shrink-0"
-              style={{ backgroundColor: "#FF5294" }}
-            />
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-
-      <p
-        className={
-          isDesktop
-            ? "text-[clamp(26px,2.9vw,34px)] mb-[clamp(14px,2vw,20px)]"
-            : "text-[26px] mb-4"
-        }
-        style={{
-          fontFamily: "var(--font-bricolage)",
-          fontWeight: 800,
-          color: "#ffee24",
-        }}
-      >
-        {highlight}
-      </p>
-
-      <p
-        className={
-          isDesktop
-            ? "text-[clamp(20px,2vw,26px)] text-white mb-[4px]"
-            : "text-[20px] text-white mb-1"
-        }
-        style={{ fontFamily: "var(--font-bricolage)", fontWeight: 700 }}
-      >
-        {reassurance}
-      </p>
-      <p
-        className={
-          isDesktop
-            ? "text-[clamp(15px,1.2vw,18px)] text-white/80 mb-[clamp(20px,2.8vw,28px)]"
-            : "text-[15px] text-white/80 mb-6"
-        }
-        style={{ fontFamily: "var(--font-bricolage)", fontWeight: 400 }}
-      >
-        {reassuranceSub}
+        {heroBody}
       </p>
 
       <div
@@ -289,21 +270,66 @@ const HeroCopy = ({
       >
         <ButtonLink href="https://re-e.dk/try/add-product">
           <button
-            className="py-[12px] px-[34px] rounded-[35px] text-white leading-[18px] font-semibold cursor-pointer"
+            className="inline-flex items-center gap-[10px] py-[14px] pl-[24px] pr-[22px] rounded-[12px] text-white text-[15px] leading-[18px] font-semibold cursor-pointer shadow-[0_8px_20px_rgba(0,0,0,0.25)] hover:brightness-110 transition"
             style={{ backgroundColor: "#FF2E7E" }}
           >
-            {ctaPrimary}
+            <span>{ctaPrimary}</span>
+            <ArrowRightIcon size={18} />
           </button>
         </ButtonLink>
-        <ButtonLink href="contact">
-          <button
-            className="py-[12px] px-[34px] rounded-[35px] text-white leading-[18px] font-semibold cursor-pointer"
-            style={{ backgroundColor: "#d8324b" }}
-          >
-            {ctaSecondary}
-          </button>
-        </ButtonLink>
+        <button
+          type="button"
+          onClick={onBookMia}
+          className="inline-flex items-center gap-[10px] py-[14px] pl-[20px] pr-[24px] rounded-[12px] text-white text-[15px] leading-[18px] font-semibold cursor-pointer shadow-[0_8px_20px_rgba(0,0,0,0.25)] hover:brightness-110 transition"
+          style={{ backgroundColor: "#c41e3a" }}
+        >
+          <CalendarPlusIcon size={18} />
+          <span>{ctaSecondary}</span>
+        </button>
       </div>
+
+      <div
+        className={
+          isDesktop
+            ? "inline-flex items-center gap-[10px] bg-[#f7eddf] rounded-full pl-[4px] pr-[16px] py-[4px] mb-[clamp(16px,2.4vw,22px)] w-fit shadow-[0_4px_14px_rgba(0,0,0,0.18)]"
+            : "inline-flex items-center gap-[10px] bg-[#f7eddf] rounded-full pl-[4px] pr-[14px] py-[4px] mb-[18px] w-fit shadow-[0_4px_14px_rgba(0,0,0,0.18)]"
+        }
+      >
+        <div className="w-[26px] h-[26px] rounded-full bg-[#1a1a1a] flex items-center justify-center text-white font-bold text-[13px] shrink-0">
+          R
+        </div>
+        <span
+          className="text-[12px] sm:text-[13px] text-[#3a3a3a] font-medium"
+          style={{ fontFamily: "var(--font-bricolage)", fontWeight: 500 }}
+        >
+          Powered by Ree — 2hand2go&rsquo;s listing engine
+        </span>
+      </div>
+
+      <p
+        className={
+          isDesktop
+            ? "flex items-center gap-[10px] text-[15px] text-white/85 mb-[clamp(20px,2.8vw,28px)]"
+            : "flex items-center gap-[10px] text-[14px] text-white/85 mb-6"
+        }
+        style={{ fontFamily: "var(--font-bricolage)", fontWeight: 500 }}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#FF2E7E"
+          strokeWidth="2.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden
+        >
+          <polyline points="4 12 10 18 20 6" />
+        </svg>
+        Free for your first 25 items. No card required.
+      </p>
 
       <div>
         <p
@@ -342,33 +368,11 @@ const HeroCopy = ({
 
 const Video = () => {
   const { video } = useSanityContent();
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const mobileVideoRef = useRef(null);
-  const desktopVideoRef = useRef(null);
-
-  const desktopSrc = video.videoUrl;
-  const mobileSrc = video.mobileVideoUrl || video.videoUrl;
-
-  useEffect(() => {
-    const tryPlay = (el) => {
-      if (!el) return;
-      const p = el.play();
-      if (p && typeof p.catch === "function") p.catch(() => {});
-    };
-    tryPlay(mobileVideoRef.current);
-    tryPlay(desktopVideoRef.current);
-  }, [mobileSrc, desktopSrc]);
 
   const headlineLead = video.heroHeadlineLead?.trim() || DEFAULT_HEADLINE_LEAD;
   const headlineTail = video.heroHeadlineTail?.trim() || DEFAULT_HEADLINE_TAIL;
   const headlineImageUrl = video.heroHeadlineImageUrl || null;
   const heroBody = video.heroSubheadline?.trim() || DEFAULT_SUBHEADLINE;
-  const listItem1 = video.heroListItem1?.trim() || DEFAULT_LIST_ITEM_1;
-  const listItem2 = video.heroListItem2?.trim() || DEFAULT_LIST_ITEM_2;
-  const highlight = video.heroHighlight?.trim() || DEFAULT_HIGHLIGHT;
-  const reassurance = video.heroReassurance?.trim() || DEFAULT_REASSURANCE;
-  const reassuranceSub =
-    video.heroReassuranceSub?.trim() || DEFAULT_REASSURANCE_SUB;
   const ctaPrimary = video.heroCtaPrimary?.trim() || DEFAULT_CTA_PRIMARY;
   const ctaSecondary = video.heroCtaSecondary?.trim() || DEFAULT_CTA_SECONDARY;
 
@@ -380,103 +384,60 @@ const Video = () => {
     headlineTail,
     headlineImageUrl,
     heroBody,
-    listItem1,
-    listItem2,
-    highlight,
-    reassurance,
-    reassuranceSub,
     ctaPrimary,
     ctaSecondary,
     instagramUrl,
     facebookUrl,
+    onBookMia: () =>
+      window.dispatchEvent(new CustomEvent("open-contact")),
   };
 
   return (
-    <section
-      className="relative w-full lg:min-h-[700px] overflow-hidden"
-      style={{
-        backgroundImage: "url('/Icons/girl-newpaper.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      {/* Gradient overlay sits above the photo and below the content */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-0"
+    <>
+      <section
+        className="relative w-full lg:min-h-[700px] overflow-hidden"
         style={{
-          background:
-            "radial-gradient(circle at 50% 50%, #451352 0%, #a83c3c 35%, #bf5c74 70%, #332637 100%)",
-          opacity: 0.75,
-          mixBlendMode: "multiply",
+          backgroundImage: "url('/Icons/girl-newpaper.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
         }}
-      />
+      >
+        {/* Gradient overlay sits above the photo and below the content */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(circle at 50% 50%, #2a0a35 0%, #6b1f2a 35%, #7a3548 70%, #1a121f 100%)",
+            opacity: 0.92,
+            mixBlendMode: "multiply",
+          }}
+        />
 
-      {/* Mobile + landscape phone layout: video on top, hero content below */}
-      <div className="relative z-10 lg:hidden flex flex-col min-h-[calc(105svh+56px)] -mt-[56px]">
-        <div className="relative w-full aspect-[9/5] shrink-0 mt-[56px]">
-          {!videoLoaded && (
-            <div className="absolute inset-0 z-10 bg-black/20 flex items-center justify-center">
-              <div className="w-10 h-10 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-            </div>
-          )}
-          <video
-            ref={mobileVideoRef}
-            key={mobileSrc}
-            className={`w-full h-full object-cover transition-opacity duration-500 ${
-              videoLoaded ? "opacity-100" : "opacity-0"
-            }`}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            onLoadedData={() => setVideoLoaded(true)}
-            onCanPlay={() => setVideoLoaded(true)}
-            src={mobileSrc}
-          />
-        </div>
+        {/* Mobile + landscape phone layout: media on top, hero content below */}
+        <div className="relative z-10 lg:hidden flex flex-col min-h-[calc(105svh+56px)] -mt-[56px]">
+          <div className="px-4 pt-[72px] pb-2 shrink-0">
+            <HeroMediaShowcase variant="mobile" />
+          </div>
 
-        <div className="flex-1 flex flex-col justify-center px-6 py-8">
-          <HeroCopy variant="mobile" {...heroCopyProps} />
-        </div>
-      </div>
-
-      {/* Desktop layout: hero content left, video right */}
-      <div className="relative z-10 hidden lg:flex max-w-[1240px] mx-auto px-4 py-[clamp(48px,8vw,80px)] flex-row items-start gap-8">
-        <div className="flex-1 flex flex-col justify-center z-10">
-          <HeroCopy variant="desktop" {...heroCopyProps} />
-        </div>
-
-        <div className="flex-1 relative z-10 w-full max-w-[650px]">
-          <div className="relative h-[450px] w-[690px] max-w-full rounded-[12px] overflow-hidden shadow-2xl mx-auto">
-            {!videoLoaded && (
-              <div className="absolute inset-0 z-10 bg-black/20 flex items-center justify-center">
-                <div className="w-10 h-10 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-              </div>
-            )}
-            <video
-              ref={desktopVideoRef}
-              key={desktopSrc}
-              className={`w-full h-full object-cover transition-opacity duration-500 ${
-                videoLoaded ? "opacity-100" : "opacity-0"
-              }`}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              onLoadedData={() => setVideoLoaded(true)}
-              onCanPlay={() => setVideoLoaded(true)}
-              src={desktopSrc}
-            />
+          <div className="flex-1 flex flex-col justify-center px-6 py-8">
+            <HeroCopy variant="mobile" {...heroCopyProps} />
           </div>
         </div>
-      </div>
 
-      <HeroProofBlock />
-    </section>
+        {/* Desktop layout: hero content left, media right */}
+        <div className="relative z-10 hidden lg:flex max-w-[1240px] mx-auto px-4 py-[clamp(48px,8vw,80px)] flex-row items-start gap-8">
+          <div className="flex-1 flex flex-col justify-center z-10">
+            <HeroCopy variant="desktop" {...heroCopyProps} />
+          </div>
+
+          <div className="flex-1 relative z-10 w-full max-w-[650px] flex items-center justify-center">
+            <HeroMediaShowcase variant="desktop" />
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

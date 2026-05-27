@@ -11,7 +11,7 @@ export default defineType({
     footerDescription: "We automate what slows you down. So you can grow.",
     footerEmail: "mia@le-stores.com",
     footerCopyright: "2026 2hand2go. All rights reserved.",
-    footerBottomText: "Built for secondhand businesses",
+    footerBottomText: "2hand2go is powered by Ree",
   },
   fields: [
     defineField({
@@ -42,7 +42,7 @@ export default defineType({
       name: "footerBottomText",
       title: "Bottom Text",
       type: "string",
-      description: d("Built for secondhand businesses"),
+      description: d("2hand2go is powered by Ree"),
     }),
   ],
   preview: {

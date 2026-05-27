@@ -16,7 +16,7 @@ export default defineType({
   // Pre-fill ALL fields when the document is first created
   initialValue: {
     retailerBody:
-      "Turn a 20 minute task into a 1 minute step, without hours of training or change.",
+      "Not because secondhand stores did not want to sell online, but because every item is one of a kind, and listing unique stock across every channel by hand was too slow to be worth it. That bottleneck is finally gone. Two forces are now squeezing independent stores.",
     problems: [
       {
         _type: "object",
@@ -31,7 +31,7 @@ export default defineType({
       {
         _type: "object",
         title: "Manual listing is too slow for unique items",
-        desc: "Every secondhand product is one-of-a-kind. Writing titles, descriptions, and prices one by one kills your pipeline.",
+        desc: "Every secondhand product is one of a kind. Writing titles, descriptions, and prices one by one kills your pipeline.",
       },
       {
         _type: "object",
@@ -109,7 +109,7 @@ export default defineType({
       group: "retailerCta",
       rows: 2,
       description: d(
-        "Turn a 20 minute task into a 1 minute step, without hours of training or change."
+        "Not because secondhand stores did not want to sell online, but because every item is one of a kind, and listing unique stock across every channel by hand was too slow to be worth it. That bottleneck is finally gone. Two forces are now squeezing independent stores."
       ),
     }),
 

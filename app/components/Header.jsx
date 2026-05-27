@@ -4,16 +4,18 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ContactSlider from "./ContactSlider";
+import LocationChoiceModal from "./LocationChoiceModal";
 import { useSanityContent } from "./SanityProvider";
 
 const NAV_ITEMS = [
+  { title: "How it works", href: "/#process", isDropdown: false },
   {
-    title: "Solutions",
+    title: "Features",
     isDropdown: true,
-    submenuHeading: "Built for Secondhand Businesses",
+    submenuHeading: "2hand2go is powered by Ree",
     col1: [
       {
-        title: "2hand2go List",
+        title: "Ree",
         desc: "One picture. One ready-to-sell product. Stock synced automatically.",
         href: "https://re-e.dk/",
       },
@@ -33,17 +35,18 @@ const NAV_ITEMS = [
 const CTA_TEXT = "Start Free";
 
 const Header = () => {
-  const { images, settings } = useSanityContent();
+  const { images } = useSanityContent();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
-  const [contactOpen, setContactOpen] = useState(false);
+  const [choiceOpen, setChoiceOpen] = useState(false);
+  const [bookingKind, setBookingKind] = useState(null);
   const [visible, setVisible] = useState(true);
   const dropdownRef = useRef(null);
   const lastScrollY = useRef(0);
   const pathname = usePathname();
 
-  const navItems = settings?.navItems?.length > 0 ? settings.navItems : NAV_ITEMS;
+  const navItems = NAV_ITEMS;
   const ctaText = CTA_TEXT;
 
   const scrollToHash = (e, hash) => {
@@ -81,9 +84,14 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Listen for global "open-contact" event from any component's ButtonLink
+  // Listen for global "open-contact" event from any component (Footer link,
+  // ButtonLink with href="contact", Video's Book Mia button, etc.). All such
+  // triggers now open the Book Mia choice modal.
   useEffect(() => {
-    const open = () => setContactOpen(true);
+    const open = () => {
+      setBookingKind(null);
+      setChoiceOpen(true);
+    };
     window.addEventListener("open-contact", open);
     return () => window.removeEventListener("open-contact", open);
   }, []);
@@ -263,7 +271,7 @@ const Header = () => {
             {/* Logo + tagline */}
             <Link href="/" className="flex flex-col leading-none">
               <img
-                src="/Icons/2H_logo.png"
+                src="/Icons/2hand2go_logo.png"
                 alt="2hand2go"
                 className="h-[28px] sm:h-[32px] w-auto max-w-[170px] object-contain"
               />
@@ -326,12 +334,14 @@ const Header = () => {
             </ul>
 
             {/* Desktop CTA */}
-            <button
-              onClick={() => setContactOpen(true)}
+            <a
+              href="https://re-e.dk/try/add-product"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden lg:block bg-[#ff2e7e] hover:bg-[#ff5294] text-white px-[28px] py-[10px] rounded-full font-semibold transition text-[15px] cursor-pointer"
             >
               {ctaText}
-            </button>
+            </a>
 
             {/* Hamburger — mobile only */}
             <button
@@ -419,23 +429,37 @@ const Header = () => {
                   </li>
                 ),
               )}
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  setContactOpen(true);
-                }}
+              <a
+                href="https://re-e.dk/try/add-product"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
                 className="bg-[#ff2e7e] hover:bg-[#ff5294] text-white px-[28px] py-[10px] rounded-full font-semibold transition w-fit cursor-pointer"
               >
                 {ctaText}
-              </button>
+              </a>
             </div>
           )}
         </div>
       </header>
 
+      <LocationChoiceModal
+        isOpen={choiceOpen}
+        onClose={() => setChoiceOpen(false)}
+        onSelect={(kind) => {
+          setChoiceOpen(false);
+          setBookingKind(kind);
+        }}
+      />
+
       <ContactSlider
-        isOpen={contactOpen}
-        onClose={() => setContactOpen(false)}
+        isOpen={!!bookingKind}
+        onClose={() => setBookingKind(null)}
+        onBack={() => {
+          setBookingKind(null);
+          setChoiceOpen(true);
+        }}
+        bookingKind={bookingKind}
       />
     </>
   );
