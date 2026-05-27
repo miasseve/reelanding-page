@@ -32,7 +32,7 @@ const HeroVideoBlock = ({ variant = "desktop" }) => {
         <video
           ref={videoRef}
           key={src}
-          className={`w-full h-full object-cover transition-opacity duration-500 ${
+          className={`w-full h-full object-contain transition-opacity duration-500 ${
             videoLoaded ? "opacity-100" : "opacity-0"
           }`}
           autoPlay
@@ -58,7 +58,7 @@ const HeroVideoBlock = ({ variant = "desktop" }) => {
       <video
         ref={videoRef}
         key={src}
-        className={`w-full h-full object-cover transition-opacity duration-500 ${
+        className={`w-full h-full object-contain transition-opacity duration-500 ${
           videoLoaded ? "opacity-100" : "opacity-0"
         }`}
         autoPlay
