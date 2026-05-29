@@ -73,6 +73,10 @@ export const defaultImages = {
     src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
     alt: "Team meeting",
   },
+  "about-team-photo": {
+    src: "/Icons/team-photo.png",
+    alt: "The 2hand2go team gathered on the steps outside the office",
+  },
   "cta-founder": {
     src: "/Icons/mia_sev.png",
     alt: "mia sev",

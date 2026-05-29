@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-DK" className={`${spaceGrotesk.variable} ${playfair.variable} ${bricolage.variable} ${instrumentSerif.variable}`}>
-      <body className="font-[family-name:var(--font-space-grotesk)]">
+      <body className="font-[family-name:var(--font-space-grotesk)]" suppressHydrationWarning>
         {children}
       </body>
     </html>

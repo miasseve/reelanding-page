@@ -18,23 +18,34 @@ const CTASection = () => {
               <h2 className="text-[26px] sm:text-[32px] lg:text-[40px] font-normal text-black leading-[1.1] sm:leading-[1.15] lg:leading-[42px] pb-[32px] sm:pb-[40px] lg:pb-[61px]">
                 {t(homeContent, "ctaHeading", "Sell secondhand online, without extra work.")}
               </h2>
-              <div className="flex items-center gap-[12px] sm:gap-[16px] flex-wrap">
-                <ButtonLink href="https://re-e.dk/try/add-product">
-                  <button
-                    className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]"
-                    style={{ backgroundColor: "#FF2E7E" }}
-                  >
-                    {t(homeContent, "ctaPrimary", "Try with 1 picture")}
-                  </button>
-                </ButtonLink>
-                <ButtonLink href="/#web">
-                  <button
-                    className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] bg-white border-[1.5px] leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]"
-                    style={{ borderColor: "#FF2E7E", color: "#FF2E7E" }}
-                  >
-                    {t(homeContent, "ctaSecondary", "Launch your webstore in 3 days")}
-                  </button>
-                </ButtonLink>
+              <div className="flex flex-col items-start gap-[12px] sm:gap-[16px]">
+                <button
+                  type="button"
+                  onClick={() =>
+                    window.dispatchEvent(new CustomEvent("open-contact"))
+                  }
+                  className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]" style={{ backgroundColor: "#c41e3a" }}
+                >
+                  {t(homeContent, "ctaContact", "Contact Mia")}
+                </button>
+                {/* <div className="flex items-center gap-[12px] sm:gap-[16px] flex-wrap"> */}
+                  <ButtonLink href="https://re-e.dk/try/add-product">
+                    <button
+                      className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]"
+                      style={{ backgroundColor: "#FF2E7E" }}
+                    >
+                      {t(homeContent, "ctaPrimary", "Try with 1 picture")}
+                    </button>
+                  </ButtonLink>
+                  <ButtonLink href="/#web">
+                    <button
+                      className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] bg-white border-[1.5px] leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]"
+                      style={{ borderColor: "#FF2E7E", color: "#FF2E7E" }}
+                    >
+                      {t(homeContent, "ctaSecondary", "Launch your webstore in 3 days")}
+                    </button>
+                  </ButtonLink>
+                {/* </div> */}
               </div>
             </div>
 
@@ -56,16 +67,16 @@ const CTASection = () => {
                     {t(homeContent, "ctaQuoteAttribution", "— Founding Team")}
                   </p>
 
-                  <div className="pt-[24px] sm:pt-[30px] lg:pt-[37px] flex flex-col gap-[8px]">
-                    <div className="flex items-center gap-[10px] leading-[18px] text-[#414141] text-[14px] sm:text-[16px]">
+                  {/* <div className="pt-[24px] sm:pt-[30px] lg:pt-[37px] flex flex-col gap-[8px]"> */}
+                    {/* <div className="flex items-center gap-[10px] leading-[18px] text-[#414141] text-[14px] sm:text-[16px]">
                       <Phone size={15} className="text-[#414141] flex-shrink-0" />
                       <span>{t(homeContent, "ctaPhone", "+000 000 0000")}</span>
-                    </div>
-                    <div className="flex items-center gap-[10px] text-[#414141] text-[13px] sm:text-[14px]">
+                    </div> */}
+                    {/* <div className="flex items-center gap-[10px] text-[#414141] text-[13px] sm:text-[14px]">
                       <Mail size={15} className="text-[#414141] flex-shrink-0" />
                       <span>{t(homeContent, "ctaEmail", "mia@le-stores.com")}</span>
-                    </div>
-                  </div>
+                    </div> */}
+                  {/* </div> */}
                 </div>
               </div>
             </div>

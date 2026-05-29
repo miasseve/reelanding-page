@@ -10,6 +10,7 @@ export default defineType({
   groups: [
     { name: "retailerCta", title: "Retailer CTA" },
     { name: "problems", title: "Problem Carousel" },
+    { name: "about", title: "About Team Section" },
     { name: "faq", title: "FAQ Section" },
     { name: "cta", title: "CTA Section" },
   ],
@@ -42,6 +43,46 @@ export default defineType({
         _type: "object",
         title: "Admin kills your margin",
         desc: "Consignor splits, payments, reconciliation — the invisible work eats the profit on every sale.",
+      },
+    ],
+    aboutBadge: "ABOUT US",
+    aboutHeading: "Who we are",
+    aboutParagraphs: [
+      {
+        _type: "object",
+        text: "2hand2go was created around a simple belief: better consumption choices should not be difficult.",
+      },
+      {
+        _type: "object",
+        text: "The secondhand market already has the products. Beautiful, useful, high-quality items are already here. The problem is that they are often too hard to find, too slow to upload, and too complicated for stores to sell across several channels.",
+      },
+      {
+        _type: "object",
+        text: "We believe that prolonging the life of a product is one of the most practical ways to change consumption. But for secondhand to become a real first choice for consumers, it has to be as easy to buy as new.",
+      },
+      {
+        _type: "object",
+        text: "That is the mission behind 2hand2go.",
+      },
+      {
+        _type: "object",
+        text: "We help professional secondhand stores turn one product photo into a ready-to-sell item, with product information, labels, stock sync, consignor management, online listing, and a webstore working together in one place.",
+      },
+      {
+        _type: "object",
+        text: "Instead of asking stores to find separate tools, connect different providers, and manage several systems, we give them one simple setup designed for the reality of unique products.",
+      },
+      {
+        _type: "object",
+        text: "Our role is to make omnichannel secondhand selling easier, faster, and more accessible.",
+      },
+      {
+        _type: "object",
+        text: "Because when secondhand becomes easier to sell, it becomes easier to buy.",
+      },
+      {
+        _type: "object",
+        text: "And when it becomes easier to buy, it can become the first choice.",
       },
     ],
     faqHeading: "FAQ",
@@ -92,6 +133,7 @@ export default defineType({
     ],
     ctaHeading:
       "Sell secondhand online, without extra work.",
+    ctaContact: "Contact Mia",
     ctaPrimary: "Try with 1 picture",
     ctaSecondary: "Launch your webstore in 3 days",
     ctaQuote:
@@ -128,6 +170,36 @@ export default defineType({
             { name: "desc", title: "Description", type: "text", rows: 2 },
           ],
           preview: { select: { title: "title" } },
+        },
+      ],
+    }),
+
+    // ── About Team Section ──
+    defineField({
+      name: "aboutBadge",
+      title: "Badge Text",
+      type: "string",
+      group: "about",
+      description: d("ABOUT US"),
+    }),
+    defineField({
+      name: "aboutHeading",
+      title: "Heading",
+      type: "string",
+      group: "about",
+      description: d("Who we are"),
+    }),
+    defineField({
+      name: "aboutParagraphs",
+      title: "Paragraphs",
+      type: "array",
+      group: "about",
+      description: "Remove all items to restore the default story text.",
+      of: [
+        {
+          type: "object",
+          fields: [{ name: "text", title: "Paragraph", type: "text", rows: 3 }],
+          preview: { select: { title: "text" } },
         },
       ],
     }),
@@ -172,6 +244,13 @@ export default defineType({
       type: "string",
       group: "cta",
       description: d("Sell secondhand online, without extra work."),
+    }),
+    defineField({
+      name: "ctaContact",
+      title: "Contact Button Text",
+      type: "string",
+      group: "cta",
+      description: d("Contact Mia"),
     }),
     defineField({
       name: "ctaPrimary",

@@ -4,6 +4,7 @@ import TimeSavingsSection from "../components/home/TimeSavingsSection";
 import WorkflowSection from "../components/home/WorkflowSection";
 import ListPromoSection from "../components/home/ListPromoSection";
 import WebPromoSection from "../components/home/WebPromoSection";
+import AboutTeamSection from "../components/home/AboutTeamSection";
 import HomePricingSection from "../components/home/HomePricingSection";
 import ProcessSection from "../components/home/ProcessSection";
 import FAQSection from "../components/home/FAQSection";
@@ -25,6 +26,7 @@ export default function Home() {
       <Reveal><HomePricingSection /></Reveal>
       <Reveal><FAQSection /></Reveal>
       <Reveal><CTASection /></Reveal>
+      <Reveal><AboutTeamSection /></Reveal>
     </>
   );
 }

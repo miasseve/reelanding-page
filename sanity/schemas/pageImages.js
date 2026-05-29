@@ -33,6 +33,7 @@ export default defineType({
           { title: "Problem Carousel - Slide 5", value: "carousel-5" },
 
           { title: "Team Section - Team Photo", value: "team-photo" },
+          { title: "About Team Section - Team Photo", value: "about-team-photo" },
           { title: "CTA Section - Founder Photo", value: "cta-founder" },
           { title: "Pricing - Barcode Feature", value: "pricing-barcode" },
           { title: "Pricing - Instagram Feature", value: "pricing-instagram" },
