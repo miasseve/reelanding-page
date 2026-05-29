@@ -11,11 +11,11 @@ const DEFAULT_FAQS = [
   },
   {
     question: "IS THIS ONLY FOR SECONDHAND STORES?",
-    answer: "Yes. 2hand2go is built specifically for secondhand businesses resale stores, consignment shops, vintage boutiques, and pre-loved specialists.",
+    answer: "Yes. It's for all unique product handling and products that comes without full description,where you need to do less manual work and have more time for your customer.",
   },
   {
     question: "DO I NEED TO CHANGE MY TEAM'S ROUTINE?",
-    answer: "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Start taking pictures or uploading on List and the rest runs automatically.",
+    answer: "No new habits for your team. You only add the passwords for the channels you want to use and choose your webstore password. Then it automatically provide all the things and steps you need from the product picture. You don't change your habits, you get the results you need by jumping directly to the final step.",
   },
   {
     question: "HOW FAST CAN I GO LIVE?",
@@ -23,7 +23,7 @@ const DEFAULT_FAQS = [
   },
   {
     question: "CAN I START WITH JUST LIST OR JUST WEB?",
-    answer: "Yes. You can start with either solution and add the other later. Most stores use both together for the full 2hand2go setup List gets products shoppable, Web is where they sell.",
+    answer: "You can not have the webstore run automatically without having the Ree-engine. Most stores use both together for the full 2hand2go setup List gets products shoppable, Web is where they sell.",
   },
   {
     question: "WHAT IF MY TEAM ISN'T TECHNICAL?",

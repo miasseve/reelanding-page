@@ -37,7 +37,7 @@ const StepRow = ({ index, step }) => (
       {index + 1}
     </span>
     <div className="flex-1 min-w-0">
-      <div className="text-[15px] sm:text-[16px] font-semibold text-[#1a1a1a] leading-[1.55]">
+      <div className="text-[10px] sm:text-[14px] text-[#1a1a1a] leading-[1.55]">
         {step.title}
       </div>
       {step.desc && (

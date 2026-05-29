@@ -1,12 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import HeroVideoBlock from "./HeroVideoBlock";
 
 const PINK = "#FF2E7E";
 
-const ListPromoSection = () => (
+const DEMO_VIDEO_URL =
+  "https://res.cloudinary.com/dlkgz4a2j/video/upload/q_auto,f_auto/v1779883824/Ree_video_mq4dur.mp4";
+
+const ListPromoSection = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
+  return (
   <section
-    className="relative px-4 sm:px-6 py-[60px] sm:py-[80px] md:py-[100px] overflow-hidden lg:min-h-screen lg:flex lg:items-center"
+    id="demo-video"
+    className="relative px-4 sm:px-6 py-[60px] sm:py-[80px] md:py-[100px] overflow-hidden lg:min-h-screen lg:flex lg:items-center scroll-mt-[80px]"
     style={{
       backgroundImage: "url('/Icons/girl-fashion.png')",
       backgroundSize: "cover",
@@ -90,6 +98,26 @@ const ListPromoSection = () => (
               </li>
             ))}
           </ul>
+
+          <div className="mt-8 flex justify-center md:justify-start">
+            <button
+              type="button"
+              onClick={() => setShowVideo(true)}
+              className="group inline-flex items-center gap-[10px] rounded-full px-[28px] py-[14px] text-[15px] sm:text-[16px] font-semibold text-white shadow-[0_10px_30px_rgba(244,14,14,0.25)] transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_16px_40px_rgba(244,14,14,0.4)]"
+              style={{ backgroundColor: PINK }}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Watch 30 sec demo
+            </button>
+          </div>
         </div>
 
         {/* Reusable video — same look/position as the hero video container */}
@@ -98,7 +126,38 @@ const ListPromoSection = () => (
         </div>
       </div>
     </div>
+
+    {showVideo && (
+      <div
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-[16px] backdrop-blur-sm"
+        onClick={() => setShowVideo(false)}
+      >
+        <div
+          className="relative w-full max-w-[900px]"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={() => setShowVideo(false)}
+            aria-label="Close video"
+            className="absolute -top-[44px] right-0 flex h-[36px] w-[36px] items-center justify-center rounded-full bg-white/15 text-white text-[22px] leading-none transition-colors hover:bg-white/30"
+          >
+            ×
+          </button>
+          <video
+            className="w-full h-full object-contain rounded-[12px] shadow-2xl"
+            autoPlay
+            loop
+            playsInline
+            controls
+            preload="metadata"
+            src={DEMO_VIDEO_URL}
+          />
+        </div>
+      </div>
+    )}
   </section>
-);
+  );
+};
 
 export default ListPromoSection;

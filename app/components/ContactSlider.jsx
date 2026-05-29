@@ -71,7 +71,7 @@ const BOOKING_CONFIG = {
   copenhagen: {
     title: "2-hour in-store visit.",
     description:
-      "Mia works with real items from your floor. Have 10–20 products ready.",
+      "Mia works with real items from your floor. Have min 20 products ready.",
     subject: "Book Mia (2-hour in-store visit)",
     locationLabel: "Address / postcode",
     locationPlaceholder: "Nørrebrogade 12, 2200",

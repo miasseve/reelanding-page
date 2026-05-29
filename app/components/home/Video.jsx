@@ -137,6 +137,36 @@ const DEFAULT_SUBHEADLINE =
 const DEFAULT_CTA_PRIMARY = "Try it free";
 const DEFAULT_CTA_SECONDARY = "Book Mia";
 
+// "List once, sell across" channel strip shown at the bottom of the hero.
+const HERO_CHANNELS = [
+  { label: "Your branded webshop", dot: "#111111" },
+  { label: "Vinted Pro", dot: "#FF2E7E" },
+  { label: "Instagram", dot: "#FF2E7E" },
+  { label: "Your shop floor", dot: "#111111" },
+];
+
+const ChannelStrip = () => (
+  <div className="relative z-10 mt-[80px] sm:mt-[120px] bg-white">
+    <div className="max-w-[1240px] mx-auto px-4 sm:px-6 py-[32px] sm:py-[48px] flex flex-wrap items-center justify-center gap-x-[12px] gap-y-[10px]">
+      <span className="mr-[4px] text-[12px] sm:text-[13px] font-extrabold uppercase tracking-wide text-[#6b6b6b]">
+        List once, sell across
+      </span>
+      {HERO_CHANNELS.map((channel) => (
+        <span
+          key={channel.label}
+          className="inline-flex items-center gap-[8px] rounded-[10px] bg-[#f4f1ef] px-[16px] py-[8px] text-[13px] sm:text-[14px] font-semibold text-[#1a1a1a]"
+        >
+          <span
+            className="h-[8px] w-[8px] rounded-full"
+            style={{ backgroundColor: channel.dot }}
+          />
+          {channel.label}
+        </span>
+      ))}
+    </div>
+  </div>
+);
+
 const ArrowRightIcon = ({ size = 18 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -187,20 +217,12 @@ const FacebookIcon = ({ size = 18 }) => (
   </svg>
 );
 
-// Headline lead — the photo is clipped INSIDE the letters (background-clip: text)
-// rather than painted behind them. Defaults to the sky photo; Sanity can override.
-const HeadlineLead = ({ text, imageUrl }) => {
-  const image = imageUrl || "/Icons/hand_ice.png";
+// Headline lead — solid white text.
+const HeadlineLead = ({ text }) => {
   return (
     <span
       style={{
-        backgroundImage: `url('${image}')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        WebkitBackgroundClip: "text",
-        backgroundClip: "text",
-        WebkitTextFillColor: "transparent",
-        color: "transparent",
+        color: "#ffffff",
         fontFamily: "var(--font-bricolage)",
         fontWeight: 900,
         fontSize: "75px",
@@ -253,7 +275,7 @@ const HeroCopy = ({
       <p
         className={
           isDesktop
-            ? "text-[clamp(17px,1.5vw,22px)] leading-[1.55] text-white/95 max-w-[560px] mb-[clamp(16px,2.2vw,22px)]"
+            ? "text-[clamp(17px,1.5vw,22px)] leading-[1.55]  mt-15 text-white/95 max-w-[560px] mb-[clamp(16px,2.2vw,22px)]"
             : "text-[18px] leading-[1.5] text-white/95 mb-5"
         }
         style={{ fontFamily: "var(--font-bricolage)", fontWeight: 500 }}
@@ -264,7 +286,7 @@ const HeroCopy = ({
       <div
         className={
           isDesktop
-            ? "flex flex-wrap gap-[14px] mb-[clamp(20px,2.5vw,28px)]"
+            ? "flex flex-wrap gap-[14px] mb-[clamp(20px,2.5vw,28px)] mt-15"
             : "flex flex-wrap gap-[12px] mb-6"
         }
       >
@@ -330,38 +352,6 @@ const HeroCopy = ({
         </svg>
         Free for your first 25 items. No card required.
       </p>
-
-      <div>
-        <p
-          className={
-            isDesktop
-              ? "text-[13px] font-semibold tracking-[0.15em] uppercase text-white mb-[10px]"
-              : "text-[14px] font-semibold tracking-[0.15em] uppercase text-white mb-[12px]"
-          }
-        >
-          Let&apos;s Connect
-        </p>
-        <div className="flex items-center gap-[12px]">
-          <a
-            href={instagramUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="w-[40px] h-[40px] flex items-center justify-center rounded-full bg-[#1a1a1a] hover:bg-black transition-colors"
-          >
-            <InstagramIcon size={18} />
-          </a>
-          <a
-            href={facebookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-            className="w-[40px] h-[40px] flex items-center justify-center rounded-full bg-[#1a1a1a] hover:bg-black transition-colors"
-          >
-            <FacebookIcon size={18} />
-          </a>
-        </div>
-      </div>
     </>
   );
 };
@@ -397,7 +387,7 @@ const Video = () => {
       <section
         className="relative w-full lg:min-h-[700px] overflow-hidden"
         style={{
-          backgroundImage: "url('/Icons/girl-newpaper.png')",
+          //backgroundImage: "url('/Icons/girl-newpaper.png')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -436,6 +426,9 @@ const Video = () => {
             <HeroMediaShowcase variant="desktop" />
           </div>
         </div>
+
+        {/* Channel strip pinned to the bottom of the hero, after a large space */}
+        <ChannelStrip />
       </section>
     </>
   );

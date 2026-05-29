@@ -14,6 +14,12 @@ const BORDER_GRADIENT =
 const RetailerCTA = () => {
   const { homeContent } = useSanityContent();
 
+  const scrollToDemo = () => {
+    document
+      .getElementById("demo-video")
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
   return (
     <section
       id="problem"
@@ -125,6 +131,26 @@ const RetailerCTA = () => {
               </p>
             </div>
           </div>
+        </div>
+
+        <div className="mt-[56px] sm:mt-[72px] flex justify-center">
+          <button
+            type="button"
+            onClick={scrollToDemo}
+            className="group inline-flex items-center gap-[10px] rounded-full px-[28px] py-[14px] text-[15px] sm:text-[16px] font-semibold text-white shadow-[0_10px_30px_rgba(244,14,14,0.25)] transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_16px_40px_rgba(244,14,14,0.4)]"
+            style={{ backgroundColor: "#FF2E7E" }}
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            {t(homeContent, "retailerWatchDemo", "Watch 30 sec demo")}
+          </button>
         </div>
       </div>
     </section>

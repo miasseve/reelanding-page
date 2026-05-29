@@ -130,7 +130,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[40px] lg:gap-[56px] pb-[40px]">
             {/* Brand column */}
             <div>
-              <div className="inline-block bg-white rounded-[10px] px-[14px] py-[10px]">
+              <div className="inline-block  rounded-[10px] px-[14px] py-[10px]">
                 <img
                   src="/Icons/2hand2go_logo.png"
                   alt="2hand2go"
