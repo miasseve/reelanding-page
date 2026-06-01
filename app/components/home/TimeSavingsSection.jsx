@@ -172,7 +172,7 @@ const TimeSavingsSection = () => {
               style={{ backgroundColor: "#f70000" }}
             >
               <CalendarPlusIcon size={18} />
-              <span>{t(homeContent, "heroCtaSecondary", "Book Mia")}</span>
+              <span>Book Mia</span>
             </button>
           </div>
         </div>
