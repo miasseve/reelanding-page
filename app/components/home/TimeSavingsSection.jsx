@@ -169,7 +169,7 @@ const TimeSavingsSection = () => {
                 window.dispatchEvent(new CustomEvent("open-contact"))
               }
               className="inline-flex items-center gap-[10px] py-[14px] pl-[20px] pr-[24px] rounded-[12px] text-white text-[15px] leading-[18px] font-semibold cursor-pointer shadow-[0_8px_20px_rgba(0,0,0,0.25)] hover:brightness-110 transition"
-              style={{ backgroundColor: "#c41e3a" }}
+              style={{ backgroundColor: "#f70000" }}
             >
               <CalendarPlusIcon size={18} />
               <span>{t(homeContent, "heroCtaSecondary", "Book Mia")}</span>

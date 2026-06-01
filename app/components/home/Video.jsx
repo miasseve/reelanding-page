@@ -276,7 +276,7 @@ const HeroCopy = ({
         className={
           isDesktop
             ? "text-[clamp(17px,1.5vw,22px)] leading-[1.55]  mt-15 text-white/95 max-w-[560px] mb-[clamp(16px,2.2vw,22px)]"
-            : "text-[18px] leading-[1.5] text-white/95 mb-5"
+            : "text-[18px] leading-[1.5] mt-15 text-white/95 mb-5"
         }
         style={{ fontFamily: "var(--font-bricolage)", fontWeight: 500 }}
       >
@@ -287,7 +287,7 @@ const HeroCopy = ({
         className={
           isDesktop
             ? "flex flex-wrap gap-[14px] mb-[clamp(20px,2.5vw,28px)] mt-15"
-            : "flex flex-wrap gap-[12px] mb-6"
+            : "flex flex-wrap gap-[12px] mb-6 mt-15"
         }
       >
         <ButtonLink href="https://re-e.dk/try/add-product">
@@ -303,7 +303,7 @@ const HeroCopy = ({
           type="button"
           onClick={onBookMia}
           className="inline-flex items-center gap-[10px] py-[14px] pl-[20px] pr-[24px] rounded-[12px] text-white text-[15px] leading-[18px] font-semibold cursor-pointer shadow-[0_8px_20px_rgba(0,0,0,0.25)] hover:brightness-110 transition"
-          style={{ backgroundColor: "#c41e3a" }}
+          style={{ backgroundColor: "#f70000" }}
         >
           <CalendarPlusIcon size={18} />
           <span>{ctaSecondary}</span>

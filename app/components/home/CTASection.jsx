@@ -24,7 +24,7 @@ const CTASection = () => {
                   onClick={() =>
                     window.dispatchEvent(new CustomEvent("open-contact"))
                   }
-                  className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]" style={{ backgroundColor: "#c41e3a" }}
+                  className="py-[14px] sm:py-[12px] px-[28px] sm:px-[35px] rounded-[35px] text-white leading-[18px] font-semibold cursor-pointer text-[14px] sm:text-[16px]" style={{ backgroundColor: "#f70000" }}
                 >
                   {t(homeContent, "ctaContact", "Contact Mia")}
                 </button>
