@@ -64,7 +64,7 @@ const CTASection = () => {
                     &quot;{t(homeContent, "ctaQuote", "We built these tools because we needed them ourselves. Now we're sharing them with secondhand businesses who want to grow without burning out.")}&quot;
                   </p>
                   <p className="text-[17px] sm:text-[20px] lg:text-[25px] leading-[1.4] lg:leading-[35px] font-bold text-[#414141]">
-                    {t(homeContent, "ctaQuoteAttribution", "— Founding Team")}
+                    {t(homeContent, "ctaQuoteAttribution", "— Founder/CTO Mia Sevestre")}
                   </p>
 
                   {/* <div className="pt-[24px] sm:pt-[30px] lg:pt-[37px] flex flex-col gap-[8px]"> */}
