@@ -136,35 +136,39 @@ const WorkflowSection = () => (
 
     <div className="relative z-10 max-w-[1100px] mx-auto">
       <h2
-        className="text-center text-[34px] sm:text-[48px] md:text-[60px] leading-[1.1] text-[#1a1a1a]"
+        className="text-center text-[clamp(26px,5.5vw,60px)] leading-[1.1] text-[#1a1a1a]"
         style={{ fontFamily: "var(--font-playfair)", fontWeight: 700 }}
       >
-        Two products.{" "}
-        <span
-          className="italic"
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontWeight: 700,
-            fontStyle: "italic",
-            color: ACCENT,
-          }}
-        >
-          One flow
+        <span className="whitespace-nowrap">
+          Two products.{" "}
+          <span
+            className="italic"
+            style={{
+              fontFamily: "var(--font-playfair)",
+              fontWeight: 700,
+              fontStyle: "italic",
+              color: ACCENT,
+            }}
+          >
+            One flow
+          </span>
         </span>
         <br />
-        from photo to{" "}
-        <span
-          className="italic"
-          style={{
-            fontFamily: "var(--font-playfair)",
-            fontWeight: 700,
-            fontStyle: "italic",
-            color: ACCENT,
-          }}
-        >
-          sold
+        <span className="whitespace-nowrap">
+          from photo to{" "}
+          <span
+            className="italic"
+            style={{
+              fontFamily: "var(--font-playfair)",
+              fontWeight: 700,
+              fontStyle: "italic",
+              color: ACCENT,
+            }}
+          >
+            sold
+          </span>
+          .
         </span>
-        .
       </h2>
 
       <p className="text-center text-[#4b5563] mt-4 text-[16px] sm:text-[18px] max-w-[640px] mx-auto leading-[1.7]">
