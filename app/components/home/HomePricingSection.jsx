@@ -5,6 +5,7 @@ import { useSanityContent, t } from "../SanityProvider";
 const PINK = "#FF2E7E";
 const PINK_SOFT = "#fce7ed";
 const DEFAULT_CTA_URL = "https://re-e.dk/try/subscription-plan";
+const PLUGIN_CTA_URL = "https://re-e.dk/dashboard/subscription-plan";
 
 const ENGINE_PLANS = [
   {
@@ -78,6 +79,29 @@ const WEBSHOP_PLANS = [
     priceRate: "2%",
     priceNote: "per transaction",
     ctaLabel: "Claim your webshop",
+    ctaStyle: "outline",
+    boxedPrice: true,
+  },
+];
+
+const PLUGIN_PLANS = [
+  {
+    title: "Basic",
+    description:
+      "Connect your existing webstore and keep your full catalog synced to all ADS features.",
+    price: "3,200",
+    priceSuffix: "DKK / month",
+    ctaLabel: "Get Basic",
+    ctaStyle: "filled",
+    boxedPrice: true,
+  },
+  {
+    title: "Pro",
+    description:
+      "Full product sync with custom configuration and SecondsToSee synchronization. One-time setup, no monthly fees.",
+    price: "6,000",
+    priceSuffix: "DKK one-time",
+    ctaLabel: "Get Pro",
     ctaStyle: "outline",
     boxedPrice: true,
   },
@@ -352,6 +376,58 @@ const HomePricingSection = () => {
                 <PlanCard key={plan.title} plan={plan} ctaUrl={ctaUrl} />
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Plugin — connect your existing store */}
+        <div className="px-4 sm:px-6 py-[60px] sm:py-[80px] md:py-[100px]">
+          <div className="max-w-[1100px] mx-auto">
+            <div className="text-center mb-[40px] sm:mb-[56px]">
+              <p
+                className="text-[12px] sm:text-[13px] tracking-[0.22em] font-bold uppercase"
+                style={{ color: PINK }}
+              >
+                PLUGIN
+              </p>
+              <h2
+                className="text-[32px] sm:text-[44px] md:text-[56px] leading-[1.1] text-[#1a1a1a] mt-3"
+                style={{ fontFamily: "var(--font-playfair)", fontWeight: 700 }}
+              >
+                Connect your existing{" "}
+                <span
+                  className="italic"
+                  style={{
+                    fontFamily: "var(--font-playfair)",
+                    fontStyle: "italic",
+                    fontWeight: 700,
+                    color: PINK,
+                  }}
+                >
+                  store.
+                </span>
+              </h2>
+              <p className="text-[#4b5563] text-[15px] sm:text-[17px] mt-4 max-w-[680px] mx-auto leading-[1.55]">
+                Already have a webstore? Plug it into 2hand2go and sync your full
+                product catalog automatically.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              {PLUGIN_PLANS.map((plan) => (
+                <PlanCard
+                  key={plan.title}
+                  plan={plan}
+                  ctaUrl={PLUGIN_CTA_URL}
+                />
+              ))}
+            </div>
+
+            <p className="text-center text-[15px] sm:text-[16px] font-semibold mt-[32px] sm:mt-[40px]">
+              <span aria-hidden>🎁</span>{" "}
+              <span style={{ color: PINK }}>
+                Get 1 month free by inviting a store!
+              </span>
+            </p>
           </div>
         </div>
       </div>

@@ -17,7 +17,7 @@ export const defaultNavItems = [
     col2: [
       {
         title: "2hand2go Web",
-        desc: "Launch your webstore in 3 days. White-label. No developer brief.",
+        desc: "Launch your webstore in 3 days. No developer brief.",
         href: "/#web",
       },
     ],

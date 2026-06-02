@@ -23,7 +23,7 @@ const NAV_ITEMS = [
     col2: [
       {
         title: "2hand2go Web",
-        desc: "Launch your webstore in 3 days. White-label. No developer brief.",
+        desc: "Launch your webstore in 3 days. No developer brief.",
         href: "/#web",
       },
     ],
