@@ -5,14 +5,16 @@ import { useSanityContent } from "../SanityProvider";
 // Reusable hero video block — extracted from Video.jsx so it can be dropped
 // into any section that needs the same look (rounded container, fade-in,
 // spinner while loading). Pulls URLs from Sanity via useSanityContent.
-const HeroVideoBlock = ({ variant = "desktop" }) => {
+const HeroVideoBlock = ({ variant = "desktop", srcOverride }) => {
   const { video } = useSanityContent();
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef(null);
 
   const desktopSrc = video.videoUrl;
   const mobileSrc = video.mobileVideoUrl || video.videoUrl;
-  const src = variant === "mobile" ? mobileSrc : desktopSrc;
+  // srcOverride lets a section supply its own clip (e.g. a local /public file)
+  // instead of the Sanity hero video.
+  const src = srcOverride || (variant === "mobile" ? mobileSrc : desktopSrc);
 
   useEffect(() => {
     const el = videoRef.current;

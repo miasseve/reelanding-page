@@ -5,8 +5,7 @@ import HeroVideoBlock from "./HeroVideoBlock";
 
 const PINK = "#FF2E7E";
 
-const DEMO_VIDEO_URL =
-  "https://res.cloudinary.com/dlkgz4a2j/video/upload/q_auto,f_auto/v1779883824/Ree_video_mq4dur.mp4";
+const DEMO_VIDEO_URL = "/2hand2go-new-video.mp4";
 
 const ListPromoSection = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -122,14 +121,17 @@ const ListPromoSection = () => {
 
         {/* Reusable video — same look/position as the hero video container */}
         <div className="w-full flex justify-center md:justify-end">
-          <HeroVideoBlock variant="desktop" />
+          <HeroVideoBlock
+            variant="desktop"
+            srcOverride="/2hand2go-new-video.mp4"
+          />
         </div>
       </div>
     </div>
 
     {showVideo && (
       <div
-        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-[16px] backdrop-blur-sm"
+        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 px-[16px] py-[24px] backdrop-blur-sm"
         onClick={() => setShowVideo(false)}
       >
         <div
@@ -145,7 +147,7 @@ const ListPromoSection = () => {
             ×
           </button>
           <video
-            className="w-full h-full object-contain rounded-[12px] shadow-2xl"
+            className="w-full max-h-[85vh] object-contain rounded-[12px] shadow-2xl"
             autoPlay
             loop
             playsInline
