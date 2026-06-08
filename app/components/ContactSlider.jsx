@@ -4,6 +4,21 @@ import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 
 const ContactSlider = ({ isOpen, onClose, bookingKind, onBack }) => {
+  // Mount fresh on open / unmount on close, so the form is a brand-new DOM
+  // subtree each time it opens. That lets Google Translate's observer pick it
+  // up and translate it — the same pattern LocationChoiceModal uses. An
+  // always-mounted panel isn't re-translated on open and shows English.
+  const [entered, setEntered] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setEntered(false);
+      return;
+    }
+    const id = requestAnimationFrame(() => setEntered(true));
+    return () => cancelAnimationFrame(id);
+  }, [isOpen]);
+
   useEffect(() => {
     if (!isOpen) return;
     // iOS-safe scroll lock: position:fixed on body actually stops touch scroll
@@ -11,13 +26,15 @@ const ContactSlider = ({ isOpen, onClose, bookingKind, onBack }) => {
     const scrollY = window.scrollY;
     const body = document.body;
     body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
+    // `important` so this wins over the global `body { top: 0 !important }`
+    // used to neutralise the Google Translate banner offset.
+    body.style.setProperty("top", `-${scrollY}px`, "important");
     body.style.left = "0";
     body.style.right = "0";
     body.style.width = "100%";
     return () => {
       body.style.position = "";
-      body.style.top = "";
+      body.style.removeProperty("top");
       body.style.left = "";
       body.style.right = "";
       body.style.width = "";
@@ -25,18 +42,20 @@ const ContactSlider = ({ isOpen, onClose, bookingKind, onBack }) => {
     };
   }, [isOpen]);
 
+  if (!isOpen) return null;
+
   return (
     <>
       <div
         className={`fixed inset-0 bg-black/40 z-[998] transition-opacity duration-300 ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          entered ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
       />
 
       <div
         className={`fixed inset-y-0 right-0 w-full max-w-[540px] bg-white z-[999] shadow-[-8px_0px_40px_rgba(0,0,0,0.12)] flex flex-col overflow-hidden transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          entered ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <button

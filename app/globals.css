@@ -80,16 +80,22 @@
 .goog-tooltip,
 .goog-tooltip:hover,
 #goog-gt-tt,
-.goog-te-balloon-frame {
+.goog-te-balloon-frame,
+.VIpgJd-yAWNEb-L7lbkb,
+.VIpgJd-yAWNEb-L7lbkb-hgDUwe,
+.VIpgJd-yAWNEb-hvhgNd,
+.jfk-bubble {
   display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
 }
+/* No hover box/highlight on translated text. */
 .goog-text-highlight {
   background: none !important;
   box-shadow: none !important;
 }
 body {
   top: 0 !important;
-  position: static !important;
 }
 
 @keyframes shimmer {
