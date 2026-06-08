@@ -80,19 +80,38 @@
 .goog-tooltip,
 .goog-tooltip:hover,
 #goog-gt-tt,
+[id^="goog-gt-"],
 .goog-te-balloon-frame,
-.VIpgJd-yAWNEb-L7lbkb,
-.VIpgJd-yAWNEb-L7lbkb-hgDUwe,
-.VIpgJd-yAWNEb-hvhgNd,
-.jfk-bubble {
+.jfk-bubble,
+.jfk-bubble-arrow,
+[class*="VIpgJd-yAWNEb"] {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
+  pointer-events: none !important;
 }
-/* No hover box/highlight on translated text. */
-.goog-text-highlight {
-  background: none !important;
+/* No highlight box on translated text segments (the rectangle that appears
+   over a translated button/word on hover). */
+.goog-text-highlight,
+font.goog-text-highlight,
+.goog-text-highlight:hover {
+  background-color: transparent !important;
+  background: transparent !important;
   box-shadow: none !important;
+  border: none !important;
+}
+
+/* Catch-all: Google appends its banner and hover tooltip as DIRECT children
+   of <body>. The translate combo lives inside #google_translate_element (also
+   a body child, but matched by id, not these selectors), so hiding Google's
+   direct-child popups here removes the boxes without breaking translation. */
+body > .skiptranslate,
+body > .goog-te-banner-frame,
+body > [class*="VIpgJd"],
+body > [id^="goog-gt-"],
+body > #goog-gt-tt {
+  display: none !important;
+  visibility: hidden !important;
 }
 body {
   top: 0 !important;

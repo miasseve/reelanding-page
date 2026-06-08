@@ -17,6 +17,41 @@ const LANGUAGES = [
 // (see globals.css) and drive it programmatically through its <select>.
 let widgetRequested = false;
 
+// Google injects a hover "rate this translation" popup (#goog-gt-tt), a top
+// banner and loading bars — and shows them with INLINE !important styles that
+// override any stylesheet rule. The only reliable way to suppress them is to
+// set display:none inline on the elements themselves, re-applied whenever
+// Google re-adds or re-shows them.
+function suppressGoogleUi() {
+  if (typeof document === "undefined" || !document.body) return;
+  const SELECTOR =
+    "#goog-gt-tt, .goog-te-banner-frame, .VIpgJd-ZVi9od-ORHb-OEVmcd, " +
+    ".VIpgJd-ZVi9od-xl07Ob-OEVmcd, .VIpgJd-ZVi9od-aZ2wEe-wOHMyf";
+  const watched = new WeakSet();
+  const forceHide = (el) => {
+    if (el.style.display !== "none") {
+      el.style.setProperty("display", "none", "important");
+    }
+    // Google re-shows these via inline styles; watch each one so we can
+    // re-hide it without scanning the whole tree on every page mutation.
+    if (!watched.has(el)) {
+      watched.add(el);
+      new MutationObserver(() => {
+        if (el.style.display !== "none") {
+          el.style.setProperty("display", "none", "important");
+        }
+      }).observe(el, { attributes: true, attributeFilter: ["style"] });
+    }
+  };
+  const sweep = () => document.querySelectorAll(SELECTOR).forEach(forceHide);
+  sweep();
+  // Cheap: fires only when nodes are added/removed (when Google injects its UI).
+  new MutationObserver(sweep).observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
+}
+
 function ensureGoogleTranslate() {
   if (typeof window === "undefined" || widgetRequested) return;
   widgetRequested = true;
@@ -43,6 +78,8 @@ function ensureGoogleTranslate() {
   script.src =
     "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
   document.body.appendChild(script);
+
+  suppressGoogleUi();
 }
 
 // Read the currently active language from the cookie Google Translate sets,

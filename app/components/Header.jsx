@@ -292,7 +292,7 @@ const Header = () => {
             {/* Desktop nav */}
             <ul
               ref={dropdownRef}
-              className="hidden lg:flex items-center gap-[40px] text-[#ff2e7e] font-semibold text-[16px]"
+              className="hidden lg:flex items-center gap-[24px] xl:gap-[32px] text-[#ff2e7e] font-semibold text-[15px] xl:text-[16px] whitespace-nowrap"
             >
               {navItems.map((nav, index) =>
                 nav.isDropdown ? (
@@ -348,7 +348,7 @@ const Header = () => {
                 href="https://re-e.dk/try/add-product"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#ff2e7e] hover:bg-[#ff5294] text-white px-[28px] py-[10px] rounded-full font-semibold transition text-[15px] cursor-pointer"
+                className="whitespace-nowrap bg-[#ff2e7e] hover:bg-[#ff5294] text-white px-[28px] py-[10px] rounded-full font-semibold transition text-[15px] cursor-pointer"
               >
                 {ctaText}
               </a>
@@ -450,7 +450,7 @@ const Header = () => {
                   </li>
                 ),
               )}
-              <div className="flex items-center gap-[14px]">
+              <div className="flex flex-wrap items-center gap-[14px]">
                 <a
                   href="https://re-e.dk/try/add-product"
                   target="_blank"
