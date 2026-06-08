@@ -60,6 +60,38 @@
   }
 }
 
+/* ── Google Translate widget cleanup ──────────────────────────────────────
+   Hide Google's default gadget, top banner and hover tooltip, and undo the
+   `top` offset it forces on <body>. We drive translation through our own
+   LanguageSwitcher dropdown instead. */
+#google_translate_element {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+}
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+.VIpgJd-ZVi9od-ORHb-OEVmcd,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+  display: none !important;
+}
+.goog-tooltip,
+.goog-tooltip:hover,
+#goog-gt-tt,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+body {
+  top: 0 !important;
+  position: static !important;
+}
+
 @keyframes shimmer {
   0% { background-position: 100% 50%; }
   100% { background-position: -100% 50%; }

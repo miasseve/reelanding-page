@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ContactSlider from "./ContactSlider";
 import LocationChoiceModal from "./LocationChoiceModal";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { useSanityContent } from "./SanityProvider";
 
 const NAV_ITEMS = [
@@ -360,6 +361,7 @@ const Header = () => {
               >
                 <InstagramIcon size={18} />
               </a>
+              <LanguageSwitcher />
             </div>
 
             {/* Hamburger — mobile only */}
@@ -467,6 +469,7 @@ const Header = () => {
                 >
                   <InstagramIcon size={18} />
                 </a>
+                <LanguageSwitcher />
               </div>
             </div>
           )}
