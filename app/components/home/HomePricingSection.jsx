@@ -66,6 +66,7 @@ const WEBSHOP_PLANS = [
     priceSuffix: "DKK one-time",
     priceRate: "4%",
     priceNote: "per transaction",
+    commitment: "6 months commitment",
     ctaLabel: "Claim your webshop",
     ctaStyle: "filled",
     boxedPrice: true,
@@ -78,6 +79,7 @@ const WEBSHOP_PLANS = [
     priceSuffix: "DKK one-time",
     priceRate: "2%",
     priceNote: "per transaction",
+    commitment: "6 months commitment",
     ctaLabel: "Claim your webshop",
     ctaStyle: "outline",
     boxedPrice: true,
@@ -237,6 +239,11 @@ const PlanCard = ({ plan, ctaUrl }) => {
       >
         {plan.ctaLabel}
       </a>
+      {plan.commitment && (
+        <p className="mt-3 text-[12px] text-[#9ca3af] text-center">
+          {plan.commitment}
+        </p>
+      )}
     </div>
   );
 };
