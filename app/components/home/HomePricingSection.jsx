@@ -62,6 +62,7 @@ const WEBSHOP_PLANS = [
     title: "Basic",
     description:
       "Branded storefront, built and launched by our team in 3 days.",
+    productLimit: "For up to 300 products.",
     price: "4,800",
     priceSuffix: "DKK one-time",
     priceRate: "4%",
@@ -75,6 +76,7 @@ const WEBSHOP_PLANS = [
     title: "Pro",
     description:
       "Full-featured storefront with advanced integrations and support.",
+    productLimit: "For more than 1,000 products.",
     price: "35,000",
     priceSuffix: "DKK one-time",
     priceRate: "2%",
@@ -164,6 +166,14 @@ const PlanCard = ({ plan, ctaUrl }) => {
       <p className="text-[16px] sm:text-[17px] text-[#6b7280] mt-3 leading-[1.55] min-h-[52px]">
         {plan.description}
       </p>
+      {plan.productLimit && (
+        <p
+          className="text-[14px] sm:text-[15px] font-semibold -mt-2"
+          style={{ color: PINK }}
+        >
+          {plan.productLimit}
+        </p>
+      )}
 
       {plan.boxedPrice ? (
         <div
