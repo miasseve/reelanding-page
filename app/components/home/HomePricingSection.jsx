@@ -202,6 +202,9 @@ const PlanCard = ({ plan, ctaUrl }) => {
               {plan.priceNote}
             </p>
           )}
+          <p className="text-[12px] sm:text-[13px] text-[#9ca3af] mt-2">
+            excl. VAT
+          </p>
         </div>
       ) : (
         <div className="mt-6">
@@ -213,6 +216,9 @@ const PlanCard = ({ plan, ctaUrl }) => {
               {plan.priceSuffix}
             </span>
           </div>
+          <p className="text-[12px] sm:text-[13px] text-[#9ca3af] mt-1">
+            excl. VAT
+          </p>
           {plan.priceNote && (
             <p className="text-[13px] sm:text-[14px] text-[#6b7280] mt-2">
               {plan.priceNote}
