@@ -163,17 +163,19 @@ const PlanCard = ({ plan, ctaUrl }) => {
       >
         {plan.title}
       </h3>
-      <p className="text-[16px] sm:text-[17px] text-[#6b7280] mt-3 leading-[1.55] min-h-[52px]">
-        {plan.description}
-      </p>
-      {plan.productLimit && (
-        <p
-          className="text-[14px] sm:text-[15px] font-semibold -mt-2"
-          style={{ color: PINK }}
-        >
-          {plan.productLimit}
+      <div className="mt-3 min-h-[84px]">
+        <p className="text-[16px] sm:text-[17px] text-[#6b7280] leading-[1.55]">
+          {plan.description}
         </p>
-      )}
+        {plan.productLimit && (
+          <p
+            className="text-[14px] sm:text-[15px] font-semibold mt-2"
+            style={{ color: PINK }}
+          >
+            {plan.productLimit}
+          </p>
+        )}
+      </div>
 
       {plan.boxedPrice ? (
         <div
